@@ -8,7 +8,6 @@ const navLinks = [
     { name: 'Features', to: '/restaurant_pos' },
     { name: 'Pricing', to: '/pricing' },
     { name: 'Demo', to: '/get_demo' },
-    { name: 'Contact Sales', to: '/contact' },
 ];
 
 const GposWordmark = () => (
@@ -93,7 +92,7 @@ const Navbar = () => {
                         className="inline-flex h-[54px] min-w-[172px] items-center justify-center gap-3 rounded-[9px] bg-[#064ee4] px-6 font-['Poppins',Arial,sans-serif] text-[16px] font-semibold text-white no-underline shadow-[0_10px_24px_rgba(6,78,228,0.26)] hover:bg-[#033fc0]"
                     >
                         <CalendarDays className="h-[22px] w-[22px]" strokeWidth={2} aria-hidden />
-                        Book a Demo
+                        Contact Sales
                     </Link>
                 </div>
 
@@ -158,7 +157,7 @@ const Navbar = () => {
                                 className="inline-flex h-[52px] items-center justify-center gap-3 rounded-[9px] bg-[#064ee4] font-semibold text-white no-underline"
                             >
                                 <CalendarDays className="h-5 w-5" aria-hidden />
-                                Book a Demo
+                                Contact Sales
                             </Link>
                         </div>
                     </motion.div>

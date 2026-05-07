@@ -6,8 +6,10 @@ import PainSolutionSection from '../components/PainSolutionSection';
 import RestaurantTypesSection from '../components/RestaurantTypesSection';
 import MainPosUiShowcaseSection from '../components/MainPosUiShowcaseSection';
 import DeliveryCustomerRecoverySection from '../components/DeliveryCustomerRecoverySection';
-import PricingDemoSection from '../components/PricingDemoSection';
-import Features from '../components/Features';
+import StaffReportsSection from '../components/StaffReportsSection';
+import FeaturePreviewSection from '../components/FeaturePreviewSection';
+import PricingPreviewSection from '../components/PricingPreviewSection';
+import DemoCtaSection from '../components/DemoCtaSection';
 import Testimonials from '../components/Testimonials';
 import { X } from 'lucide-react';
 
@@ -109,23 +111,25 @@ const Home = () => {
     }, [secondsLeft]);
 
     return (
-        <div className="min-h-screen w-full min-w-0 overflow-x-clip bg-white font-[Inter] text-[#0f172a]">
+        <div className="home-premium min-h-screen w-full min-w-0 overflow-x-clip bg-[#F8FAFE] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] antialiased">
             <Navbar />
 
-            <main className="m-0 p-0">
+            <main className="home-premium-main m-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.96)_0%,rgba(248,250,254,0)_34%),linear-gradient(180deg,#FFFFFF_0%,#F8FAFE_12%,#F8FAFE_100%)] p-0">
                 <Hero onGetStartedClick={openPromoFromUserAction} />
                 <PainSolutionSection />
                 <RestaurantTypesSection />
                 <MainPosUiShowcaseSection />
                 <DeliveryCustomerRecoverySection />
-                <PricingDemoSection />
-                <Features />
+                <StaffReportsSection />
+                <FeaturePreviewSection />
+                <PricingPreviewSection />
+                <DemoCtaSection />
 
                 <Testimonials />
                 <FAQAccordion />
             </main>
 
-            <Footer />
+            <Footer hideTopCta />
 
             {/* Floating CTA */}
             {showPromoPopup && (

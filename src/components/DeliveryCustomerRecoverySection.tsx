@@ -9,185 +9,159 @@ import {
     MessageCircle,
     Send,
     ShoppingCart,
+    TrendingUp,
     UserCheck,
     Users,
 } from 'lucide-react';
-import deliveryPhoneCrop from '../assets/delivery-phone-crop.png';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
+import deliveryPhoneFullHd from '../assets/delivery-phone-full-hd.png';
 
 const recoveryFeatures = [
     {
         title: 'Recover Inactive Customers',
         description: "Re-engage customers who haven't ordered in a while on WhatsApp.",
         Icon: MessageCircle,
-        iconBg: 'bg-[#E7F7EC]',
-        iconColor: 'text-[#25D366]',
+        iconColor: '#25D366',
+        iconBg: '#E8F9EF',
         filled: true,
+        iconVariant: 'whatsapp',
     },
     {
         title: 'Promote Offers & New Items',
         description: 'Send personalised offers, new arrivals and seasonal promotions.',
         Icon: Users,
-        iconBg: 'bg-[#E8EEFB]',
-        iconColor: 'text-[#1E3A8A]',
+        iconColor: '#0B56EA',
+        iconBg: '#F1F6FF',
         filled: true,
+        iconVariant: 'users',
     },
     {
         title: 'Increase Repeat Orders',
         description: 'Convert one-time buyers into loyal, repeat customers.',
         Icon: ShoppingCart,
-        iconBg: 'bg-[#FCEAEC]',
-        iconColor: 'text-[#E0394A]',
+        iconColor: '#6B11D9',
+        iconBg: '#F5ECFF',
         filled: false,
     },
     {
         title: 'Build Lasting Relationships',
         description: 'Strengthen customer loyalty and grow your direct customer base.',
         Icon: Heart,
-        iconBg: 'bg-[#FCE7EE]',
-        iconColor: 'text-[#EC4878]',
+        iconColor: '#F2396F',
+        iconBg: '#FDEBF1',
         filled: true,
     },
 ] as const;
 
 const bottomBenefits = [
-    {
-        title: 'Take Control of Your Customers.',
-        highlight: 'Reduce Commission. Increase Profit.',
-        description: 'Own the relationship. Build a loyal community.',
-        Icon: Lock,
-        iconBg: 'bg-[#0C57E8]',
-        iconColor: 'text-white',
-        featured: true,
-        filled: true,
-    },
-    {
-        title: 'Reduce Dependency',
-        description: 'Less reliance on third-party delivery platforms.',
-        Icon: Euro,
-        iconBg: 'bg-[#E7F7EC]',
-        iconColor: 'text-[#25A85B]',
-        filled: false,
-    },
-    {
-        title: 'Higher Profit Margins',
-        description: 'Keep more of what you earn on every order.',
-        Icon: Coins,
-        iconBg: 'bg-[#F1ECFB]',
-        iconColor: 'text-[#7C45D8]',
-        filled: false,
-    },
-    {
-        title: 'Stronger Customer Base',
-        description: 'Own your customer data and relationships.',
-        Icon: Users,
-        iconBg: 'bg-[#FCE7EE]',
-        iconColor: 'text-[#EC4878]',
-        filled: false,
-    },
-    {
-        title: 'Sustainable Growth',
-        description: 'Build repeat business and grow consistently.',
-        Icon: BarChart3,
-        iconBg: 'bg-[#E8EEFB]',
-        iconColor: 'text-[#2D5BE0]',
-        filled: false,
-    },
+    ['Take Control of Your Customers.', 'Reduce Commission. Increase Profit.', 'Own the relationship. Build a loyal community.', Lock, '#0A55F5', '#FFFFFF', true],
+    ['Reduce Dependency', '', 'Less reliance on third-party delivery platforms.', Euro, '#18A35D', '#E9F8EF', false],
+    ['Higher Profit Margins', '', 'Keep more of what you earn on every order.', Coins, '#7B22D8', '#F2EBFF', false],
+    ['Stronger Customer Base', '', 'Own your customer data and relationships.', Users, '#E73268', '#FDEBF1', false],
+    ['Sustainable Growth', '', 'Build repeat business and grow consistently.', TrendingUp, '#0B56EA', '#EEF5FF', false],
 ] as const;
 
 const topStats = [
-    {
-        title: 'Inactive Customers Recovered',
-        value: '1,248',
-        delta: '18.6%',
-        Icon: UserCheck,
-        iconBg: 'bg-[#E7F7EC]',
-        iconColor: 'text-[#25A85B]',
-    },
-    {
-        title: 'Repeat Orders Generated',
-        value: '3,482',
-        delta: '22.4%',
-        Icon: ShoppingCart,
-        iconBg: 'bg-[#E8EEFB]',
-        iconColor: 'text-[#2D5BE0]',
-    },
-    {
-        title: 'WhatsApp Campaigns Sent',
-        value: '24',
-        delta: '42.7%',
-        Icon: Send,
-        iconBg: 'bg-[#E6F0FF]',
-        iconColor: 'text-[#2D75E8]',
-    },
+    ['Inactive Customers Recovered', '1,248', '18.6%', UserCheck, '#17A35D', '#E9F8EF'],
+    ['Repeat Orders Generated', '3,482', '22.4%', ShoppingCart, '#2452E8', '#F0F2FF'],
+    ['WhatsApp Campaigns Sent', '24', '42.7%', Send, '#0B56EA', '#EAF2FF'],
 ] as const;
 
 function FeatureItem({
     title,
     description,
     Icon,
-    iconBg,
     iconColor,
+    iconBg,
     filled,
+    iconVariant,
 }: {
     title: string;
     description: string;
     Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string; 'aria-hidden'?: boolean }>;
-    iconBg: string;
     iconColor: string;
-    filled?: boolean;
+    iconBg: string;
+    filled: boolean;
+    iconVariant?: 'whatsapp' | 'users';
 }) {
     return (
-        <article className="flex items-start gap-3.5">
-            <span className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[12px] ${iconBg} ${iconColor}`}>
-                <Icon
-                    className="h-[24px] w-[24px]"
-                    strokeWidth={filled ? 0 : 1.9}
-                    fill={filled ? 'currentColor' : 'none'}
-                    aria-hidden
-                />
+        <article className="flex items-start gap-[23px]">
+            <span
+                className="grid h-[73px] w-[73px] shrink-0 place-items-center rounded-[13px] border border-white/80 shadow-[0_9px_22px_rgba(15,23,42,0.04)]"
+                style={{ backgroundColor: iconBg, color: iconColor }}
+            >
+                {iconVariant === 'whatsapp' ? (
+                    <span className="grid h-[44px] w-[44px] place-items-center rounded-full bg-[#25D366]">
+                        <WhatsAppIcon className="h-[27px] w-[27px]" size={27} variant="inverse" />
+                    </span>
+                ) : iconVariant === 'users' ? (
+                    <span className="grid h-[44px] w-[44px] place-items-center rounded-full bg-[#0B56EA] text-white">
+                        <svg className="h-[29px] w-[29px]" viewBox="0 0 32 32" fill="none" aria-hidden>
+                            <circle cx="16" cy="10" r="5" fill="currentColor" />
+                            <circle cx="7.5" cy="12" r="4" fill="currentColor" opacity="0.92" />
+                            <circle cx="24.5" cy="12" r="4" fill="currentColor" opacity="0.92" />
+                            <path
+                                d="M7.5 18.2C3.9 18.2 1 21.1 1 24.7V26.3C1 27.2 1.8 28 2.7 28H12.5C11.7 26.9 11.3 25.6 11.3 24.2C11.3 21.9 12.5 19.8 14.2 18.5C12.6 18.3 10.6 18.2 7.5 18.2Z"
+                                fill="currentColor"
+                                opacity="0.92"
+                            />
+                            <path
+                                d="M24.5 18.2C28.1 18.2 31 21.1 31 24.7V26.3C31 27.2 30.2 28 29.3 28H19.5C20.3 26.9 20.7 25.6 20.7 24.2C20.7 21.9 19.5 19.8 17.8 18.5C19.4 18.3 21.4 18.2 24.5 18.2Z"
+                                fill="currentColor"
+                                opacity="0.92"
+                            />
+                            <path
+                                d="M16 17.5C11.6 17.5 8 21.1 8 25.5V27.1C8 28.1 8.9 29 9.9 29H22.1C23.1 29 24 28.1 24 27.1V25.5C24 21.1 20.4 17.5 16 17.5Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                ) : (
+                    <Icon className="h-[39px] w-[39px]" strokeWidth={filled ? 0 : 2.2} fill={filled ? 'currentColor' : 'none'} aria-hidden />
+                )}
             </span>
-            <div className="min-w-0">
-                <h3 className="text-[16px] font-bold leading-[1.25] text-[#0B1A3C]">{title}</h3>
-                <p className="mt-1 text-[14px] leading-[1.45] text-[#4B556B]">{description}</p>
+            <div className="pt-[7px]">
+                <h3 className="text-[18px] font-extrabold leading-[1.22] text-[#07142F]">{title}</h3>
+                <p className="mt-[7px] max-w-[315px] text-[15px] font-medium leading-[1.45] text-[#27344E]">{description}</p>
             </div>
         </article>
     );
 }
 
-function StatsCard({
+function StatCard({
     title,
     value,
     delta,
     Icon,
-    iconBg,
     iconColor,
+    iconBg,
 }: {
     title: string;
     value: string;
     delta: string;
     Icon: React.ComponentType<{ className?: string; strokeWidth?: number; 'aria-hidden'?: boolean }>;
-    iconBg: string;
     iconColor: string;
+    iconBg: string;
 }) {
     return (
-        <article className="rounded-[14px] border border-[#E9EDF5] bg-white px-3.5 py-3 shadow-[0_1px_2px_rgba(15,23,42,0.03)]">
-            <div className="flex items-center justify-between gap-3">
-                <div className="flex min-w-0 items-center gap-3">
-                    <span className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${iconBg} ${iconColor}`}>
-                        <Icon className="h-[22px] w-[22px]" strokeWidth={1.9} aria-hidden />
+        <article className="rounded-[13px] border border-[#E5EAF3] bg-white px-[22px] py-[22px] shadow-[0_4px_18px_rgba(15,23,42,0.025)]">
+            <div className="flex items-center justify-between gap-4">
+                <div className="flex min-w-0 items-center gap-[19px]">
+                    <span className="grid h-[76px] w-[76px] shrink-0 place-items-center rounded-full" style={{ backgroundColor: iconBg, color: iconColor }}>
+                        <Icon className="h-[38px] w-[38px]" strokeWidth={2.25} aria-hidden />
                     </span>
                     <div className="min-w-0">
-                        <p className="truncate text-[13px] font-semibold leading-tight text-[#1D2742]">{title}</p>
-                        <p className="mt-0.5 text-[24px] font-extrabold leading-[1.05] tracking-[-0.02em] text-[#101A39]">{value}</p>
-                        <p className="mt-0.5 text-[11px] font-medium text-[#4C5970]">This Month</p>
+                        <p className="truncate text-[15px] font-extrabold leading-tight text-[#111A35]">{title}</p>
+                        <p className="mt-[10px] text-[31px] font-extrabold leading-none tracking-[-0.02em] text-[#07142F]">{value}</p>
+                        <p className="mt-[8px] text-[14px] font-medium leading-none text-[#33415E]">This Month</p>
                     </div>
                 </div>
                 <div className="shrink-0 text-right">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#ECF9F1] px-2 py-0.5 text-[11px] font-bold text-[#27A75F]">
-                        <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} aria-hidden />
+                    <span className="inline-flex items-center gap-[6px] rounded-full bg-[#EAF8EF] px-[13px] py-[6px] text-[16px] font-extrabold leading-none text-[#1E9E58]">
+                        <ArrowUpRight className="h-[17px] w-[17px]" strokeWidth={2.5} aria-hidden />
                         {delta}
                     </span>
-                    <p className="mt-1 text-[10px] font-medium text-[#68758B]">vs last month</p>
+                    <p className="mt-[10px] text-[12px] font-medium leading-none text-[#4B5A73]">vs last month</p>
                 </div>
             </div>
         </article>
@@ -196,47 +170,57 @@ function StatsCard({
 
 function DirectOrdersCard() {
     return (
-        <article className="rounded-[14px] border border-[#E5EAF4] bg-[#F7FAFF] px-3.5 py-3">
-            <div className="flex items-start justify-between gap-3">
+        <article className="rounded-[13px] border border-[#E1E9F5] bg-[#F6FAFF] px-[22px] py-[22px] shadow-[0_4px_18px_rgba(15,23,42,0.025)]">
+            <div className="flex items-start justify-between gap-4">
                 <div>
-                    <p className="text-[13px] font-semibold text-[#1D2742]">Direct Orders from WhatsApp</p>
-                    <p className="mt-1 text-[26px] font-extrabold leading-[1.05] tracking-[-0.02em] text-[#101A39]">€12,640</p>
-                    <p className="mt-0.5 text-[11px] font-medium text-[#4C5970]">This Month</p>
+                    <p className="text-[16px] font-extrabold leading-tight text-[#111A35]">Direct Orders from WhatsApp</p>
+                    <p className="mt-[15px] text-[31px] font-extrabold leading-none tracking-[-0.02em] text-[#07142F]">€12,640</p>
+                    <p className="mt-[10px] text-[14px] font-medium leading-none text-[#33415E]">This Month</p>
                 </div>
-                <div className="text-right">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#ECF9F1] px-2 py-0.5 text-[11px] font-bold text-[#27A75F]">
-                        <ArrowUpRight className="h-3 w-3" strokeWidth={2.2} aria-hidden />
+                <div className="pt-[21px] text-right">
+                    <span className="inline-flex items-center gap-[6px] rounded-full bg-[#EAF8EF] px-[13px] py-[6px] text-[16px] font-extrabold leading-none text-[#1E9E58]">
+                        <ArrowUpRight className="h-[17px] w-[17px]" strokeWidth={2.5} aria-hidden />
                         +25.7%
                     </span>
-                    <p className="mt-1 text-[10px] font-medium text-[#68758B]">vs last month</p>
+                    <p className="mt-[10px] text-[12px] font-medium leading-none text-[#4B5A73]">vs last month</p>
                 </div>
             </div>
 
-            <div className="mt-3">
-                <svg viewBox="0 0 360 110" className="h-[112px] w-full" aria-hidden>
-                    <line x1="0" y1="30" x2="360" y2="30" stroke="#DFE6F4" strokeDasharray="3 4" />
-                    <line x1="0" y1="62" x2="360" y2="62" stroke="#DFE6F4" strokeDasharray="3 4" />
-                    <line x1="0" y1="93" x2="360" y2="93" stroke="#DFE6F4" strokeDasharray="3 4" />
+            <div className="mt-[20px]">
+                <svg viewBox="0 0 392 126" className="h-[126px] w-full overflow-visible" aria-hidden>
+                    <defs>
+                        <linearGradient id="direct-orders-fill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#0B56EA" stopOpacity="0.2" />
+                            <stop offset="100%" stopColor="#0B56EA" stopOpacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <line x1="0" y1="17" x2="392" y2="17" stroke="#DDE6F4" strokeDasharray="4 5" />
+                    <line x1="0" y1="50" x2="392" y2="50" stroke="#DDE6F4" strokeDasharray="4 5" />
+                    <line x1="0" y1="83" x2="392" y2="83" stroke="#DDE6F4" strokeDasharray="4 5" />
                     <path
-                        d="M0,88 C25,70 38,66 58,72 C78,78 92,88 118,70 C142,56 155,50 176,62 C197,74 214,82 238,58 C263,34 282,28 304,37 C326,46 339,47 360,37"
+                        d="M0 112 C22 88 38 85 58 91 C83 98 95 105 121 83 C148 60 165 65 190 82 C214 98 228 102 253 76 C279 49 296 36 326 43 C352 49 366 56 392 39 L392 126 L0 126 Z"
+                        fill="url(#direct-orders-fill)"
+                    />
+                    <path
+                        d="M0 112 C22 88 38 85 58 91 C83 98 95 105 121 83 C148 60 165 65 190 82 C214 98 228 102 253 76 C279 49 296 36 326 43 C352 49 366 56 392 39"
                         fill="none"
-                        stroke="#2E5CE6"
-                        strokeWidth="3"
+                        stroke="#0B56EA"
                         strokeLinecap="round"
+                        strokeWidth="3"
                     />
                     {[
-                        [0, 88],
-                        [58, 72],
-                        [118, 70],
-                        [176, 62],
-                        [238, 58],
-                        [304, 37],
-                        [360, 37],
-                    ].map(([x, y], idx) => (
-                        <circle key={idx} cx={x} cy={y} r="4.2" fill="#2E5CE6" />
+                        [0, 112],
+                        [58, 91],
+                        [121, 83],
+                        [190, 82],
+                        [253, 76],
+                        [326, 43],
+                        [392, 39],
+                    ].map(([x, y], index) => (
+                        <circle key={index} cx={x} cy={y} r="4.5" fill="#0B56EA" />
                     ))}
                 </svg>
-                <div className="mt-[-2px] grid grid-cols-6 text-center text-[11px] font-medium text-[#6B778D]">
+                <div className="grid grid-cols-6 text-center text-[12px] font-medium leading-none text-[#5C6B83]">
                     <span>Jan</span>
                     <span>Feb</span>
                     <span>Mar</span>
@@ -249,98 +233,127 @@ function DirectOrdersCard() {
     );
 }
 
+function BottomBenefit({
+    title,
+    highlight,
+    description,
+    Icon,
+    iconColor,
+    iconBg,
+    featured,
+    index,
+}: {
+    title: string;
+    highlight: string;
+    description: string;
+    Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string; 'aria-hidden'?: boolean }>;
+    iconColor: string;
+    iconBg: string;
+    featured: boolean;
+    index: number;
+}) {
+    return (
+        <article className={`flex min-h-[104px] items-center gap-[10px] px-[10px] py-[10px] ${index > 0 ? 'lg:border-l lg:border-[#E4E9F3]' : ''}`}>
+            <span
+                className={`grid shrink-0 place-items-center rounded-full ${featured ? 'h-[83px] w-[83px] border-[3px] border-white ring-2 ring-[#0A55F5]' : 'h-[58px] w-[58px]'}`}
+                style={{ backgroundColor: iconBg, color: iconColor }}
+            >
+                <Icon className={featured ? 'h-[38px] w-[38px]' : 'h-[30px] w-[30px]'} strokeWidth={2.3} aria-hidden />
+            </span>
+            <div className="min-w-0">
+                <h3 className={`whitespace-nowrap font-extrabold leading-[1.25] text-[#07142F] ${featured ? 'text-[15px]' : 'text-[13px]'}`}>
+                    {title}
+                </h3>
+                {highlight ? (
+                    <p className="mt-[4px] whitespace-nowrap text-[17px] font-extrabold leading-[1.15] text-[#0649C9]">{highlight}</p>
+                ) : null}
+                <p className={`mt-[7px] text-[13px] font-medium leading-[1.42] text-[#40506B] ${featured ? 'whitespace-nowrap' : 'max-w-[172px]'}`}>
+                    {description}
+                </p>
+            </div>
+        </article>
+    );
+}
+
 const DeliveryCustomerRecoverySection: React.FC = () => {
     return (
-        <section className="bg-[#F5F7FB] px-[clamp(20px,2.45vw,38px)] py-[24px] font-['Poppins',Inter,Arial,sans-serif]">
-            <div className="mx-auto max-w-[1460px]">
-                <div className="rounded-[18px] border border-[#E3E9F5] bg-[#F6F8FC] p-[18px] shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
-                    <div className="grid items-start gap-5 lg:grid-cols-[37%_26%_37%]">
-                        <div>
-                            <span className="inline-flex items-center gap-2 rounded-full border border-[#D8F0DF] bg-[#EAF8EF] px-4 py-2 text-[13px] font-semibold text-[#24995A]">
-                                <MessageCircle className="h-4 w-4" strokeWidth={1.85} aria-hidden />
-                                Turn One-Time Buyers Into Loyal Customers
-                            </span>
+        <section
+            className="overflow-x-clip bg-[#F8FAFE] py-[22px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
+            style={{ paddingLeft: 20, paddingRight: 20 }}
+        >
+            <div className="mx-auto max-w-[1466px]">
+                <div className="mt-[8px] grid items-start gap-[34px] lg:mt-[10px] lg:grid-cols-[520px_minmax(290px,350px)_minmax(460px,1fr)] lg:gap-[24px]">
+                    <div className="pt-[9px]">
+                        <span className="inline-flex items-center gap-[9px] rounded-full border border-[#DBF1E4] bg-[#EAF8EF] px-[15px] py-[7px] text-[15px] font-extrabold leading-none text-[#157E49]">
+                            <WhatsAppIcon className="h-[19px] w-[19px]" size={19} variant="brand" />
+                            Turn One-Time Buyers Into Loyal Customers
+                        </span>
 
-                            <h2 className="mt-4 text-[clamp(30px,2.9vw,44px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-[#0A1637]">
-                                <span className="block whitespace-nowrap">Bring Customers Back.</span>
-                                <span className="block whitespace-nowrap text-[#1F56DC]">Keep Them for Life.</span>
-                            </h2>
+                        <h2 className="mt-[33px] text-[clamp(31px,8.3vw,47px)] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#07142F]">
+                            <span className="block whitespace-nowrap">Bring Customers Back.</span>
+                            <span className="block whitespace-nowrap text-[#0B56EA]">Keep Them for Life.</span>
+                        </h2>
 
-                            <p className="mt-4 max-w-[94%] text-[17px] leading-[1.55] text-[#4A566E] md:text-[17px] lg:text-[17px]">
-                                GPOS helps you re-engage inactive customers on WhatsApp, promote offers, and drive repeat orders -
-                                automatically.
-                            </p>
+                        <p className="mt-[23px] max-w-[430px] text-[17px] font-medium leading-[1.58] text-[#26334C]">
+                            GPOS helps you re-engage inactive customers on WhatsApp, promote offers, and drive repeat orders -
+                            automatically.
+                        </p>
 
-                            <div className="mt-6 space-y-5">
-                                {recoveryFeatures.map((item) => (
-                                    <FeatureItem
-                                        key={item.title}
-                                        title={item.title}
-                                        description={item.description}
-                                        Icon={item.Icon}
-                                        iconBg={item.iconBg}
-                                        iconColor={item.iconColor}
-                                        filled={item.filled}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="flex justify-center lg:pt-1">
-                            <img
-                                src={deliveryPhoneCrop}
-                                alt="WhatsApp customer recovery mobile flow"
-                                className="h-auto w-full max-w-[356px] object-contain"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </div>
-
-                        <div className="rounded-[14px] border border-[#E8EDF6] bg-[#F8FAFD] p-3">
-                            <div className="space-y-2.5">
-                                {topStats.map((stat) => (
-                                    <StatsCard
-                                        key={stat.title}
-                                        title={stat.title}
-                                        value={stat.value}
-                                        delta={stat.delta}
-                                        Icon={stat.Icon}
-                                        iconBg={stat.iconBg}
-                                        iconColor={stat.iconColor}
-                                    />
-                                ))}
-                                <DirectOrdersCard />
-                            </div>
+                        <div className="mt-[26px] space-y-[26px]">
+                            {recoveryFeatures.map(({ title, description, Icon, iconColor, iconBg, filled, iconVariant }) => (
+                                <FeatureItem
+                                    key={title}
+                                    title={title}
+                                    description={description}
+                                    Icon={Icon}
+                                    iconColor={iconColor}
+                                    iconBg={iconBg}
+                                    filled={filled}
+                                    iconVariant={iconVariant}
+                                />
+                            ))}
                         </div>
                     </div>
 
-                    <div className="mt-5 rounded-[16px] border border-[#E4EAF6] bg-white px-3 py-3 shadow-[0_6px_20px_rgba(15,23,42,0.04)]">
-                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] lg:gap-0">
-                            {bottomBenefits.map(({ title, highlight, description, Icon, iconBg, iconColor, featured, filled }, index) => (
-                                <article
-                                    key={title}
-                                    className={`flex items-start gap-3 rounded-[12px] px-3 py-2.5 ${index > 0 ? 'lg:border-l lg:border-[#EDF1F8]' : ''}`}
-                                >
-                                    <span
-                                        className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${iconBg} ${iconColor} ${featured ? 'ring-2 ring-[#D7E4FF]' : ''}`}
-                                    >
-                                        <Icon
-                                            className="h-6 w-6"
-                                            strokeWidth={filled ? 2.2 : 1.95}
-                                            fill={filled && !featured ? 'currentColor' : 'none'}
-                                            aria-hidden
-                                        />
-                                    </span>
-                                    <div className="min-w-0">
-                                        <h3 className="text-[15px] font-bold leading-[1.25] text-[#0D1E43]">{title}</h3>
-                                        {highlight ? (
-                                            <p className="mt-0.5 text-[15px] font-bold leading-[1.2] text-[#245BE0]">{highlight}</p>
-                                        ) : null}
-                                        <p className="mt-1 text-[13px] leading-[1.45] text-[#4E5D79]">{description}</p>
-                                    </div>
-                                </article>
+                    <div className="relative flex min-h-[560px] justify-center lg:min-h-[716px]">
+                        <img
+                            src={deliveryPhoneFullHd}
+                            alt="WhatsApp customer recovery mobile flow"
+                            className="mt-[-10px] h-auto w-full max-w-[390px] object-contain mix-blend-multiply drop-shadow-[0_20px_30px_rgba(15,23,42,0.18)]"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <svg className="absolute right-[-62px] top-[167px] hidden h-[166px] w-[75px] text-[#0B56EA] lg:block" viewBox="0 0 75 166" fill="none" aria-hidden>
+                            <path d="M6 6C42 44 47 100 5 161" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
+                            <path d="M3 5L21 10L12 25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
+                        </svg>
+                    </div>
+
+                    <div className="rounded-[22px] bg-white/45 p-[22px] shadow-[0_14px_36px_rgba(15,23,42,0.035)]">
+                        <div className="space-y-[16px]">
+                            {topStats.map(([title, value, delta, Icon, iconColor, iconBg]) => (
+                                <StatCard key={title} title={title} value={value} delta={delta} Icon={Icon} iconColor={iconColor} iconBg={iconBg} />
                             ))}
+                            <DirectOrdersCard />
                         </div>
+                    </div>
+                </div>
+
+                <div className="mt-[20px] rounded-[17px] border border-[#E2EAF6] bg-white px-[6px] py-[14px] shadow-[0_14px_36px_rgba(15,23,42,0.055)]">
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-[430px_repeat(4,minmax(250px,1fr))] lg:gap-0">
+                        {bottomBenefits.map(([title, highlight, description, Icon, iconColor, iconBg, featured], index) => (
+                            <BottomBenefit
+                                key={title}
+                                title={title}
+                                highlight={highlight}
+                                description={description}
+                                Icon={Icon}
+                                iconColor={iconColor}
+                                iconBg={iconBg}
+                                featured={featured}
+                                index={index}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
