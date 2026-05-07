@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import PainSolutionSection from '../components/PainSolutionSection';
 import RestaurantTypesSection from '../components/RestaurantTypesSection';
+import MainPosUiShowcaseSection from '../components/MainPosUiShowcaseSection';
+import DeliveryCustomerRecoverySection from '../components/DeliveryCustomerRecoverySection';
 import PricingDemoSection from '../components/PricingDemoSection';
 import Features from '../components/Features';
 import Testimonials from '../components/Testimonials';
@@ -114,6 +116,8 @@ const Home = () => {
                 <Hero onGetStartedClick={openPromoFromUserAction} />
                 <PainSolutionSection />
                 <RestaurantTypesSection />
+                <MainPosUiShowcaseSection />
+                <DeliveryCustomerRecoverySection />
                 <PricingDemoSection />
                 <Features />
 

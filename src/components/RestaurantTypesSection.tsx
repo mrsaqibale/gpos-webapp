@@ -119,25 +119,25 @@ const RestaurantTypesSection: React.FC = () => {
                     {industryCards.map(({ title, description, Icon, image }) => (
                         <article
                             key={title}
-                            className="flex h-[505px] flex-col overflow-hidden rounded-[11px] border border-[#e2e8f2] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.04)]"
+                            className="group flex h-full min-h-[505px] flex-col overflow-hidden rounded-[11px] border border-[#e2e8f2] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-transform duration-300 hover:-translate-y-1"
                         >
-                            <div className="flex h-[282px] flex-col items-center px-[15px] pb-[12px] pt-[26px] text-center">
+                            <div className="flex flex-1 flex-col items-center px-[15px] pb-[10px] pt-[24px] text-center">
                                 <span className="inline-flex h-[82px] w-[82px] items-center justify-center rounded-full bg-[#eef3ff] text-[#064ee4]">
                                     <Icon className="h-[47px] w-[47px]" strokeWidth={2.05} aria-hidden />
                                 </span>
                                 <h3 className="mt-[22px] text-[22px] font-extrabold leading-[1.1] text-[#07112e]">
                                     {title}
                                 </h3>
-                                <p className="mt-[14px] text-[14px] font-medium leading-[1.5] text-[#273244]">
+                                <p className="mt-[14px] min-h-[64px] text-[14px] font-medium leading-[1.5] text-[#273244]">
                                     {description}
                                 </p>
                             </div>
 
-                            <div className="mt-auto px-[2px] pb-[2px]">
+                            <div className="relative mt-auto px-[2px] pb-[2px]">
                                 <img
                                     src={image}
                                     alt=""
-                                    className="h-[221px] w-full rounded-[8px] object-cover"
+                                    className="h-[221px] w-full rounded-[8px] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                                     loading="lazy"
                                     decoding="async"
                                 />
