@@ -257,7 +257,7 @@ const DeliveryCustomerRecoverySection: React.FC = () => {
                     <div className="grid items-start gap-5 lg:grid-cols-[37%_26%_37%]">
                         <div>
                             <span className="inline-flex items-center gap-2 rounded-full border border-[#D8F0DF] bg-[#EAF8EF] px-4 py-2 text-[13px] font-semibold text-[#24995A]">
-                                <MessageCircleMore className="h-4 w-4" strokeWidth={1.85} aria-hidden />
+                                <MessageCircle className="h-4 w-4" strokeWidth={1.85} aria-hidden />
                                 Turn One-Time Buyers Into Loyal Customers
                             </span>
 
