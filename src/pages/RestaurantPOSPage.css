@@ -26,6 +26,22 @@
   padding: 90px 0;
 }
 
+.gpos-page section.features-page-hero {
+  padding: 28px 38px 32px;
+}
+
+@media (max-width: 1023px) {
+  .gpos-page section.features-page-hero {
+    padding: 34px 24px 38px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gpos-page section.features-page-hero {
+    padding: 28px 16px 32px;
+  }
+}
+
 /* Features hero: fixed navbar (~84px) + mobile global section padding (70px) clips the title — own padding wins */
 .gpos-page section.rp-hero {
   padding-top: max(7.5rem, calc(5.25rem + env(safe-area-inset-top, 0px)));
@@ -883,7 +899,7 @@
 }
 
 @media (max-width: 700px) {
-  .gpos-page section:not(.rp-hero) {
+  .gpos-page section:not(.rp-hero):not(.features-page-hero) {
     padding: 70px 0;
   }
 

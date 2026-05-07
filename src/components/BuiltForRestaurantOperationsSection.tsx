@@ -1,202 +1,122 @@
 import React from "react";
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, ChefHat, Users, Zap } from "lucide-react";
-import referenceVisual from "../assets/built-for-restaurant-operations-visual.png?url";
+import { ArrowRight, BarChart3, Download, PieChart, Tag } from "lucide-react";
+import reportsAnalyticsDashboard from "../assets/features-reports-analytics-dashboard-main.png?url";
 
-const NAVY = "#0B1F3A";
-const EMERALD = "#00A86B";
-
-type FeatureCard = {
+type FeatureItem = {
     title: string;
     description: string;
     Icon: LucideIcon;
-    iconBg: string;
-    iconColor: string;
-    /** Real HTML cards on the hero visual; % positions are relative to the image frame so art can be swapped. */
-    overlay: {
-        label: string;
-        position: string;
-        /** Hide pill on small screens (image only); show from `lg` up */
-        hideBelowLg?: boolean;
-    };
+    tone: string;
+    iconClass: string;
 };
 
-const featureCards: FeatureCard[] = [
+const reportFeatures: FeatureItem[] = [
     {
-        title: "Fast Order Taking",
-        description:
-            "Quickly add items, manage modifiers, handle dine-in, takeaway, and delivery orders with a clean sales screen.",
-        Icon: Zap,
-        iconBg: "bg-[#00A86B]",
-        iconColor: "text-white",
-        overlay: {
-            label: "Fast Order Taking",
-            position:
-                "left-[2%] top-2 max-w-[min(170px,42%)] sm:left-[3%] sm:top-2.5 sm:max-w-[38%] lg:left-[2.5%] lg:top-3",
-            hideBelowLg: true,
-        },
-    },
-    {
-        title: "Kitchen Friendly Workflow",
-        description:
-            "Send orders to kitchen, manage running orders, reduce mistakes, and keep service moving during busy hours.",
-        Icon: ChefHat,
-        iconBg: "bg-[#F59E0B]",
-        iconColor: "text-white",
-        overlay: {
-            label: "Kitchen workflow",
-            position: "right-[2%] top-[34%] max-w-[min(200px,50%)] sm:right-[4%] sm:top-[38%] sm:max-w-[44%]",
-            hideBelowLg: true,
-        },
-    },
-    {
-        title: "Smart Sales & Reports",
-        description:
-            "Track daily sales, popular items, payments, discounts, and end-day summaries with easy-to-read reports.",
+        title: "Sales Insights",
+        description: "Track daily, weekly and monthly sales with detailed breakdowns.",
         Icon: BarChart3,
-        iconBg: "bg-[#2563EB]",
-        iconColor: "text-white",
-        overlay: {
-            label: "Smart reports",
-            position: "left-[2%] bottom-[26%] max-w-[min(200px,52%)] sm:left-[3%] sm:bottom-[28%] sm:max-w-[46%]",
-        },
+        tone: "from-[#edf6ff] via-[#e5f0ff] to-[#f8fbff]",
+        iconClass: "text-[#0757e8]",
     },
     {
-        title: "Staff & Customer Control",
-        description:
-            "Manage employees, attendance, customer records, loyalty, discounts, and order history from one system.",
-        Icon: Users,
-        iconBg: "bg-[#00A86B]",
-        iconColor: "text-white",
-        overlay: {
-            label: "Staff & customers",
-            position: "right-[2%] bottom-[16%] max-w-[min(210px,54%)] sm:right-[3%] sm:bottom-[18%] sm:max-w-[46%]",
-        },
+        title: "Order Analytics",
+        description: "Analyze order types, channels and peak hours to optimize operations.",
+        Icon: PieChart,
+        tone: "from-[#e9fbf0] via-[#def7e9] to-[#f8fffb]",
+        iconClass: "text-[#18a864]",
+    },
+    {
+        title: "Performance Reports",
+        description: "Monitor staff performance, items sold and business trends.",
+        Icon: Tag,
+        tone: "from-[#f4ebff] via-[#eadcff] to-[#fbf8ff]",
+        iconClass: "text-[#7a36df]",
+    },
+    {
+        title: "Export & Share",
+        description: "Export reports in Excel, PDF or CSV and share with your team or accountant.",
+        Icon: Download,
+        tone: "from-[#fff5e8] via-[#ffecd6] to-[#fffaf3]",
+        iconClass: "text-[#eb981f]",
     },
 ];
 
-function VisualOverlayPill({
-    label,
-    Icon,
-    iconBg,
-    iconColor,
-    positionClass,
-    hideBelowLg,
-}: {
-    label: string;
-    Icon: LucideIcon;
-    iconBg: string;
-    iconColor: string;
-    positionClass: string;
-    hideBelowLg?: boolean;
-}) {
-    return (
-        <div
-            className={`absolute z-10 flex items-center gap-2 rounded-xl border border-white/90 bg-white/95 px-2.5 py-2 shadow-[0_12px_28px_-8px_rgba(15,23,42,0.25)] ring-1 ring-slate-900/[0.06] backdrop-blur-[2px] sm:gap-2.5 sm:rounded-2xl sm:px-3 sm:py-2.5 ${positionClass} ${hideBelowLg ? "hidden lg:flex" : ""}`}
-            aria-hidden
-        >
-            <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg shadow-sm sm:h-9 sm:w-9 ${iconBg}`}>
-                <Icon className={`h-4 w-4 sm:h-[18px] sm:w-[18px] ${iconColor}`} strokeWidth={2.2} />
-            </div>
-            <p className="min-w-0 text-[10px] font-bold leading-snug text-[#0B1F3A] sm:text-[11px]">{label}</p>
-        </div>
-    );
-}
-
-/** Left column: image + absolutely positioned HTML pills (same copy/colors as list); tweak `overlay.position` when art changes. */
-function ReferencePosVisual() {
-    return (
-        <div className="relative flex h-full min-h-[280px] w-full sm:min-h-[300px] lg:min-h-0">
-            <div className="relative h-full min-h-[280px] w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-[#E8E6E1] shadow-[0_24px_56px_-16px_rgba(11,31,58,0.22),0_10px_28px_-10px_rgba(15,23,42,0.12)] ring-1 ring-black/[0.04] sm:min-h-[300px] lg:min-h-[min(100%,520px)]">
-                <img
-                    src={referenceVisual}
-                    alt="GPOS order and menu screen on a touchscreen POS monitor at a restaurant counter"
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                    loading="lazy"
-                    decoding="async"
-                    width={1024}
-                    height={657}
-                />
-                <div className="pointer-events-none absolute inset-0 z-10">
-                    {featureCards.map(({ title, Icon, iconBg, iconColor, overlay }) => (
-                        <VisualOverlayPill
-                            key={title}
-                            label={overlay.label}
-                            Icon={Icon}
-                            iconBg={iconBg}
-                            iconColor={iconColor}
-                            positionClass={overlay.position}
-                            hideBelowLg={overlay.hideBelowLg}
-                        />
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
-}
-
 const BuiltForRestaurantOperationsSection: React.FC = () => {
     return (
-        <div
-            className="w-full bg-[#F8FAFC] pb-6 pt-16 font-[Inter,system-ui,sans-serif] sm:pb-8 sm:pt-20 lg:pb-10"
-            role="region"
-            aria-labelledby="built-for-real-ops-heading"
+        <section
+            className="relative overflow-hidden bg-[#f8faff] px-[39px] pb-[30px] pt-[28px] font-['Poppins',Inter,Arial,sans-serif] max-lg:px-6 max-md:px-4"
+            aria-labelledby="reports-analytics-heading"
         >
-            <div className="w-full max-w-none px-4 sm:px-6 lg:pl-[60px] lg:pr-10 xl:pr-14">
-                <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-14">
-                    <ReferencePosVisual />
+            <div className="mx-auto grid w-full max-w-[1456px] items-start gap-[20px] lg:grid-cols-[610px_minmax(0,1fr)] xl:grid-cols-[660px_minmax(0,1fr)]">
+                <div className="pt-[4px]">
+                    <div className="inline-flex h-[36px] items-center gap-[12px] rounded-full border border-[#dce9ff] bg-[#eef5ff] px-[15px] text-[14px] font-semibold text-[#0757d8] shadow-[0_10px_28px_rgba(7,86,217,0.045),inset_0_1px_0_rgba(255,255,255,0.82)]">
+                        <BarChart3 className="h-[17px] w-[17px]" strokeWidth={2.2} aria-hidden />
+                        <span className="whitespace-nowrap">Reports &amp; Analytics</span>
+                    </div>
 
-                    <div className="my-0 min-h-0 min-w-0 w-full py-0">
-                        <p
-                            className="mb-0 mt-0 text-[11px] font-extrabold uppercase tracking-[0.18em] sm:text-[12px]"
-                            style={{ color: EMERALD }}
-                        >
-                            Built for Restaurants
-                        </p>
+                    <h2
+                        id="reports-analytics-heading"
+                        className="mt-[22px] font-['Inter',Arial,sans-serif] text-[clamp(29px,2.45vw,35px)] font-[850] leading-[1.18] tracking-[-0.034em] text-[#071333]"
+                    >
+                        <span className="block whitespace-nowrap">Data That Drives Better Decisions.</span>
+                        <span className="block bg-gradient-to-r from-[#0565ff] via-[#0756e8] to-[#0249d3] bg-clip-text text-transparent drop-shadow-[0_7px_18px_rgba(5,101,255,0.10)]">
+                            Grow Your Business.
+                        </span>
+                    </h2>
 
-                        <h2
-                            id="built-for-real-ops-heading"
-                            className="mt-2 text-[clamp(1.875rem,4.2vw,2.625rem)] font-bold leading-[1.15] tracking-[-0.035em]"
-                            style={{ color: NAVY }}
-                        >
-                            <span className="relative inline-block border-b-[3px] pb-0.5" style={{ borderColor: EMERALD }}>
-                                Built
-                            </span>
-                            <span> for Real Restaurant Operations</span>
-                        </h2>
+                    <p className="mt-[13px] max-w-[470px] text-justify font-['Inter',Arial,sans-serif] text-[15px] font-medium leading-[1.5] text-[#46546d]">
+                        Real-time reports and powerful analytics give you complete visibility of your sales, orders, staff performance and more - so you can make smarter decisions and grow faster.
+                    </p>
 
-                        <p className="mt-3 mb-0 max-w-none text-[16px] leading-[1.6] text-slate-600 sm:text-[17px]">
-                            GPOS is designed for busy restaurants, takeaways, cafés, and food businesses that need fast billing, smooth order
-                            handling, clear reports, and simple staff control — all in one easy POS system.
-                        </p>
-
-                        <div className="mt-5 flex flex-col gap-3 sm:gap-3">
-                            {featureCards.map(({ title, description, Icon, iconBg, iconColor }) => (
-                                <article
-                                    key={title}
-                                    className="group rounded-2xl border border-slate-200/90 bg-white p-4 shadow-md transition-shadow duration-300 hover:shadow-lg sm:p-5"
+                    <div className="mt-[21px] space-y-[15px]">
+                        {reportFeatures.map(({ title, description, Icon, tone, iconClass }) => (
+                            <article key={title} className="flex items-start gap-[18px]">
+                                <span
+                                    className={`flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-[12px] border border-white/90 bg-gradient-to-br ${tone} shadow-[0_13px_28px_rgba(15,23,42,0.055),inset_0_1px_0_rgba(255,255,255,0.95)]`}
+                                    aria-hidden
                                 >
-                                    <div className="flex gap-4 sm:gap-5">
-                                        <div
-                                            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg shadow-sm ${iconBg} sm:h-12 sm:w-12`}
-                                            aria-hidden
-                                        >
-                                            <Icon className={`h-[22px] w-[22px] sm:h-6 sm:w-6 ${iconColor}`} strokeWidth={2.2} />
-                                        </div>
-                                        <div className="min-w-0 flex-1">
-                                            <h3 className="text-[17px] font-bold leading-snug tracking-tight sm:text-lg" style={{ color: NAVY }}>
-                                                {title}
-                                            </h3>
-                                            <p className="mt-1.5 text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">{description}</p>
-                                        </div>
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
+                                    <Icon className={`h-[25px] w-[25px] ${iconClass}`} strokeWidth={2.1} />
+                                </span>
+                                <div className="min-w-0 flex-1 pt-[3px]">
+                                    <h3 className="font-['Inter',Arial,sans-serif] text-[16px] font-[850] leading-[1.2] tracking-[-0.012em] text-[#111936]">
+                                        {title}
+                                    </h3>
+                                    <p className="mt-[4px] max-w-none whitespace-nowrap font-['Inter',Arial,sans-serif] text-[13px] font-medium leading-[1.35] text-[#2f3d55]">
+                                        {description}
+                                    </p>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+
+                    <a
+                        href="#features"
+                        className="mt-[26px] inline-flex h-[46px] min-w-[196px] items-center justify-center gap-[18px] rounded-[7px] bg-gradient-to-br from-[#0866ff] via-[#0757f0] to-[#0048d4] px-[21px] font-['Poppins',Arial,sans-serif] text-[14px] font-semibold text-white no-underline shadow-[0_15px_30px_rgba(4,86,232,0.22),inset_0_1px_0_rgba(255,255,255,0.22)]"
+                    >
+                        Explore All Features
+                        <ArrowRight className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
+                    </a>
+                </div>
+
+                <div className="relative flex min-w-0 justify-center lg:justify-end">
+                    <div
+                        className="pointer-events-none absolute -inset-x-6 top-8 h-[78%] rounded-[34px] bg-gradient-to-br from-[#eef5ff] via-white/80 to-[#e9f1ff] opacity-75 blur-2xl"
+                        aria-hidden
+                    />
+                    <div className="relative z-10 w-full max-w-[1034px] overflow-hidden rounded-[12px] border border-[#e5ebf3] bg-white shadow-[0_24px_56px_rgba(31,42,68,0.09),0_10px_24px_rgba(7,86,217,0.055)]">
+                        <img
+                            src={reportsAnalyticsDashboard}
+                            alt="GPOS reports overview dashboard showing sales charts, channel breakdowns, and payment methods"
+                            className="block h-auto w-full bg-white"
+                            loading="lazy"
+                            decoding="async"
+                        />
+
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
