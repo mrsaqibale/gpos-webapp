@@ -1,0 +1,385 @@
+/* Aligned with Restaurant POS / gpos-page light brand theme */
+.about-page {
+  --ab-blue: #032c7e;
+  --ab-green: #55a630;
+  --ab-text: #1e3a8a;
+  --ab-muted: #64748b;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at top left, rgba(85, 166, 48, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(3, 44, 126, 0.1), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4ff 40%, #f7fcf4 100%);
+  overflow-x: hidden;
+  color: var(--ab-text);
+}
+
+.about-page *,
+.about-page *::before,
+.about-page *::after {
+  box-sizing: border-box;
+}
+
+.about-page .container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.about-page section {
+  padding: 90px 0;
+}
+
+.about-page .page-badge,
+.about-page .section-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(3, 44, 126, 0.15);
+  color: var(--ab-blue);
+  font-size: 14px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(12px);
+}
+
+.about-page .section-heading {
+  max-width: 760px;
+  margin: 0 auto 46px;
+  text-align: center;
+}
+
+.about-page .section-heading.center {
+  text-align: center;
+}
+
+.about-page .section-heading h2,
+.about-page .about-left h1,
+.about-page .about-cta-box h2,
+.about-page .about-link-left h2 {
+  margin: 0 0 18px;
+  line-height: 1.1;
+  color: var(--ab-blue);
+}
+
+.about-page .section-heading h2 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.about-page .section-heading p,
+.about-page .about-left p,
+.about-page .value-card p,
+.about-page .about-link-left p,
+.about-page .about-cta-box p,
+.about-page .company-card-body p {
+  color: var(--ab-muted);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* HERO */
+.about-page .about-hero {
+  position: relative;
+  padding-top: 110px;
+  padding-bottom: 70px;
+}
+
+.about-page .about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about-page .about-left h1 {
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 800;
+  letter-spacing: -1.6px;
+  color: var(--ab-blue);
+}
+
+.about-page .about-left h1 span {
+  display: block;
+  color: var(--ab-green);
+  text-shadow: 0 0 20px rgba(85, 166, 48, 0.2);
+}
+
+.about-page .about-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.about-page .about-pill {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ab-blue);
+  border: 1px solid rgba(3, 44, 126, 0.12);
+  font-size: 14px;
+}
+
+.about-page .company-card,
+.about-page .value-card,
+.about-page .about-link-box,
+.about-page .about-cta-box {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(3, 44, 126, 0.12);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 60px rgba(3, 44, 126, 0.12);
+}
+
+.about-page .company-card {
+  border-radius: 28px;
+  padding: 18px;
+}
+
+.about-page .company-card-top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.about-page .company-card-top span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(3, 44, 126, 0.26);
+}
+
+.about-page .company-card-body {
+  border-radius: 20px;
+  background: rgba(3, 44, 126, 0.04);
+  padding: 24px;
+}
+
+.about-page .company-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(85, 166, 48, 0.18), rgba(3, 44, 126, 0.12));
+  border: 1px solid rgba(3, 44, 126, 0.12);
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: var(--ab-blue);
+}
+
+.about-page .company-card-body h3 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  color: var(--ab-blue);
+}
+
+.about-page .company-points {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.about-page .company-point {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(3, 44, 126, 0.08);
+  color: var(--ab-text);
+  font-size: 15px;
+}
+
+.about-page .tick {
+  color: var(--ab-green);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.about-page .visit-btn,
+.about-page .primary-btn,
+.about-page .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: inherit;
+}
+
+.about-page .visit-btn,
+.about-page .primary-btn {
+  border: none;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--ab-blue), var(--ab-green));
+  box-shadow: 0 10px 30px rgba(3, 44, 126, 0.28);
+}
+
+.about-page .visit-btn:hover,
+.about-page .primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(3, 44, 126, 0.35);
+}
+
+.about-page .visit-btn {
+  margin-top: 22px;
+}
+
+.about-page .secondary-btn {
+  border: 1px solid rgba(3, 44, 126, 0.25);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ab-blue);
+  backdrop-filter: blur(10px);
+}
+
+.about-page .secondary-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+/* VALUES */
+.about-page .values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.about-page .value-card {
+  border-radius: 24px;
+  padding: 28px;
+  transition: 0.3s ease;
+}
+
+.about-page .value-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(85, 166, 48, 0.35);
+  box-shadow: 0 24px 50px rgba(3, 44, 126, 0.14);
+}
+
+.about-page .value-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  margin-bottom: 18px;
+  background: rgba(3, 44, 126, 0.08);
+}
+
+.about-page .value-card h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: var(--ab-blue);
+}
+
+/* LINK BOX */
+.about-page .about-link-box {
+  border-radius: 28px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 26px;
+  align-items: center;
+}
+
+.about-page .about-link-left h2 {
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+.about-page .about-link-right {
+  display: grid;
+  gap: 16px;
+}
+
+.about-page .mini-stat {
+  border-radius: 20px;
+  padding: 22px;
+  background: rgba(3, 44, 126, 0.05);
+  border: 1px solid rgba(3, 44, 126, 0.08);
+}
+
+.about-page .mini-stat h4 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  color: var(--ab-blue);
+}
+
+.about-page .mini-stat p {
+  margin: 0;
+  color: var(--ab-muted);
+}
+
+/* CTA */
+.about-page .about-cta-box {
+  border-radius: 34px;
+  padding: 60px 28px;
+  text-align: center;
+}
+
+.about-page .cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* GLOWS — match Restaurant POS hero circles */
+.about-page .about-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.about-page .about-glow-1 {
+  width: 340px;
+  height: 340px;
+  left: -80px;
+  top: 80px;
+  background: rgba(3, 44, 126, 0.18);
+}
+
+.about-page .about-glow-2 {
+  width: 280px;
+  height: 280px;
+  right: -50px;
+  top: 140px;
+  background: rgba(85, 166, 48, 0.14);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .about-page .about-hero-grid,
+  .about-page .about-link-box,
+  .about-page .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page .about-link-box {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-page section {
+    padding: 70px 0;
+  }
+
+  .about-page .company-card-body,
+  .about-page .value-card,
+  .about-page .about-link-box,
+  .about-page .about-cta-box {
+    padding: 22px;
+  }
+}

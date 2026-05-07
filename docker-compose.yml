@@ -1,0 +1,8 @@
+services:
+  gpos-webapp:
+    build: .
+    image: gpos-webapp:latest
+    container_name: gpos-webapp-app
+    ports:
+      - "7570:80"
+    restart: unless-stopped

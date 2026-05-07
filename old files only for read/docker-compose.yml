@@ -1,0 +1,8 @@
+services:
+  dashboard:
+    build: .
+    image: dashboard:latest
+    container_name: dashboard-app
+    ports:
+      - "7571:80"
+    restart: unless-stopped

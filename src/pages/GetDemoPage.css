@@ -1,0 +1,41 @@
+.demo-page {
+    -webkit-font-smoothing: antialiased;
+}
+
+.get-demo-hero {
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 55%, #f8fafc 100%);
+}
+
+.get-demo-hero__decoration {
+    position: absolute;
+    left: -18%;
+    top: 50%;
+    width: min(72vw, 520px);
+    height: min(72vw, 520px);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.12), transparent 62%);
+    opacity: 0.95;
+}
+
+@media (max-width: 1023px) {
+    .get-demo-hero__decoration {
+        left: -40%;
+        top: -12%;
+        width: 90vw;
+        height: 90vw;
+        transform: none;
+        opacity: 0.55;
+    }
+}
+
+.get-demo-main {
+    padding-bottom: 0;
+}
+
+@media (max-width: 639px) {
+    .get-demo-form-card {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}

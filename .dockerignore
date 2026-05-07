@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+.git
+backup
+.github
+*.log
+.env
+.env.*
+old files only for read
