@@ -11,6 +11,9 @@ const OFFICE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encod
 /** Embedded map (no API key); opens same place as OFFICE_MAPS_URL. */
 const OFFICE_MAPS_EMBED_SRC = `https://maps.google.com/maps?q=${encodeURIComponent(OFFICE_ADDRESS)}&hl=en&z=16&output=embed`;
 
+/** Same-origin path; Vite dev server proxies `/gpos-auth` → `https://auth.gposapp.com` (see vite.config.js). Production must expose the same proxy. */
+const NEWSLETTER_API_URL = '/gpos-auth/website/gposapp/subcribenewlatter';
+
 /** Footer quick links (same routes as main nav where applicable). */
 const FOOTER_QUICK_LINKS: { label: string; to: string }[] = [
     { label: 'Pricing', to: '/pricing' },
@@ -44,26 +47,35 @@ const Footer: React.FC<FooterProps> = ({ hideTopCta = false }) => {
         setNewsletterLoading(true);
 
         try {
-            const response = await fetch('/api/newsletter-subscribe.php', {
+            const response = await fetch(NEWSLETTER_API_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, source: 'footer-newsletter' }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({ email, sourseTxt: 'website-footer' }),
             });
 
             const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                const result = await response.json();
-                if (!response.ok) {
-                    throw new Error(result.message || 'Subscription failed');
-                }
-                setNewsletterStatus(result.message || 'Subscribed successfully!');
+            if (!contentType?.includes('application/json')) {
+                throw new Error('Server returned an invalid response.');
+            }
+
+            const result = (await response.json()) as {
+                success?: boolean;
+                id?: number;
+                message?: string;
+            };
+
+            if (result.success === true) {
+                setNewsletterStatus('Thanks! Your subscription is active.');
                 setNewsletterEmail('');
             } else {
-                const text = await response.text();
-                if (text.includes('<?php')) {
-                    throw new Error('PHP server is not running. Please test on a server with PHP enabled.');
-                }
-                throw new Error('Server returned an invalid response.');
+                setNewsletterError(
+                    typeof result.message === 'string' && result.message.trim()
+                        ? result.message
+                        : 'Subscription was not activated. Please try again.'
+                );
             }
         } catch (error) {
             setNewsletterError(error instanceof Error ? error.message : 'Subscription failed');
