@@ -111,10 +111,10 @@ const Home = () => {
     }, [secondsLeft]);
 
     return (
-        <div className="home-premium min-h-screen w-full min-w-0 overflow-x-clip bg-[#F8FAFE] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] antialiased">
+        <div className="home-premium min-h-screen w-full min-w-0 overflow-x-clip bg-[#F6F9FF] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] antialiased [text-rendering:optimizeLegibility] [-webkit-font-smoothing:antialiased]">
             <Navbar />
 
-            <main className="home-premium-main m-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.96)_0%,rgba(248,250,254,0)_34%),linear-gradient(180deg,#FFFFFF_0%,#F8FAFE_12%,#F8FAFE_100%)] p-0">
+            <main className="home-premium-main m-0 p-0">
                 <Hero onGetStartedClick={openPromoFromUserAction} />
                 <PainSolutionSection />
                 <RestaurantTypesSection />

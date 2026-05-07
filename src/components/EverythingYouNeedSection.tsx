@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Phone } from 'lucide-react';
-
-const PHONE_DISPLAY = '062 21302';
-const PHONE_TEL = '+3536221302';
+import { PHONE_DISPLAY, PHONE_HREF } from '../constants/contact';
 
 /** Solid brand green circle behind bullet icons (white glyph for contrast). */
 const iconInnerGreen =
@@ -80,7 +78,7 @@ const EverythingYouNeedSection = () => {
                                 <span className="button-82-front text justify-center whitespace-nowrap">Book Demo</span>
                             </Link>
                             <a
-                                href={`tel:${PHONE_TEL}`}
+                                href={PHONE_HREF}
                                 className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-gray-200 bg-white px-4 py-3 text-[15px] font-bold text-[#032c7e] shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
                             >
                                 <Phone className="h-5 w-5 shrink-0 text-[#55A630]" strokeWidth={2.2} aria-hidden />

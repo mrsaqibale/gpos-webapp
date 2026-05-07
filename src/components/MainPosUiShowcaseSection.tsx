@@ -40,12 +40,12 @@ function LeftFeatureItem({
 }) {
     return (
         <article className="flex items-start gap-[17px]">
-            <span className="grid h-[55px] w-[55px] shrink-0 place-items-center rounded-[11px] border border-[#E5ECFB] bg-[#F5F8FF] text-[#0B56EA] shadow-[0_10px_24px_rgba(4,55,145,0.04)]">
-                <Icon className="h-[28px] w-[28px]" strokeWidth={2.4} aria-hidden />
+            <span className="home-chip grid h-[58px] w-[58px] shrink-0 place-items-center rounded-[14px] border border-white/70 bg-[linear-gradient(145deg,#F5F8FF_0%,#E2EBFE_100%)] text-[#0B56EA]">
+                <Icon className="h-[28px] w-[28px]" strokeWidth={2.2} aria-hidden />
             </span>
             <div className="pt-[2px]">
-                <h3 className="text-[16px] font-extrabold leading-[1.25] text-[#07142F]">{title}</h3>
-                <p className="mt-[6px] max-w-none text-[14px] font-medium leading-[1.5] text-[#27344E] sm:whitespace-nowrap">{desc}</p>
+                <h3 className="text-[16px] font-extrabold leading-[1.25] tracking-[-0.012em] text-[#07142F]">{title}</h3>
+                <p className="mt-[6px] max-w-none text-[14px] font-medium leading-[1.55] tracking-[-0.005em] text-[#27344E] sm:whitespace-nowrap">{desc}</p>
             </div>
         </article>
     );
@@ -68,33 +68,33 @@ function BottomCard({
 
     return (
         <article
-            className={`flex min-h-[90px] items-center gap-[16px] px-[18px] py-[18px] ${
+            className={`flex min-h-[94px] items-center gap-[16px] px-[18px] py-[18px] ${
                 index > 0 ? 'lg:border-l lg:border-[#E4E9F3]' : ''
-            } ${featured ? 'rounded-[10px] bg-[#F6F9FF]' : ''}`}
+            } ${featured ? 'rounded-[14px] bg-[linear-gradient(145deg,#F4F8FF_0%,#E9F0FF_100%)]' : ''}`}
         >
             {featured ? (
                 <img
                     src={businessInsightsIcon}
                     alt=""
-                    className="h-[76px] w-[76px] shrink-0 object-contain"
+                    className="h-[76px] w-[76px] shrink-0 object-contain drop-shadow-[0_8px_18px_rgba(11,86,234,0.2)]"
                     loading="lazy"
                     decoding="async"
                     aria-hidden
                 />
             ) : (
                 <span
-                    className={`grid h-[55px] w-[55px] shrink-0 place-items-center rounded-full ${
+                    className={`home-chip grid h-[58px] w-[58px] shrink-0 place-items-center rounded-full ${
                         variant === 'solid'
-                            ? 'bg-[#0A55F5] text-white shadow-[0_10px_22px_rgba(10,85,245,0.18)]'
+                            ? 'bg-[linear-gradient(145deg,#1768FF_0%,#003FC9_100%)] text-white'
                             : 'border border-[#DDE7F8] bg-white text-[#0A55F5]'
                     }`}
                 >
-                    <Icon className="h-[27px] w-[27px]" strokeWidth={2.2} aria-hidden />
+                    <Icon className="h-[26px] w-[26px]" strokeWidth={2.2} aria-hidden />
                 </span>
             )}
             <div>
-                <h3 className="whitespace-nowrap text-[15px] font-extrabold leading-[1.2] text-[#07142F]">{title}</h3>
-                <p className="mt-[7px] text-[13px] font-medium leading-[1.45] text-[#40506B]">{desc}</p>
+                <h3 className="whitespace-nowrap text-[15px] font-extrabold leading-[1.2] tracking-[-0.01em] text-[#07142F]">{title}</h3>
+                <p className="mt-[7px] text-[13px] font-medium leading-[1.5] text-[#40506B]">{desc}</p>
             </div>
         </article>
     );
@@ -117,24 +117,25 @@ function DashboardShell() {
 const MainPosUiShowcaseSection: React.FC = () => {
     return (
         <section
-            className="overflow-x-clip bg-[#F8FAFE] py-[21px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[40px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
             style={{ paddingLeft: 20, paddingRight: 20 }}
         >
-            <div className="mx-auto max-w-[1466px]">
+            <div className="pointer-events-none absolute -left-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
+            <div className="relative mx-auto max-w-[1466px]">
                 <div className="mt-[8px] grid items-start gap-[28px] lg:mt-[10px] lg:grid-cols-[570px_minmax(0,1fr)] lg:gap-[12px]">
                     <div className="pt-[8px]">
-                        <span className="inline-flex rounded-full border border-[#E4EAF7] bg-[#F4F7FF] px-[19px] py-[8px] text-[16px] font-extrabold leading-none text-[#0649C9]">
+                        <span className="home-eyebrow inline-flex rounded-full border border-[#E4EAF7] bg-white/85 px-[19px] py-[9px] text-[16px] font-extrabold leading-none tracking-[-0.005em] text-[#0649C9] backdrop-blur">
                             Powerful. Simple. All-in-One.
                         </span>
 
-                        <h2 className="mt-[25px] text-[clamp(29px,8vw,45px)] font-extrabold leading-[1.12] tracking-[-0.02em] text-[#07142F]">
+                        <h2 className="mt-[25px] text-[clamp(29px,8vw,46px)] font-extrabold leading-[1.08] tracking-[-0.028em] text-[#07142F]">
                             <span className="block whitespace-nowrap">Everything You Need,</span>
                             <span className="block whitespace-nowrap">
-                                All in <span className="text-[#0B56EA]">One Place</span>
+                                All in <span className="bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#0A66FF] bg-clip-text text-transparent">One Place</span>
                             </span>
                         </h2>
 
-                        <p className="mt-[18px] max-w-[500px] text-[17px] font-medium leading-[1.5] text-[#26334C]">
+                        <p className="mt-[20px] max-w-[500px] text-[17px] font-medium leading-[1.6] tracking-[-0.005em] text-[#26334C]">
                             From orders and payments to kitchen management and reports - GPOS gives you complete control of your
                             restaurant operations.
                         </p>
@@ -160,7 +161,7 @@ const MainPosUiShowcaseSection: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-[26px] rounded-[13px] border border-[#E4EAF6] bg-white px-[12px] py-[14px] shadow-[0_15px_36px_rgba(15,23,42,0.05)]">
+                <div className="home-card mt-[32px] rounded-[18px] border border-white/70 bg-white/95 px-[14px] py-[16px] backdrop-blur">
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-[1.2fr_repeat(4,minmax(235px,1fr))] lg:gap-0">
                         {bottomItems.map(([title, desc, Icon, variant], index) => (
                             <BottomCard key={title} title={title} desc={desc} Icon={Icon} variant={variant} index={index} />

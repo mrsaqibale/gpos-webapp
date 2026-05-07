@@ -151,6 +151,204 @@
       scroll-margin-top: 112px;
     }
   }
+
+  /* =========================================================
+     APPLE-GRADE POLISH LAYER — scoped to .home-premium
+     Elevates typography, surfaces, buttons, dividers, focus.
+     Layout-safe: never resizes containers, only refines tone.
+     ========================================================= */
+
+  .home-premium-main {
+    background:
+      radial-gradient(1200px 640px at 50% -120px, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 254, 0) 58%),
+      radial-gradient(900px 540px at 92% 18%, rgba(10, 85, 245, 0.05) 0%, rgba(248, 250, 254, 0) 62%),
+      radial-gradient(880px 520px at 8% 62%, rgba(20, 167, 95, 0.04) 0%, rgba(248, 250, 254, 0) 62%),
+      linear-gradient(180deg, #FFFFFF 0%, #F6F9FF 14%, #F4F8FE 60%, #F6F9FF 100%);
+  }
+
+  /* Hairline section seam — soft, luminous, never harsh */
+  .home-premium-main > section {
+    border-top: 0;
+  }
+  .home-premium-main > section + section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(11, 86, 234, 0.08) 22%,
+      rgba(20, 167, 95, 0.06) 78%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Crisp, balanced display typography */
+  .home-premium :is(h1, h2) {
+    letter-spacing: -0.028em;
+    font-feature-settings: "kern", "ss01", "cv11";
+  }
+
+  .home-premium h3 {
+    letter-spacing: -0.012em;
+  }
+
+  .home-premium h4 {
+    letter-spacing: -0.008em;
+  }
+
+  /* Smoother feel for interactive surfaces */
+  .home-premium-main article {
+    transition:
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Apple-style focus halo */
+  .home-premium :is(a, button):focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(255, 255, 255, 0.95),
+      0 0 0 6px rgba(11, 86, 234, 0.32);
+    border-radius: inherit;
+  }
+
+  /* Sharper image rendering on retina + transform-cleanup */
+  .home-premium-main img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* Glossy highlight overlay on gradient buttons & links */
+  .home-premium-main button.home-gloss,
+  .home-premium-main a.home-gloss {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .home-premium-main button.home-gloss::after,
+  .home-premium-main a.home-gloss::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.04) 48%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .home-premium-main button.home-gloss > *,
+  .home-premium-main a.home-gloss > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Apple-grade card surface — call-up via .home-card */
+  .home-premium-main .home-card {
+    background-clip: padding-box;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 12px 28px rgba(15, 23, 42, 0.05),
+      0 22px 60px -28px rgba(11, 86, 234, 0.18);
+  }
+
+  /* Apple-style "industry tile" lift */
+  .home-premium-main .home-tile {
+    transition:
+      transform 480ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 480ms cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.92) inset,
+      0 8px 18px rgba(15, 23, 42, 0.04),
+      0 24px 52px -28px rgba(11, 86, 234, 0.18);
+  }
+
+  .home-premium-main .home-tile:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 14px 28px rgba(15, 23, 42, 0.06),
+      0 30px 64px -24px rgba(11, 86, 234, 0.28);
+  }
+
+  /* Apple-grade icon chip — glossy + ringed */
+  .home-premium-main .home-chip {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 6px 14px rgba(15, 23, 42, 0.05),
+      0 14px 30px -16px rgba(11, 86, 234, 0.18);
+  }
+
+  /* Pill / badge gloss */
+  .home-premium-main .home-pill {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 8px 22px rgba(15, 23, 42, 0.04);
+  }
+
+  /* CTA primary — glossy, rich, with smooth lift */
+  .home-premium-main .home-cta-primary {
+    background-image: linear-gradient(180deg, #1768FF 0%, #075BFF 48%, #003FC9 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.32) inset,
+      0 10px 22px rgba(11, 86, 234, 0.28),
+      0 24px 48px -22px rgba(11, 86, 234, 0.55);
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-premium-main .home-cta-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.4) inset,
+      0 14px 28px rgba(11, 86, 234, 0.32),
+      0 30px 56px -22px rgba(11, 86, 234, 0.6);
+  }
+
+  /* CTA secondary — frosted Apple white */
+  .home-premium-main .home-cta-secondary {
+    background-color: rgba(255, 255, 255, 0.86);
+    backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 10px 24px rgba(15, 23, 42, 0.06);
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-premium-main .home-cta-secondary:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 1) inset,
+      0 16px 32px rgba(15, 23, 42, 0.08);
+  }
+
+  /* Section eyebrow chip — Apple SF-style */
+  .home-premium-main .home-eyebrow {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 8px 22px rgba(11, 86, 234, 0.06);
+  }
 }
 
 @layer components {
@@ -612,17 +810,26 @@
   }
 
   .testimonial-glass-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out, border-color 300ms ease-in-out;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.55) 100%);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 12px 36px rgba(15, 23, 42, 0.08),
+      0 32px 64px -32px rgba(11, 86, 234, 0.18);
+    transition:
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .testimonial-glass-card:hover {
-    border-color: rgba(59, 130, 246, 0.35);
-    box-shadow: 0 18px 50px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 1) inset,
+      0 22px 54px rgba(59, 130, 246, 0.22),
+      0 36px 72px -28px rgba(11, 86, 234, 0.28);
   }
 
   .testimonial-shine {

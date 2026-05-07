@@ -16,6 +16,8 @@ import {
     Users,
 } from 'lucide-react';
 import demoCtaPreview from '../assets/demo-cta-dashboard-phone-preview.png';
+import { WHATSAPP_DISPLAY, WHATSAPP_HREF, PHONE_DISPLAY, PHONE_HREF, EMAIL_DISPLAY, EMAIL_HREF } from '../constants/contact';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 type LucideIcon = React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string; 'aria-hidden'?: boolean }>;
 
@@ -42,21 +44,24 @@ const contactItems = [
     },
     {
         title: 'Call Us',
-        detail: '+1 (555) 123-4567',
+        detail: PHONE_DISPLAY,
+        href: PHONE_HREF,
         Icon: Phone,
         color: '#D79B1F',
         bg: 'linear-gradient(145deg,#FFF8EA 0%,#FFF0CC 100%)',
     },
     {
         title: 'WhatsApp Us',
-        detail: '+1 (555) 123-4567',
-        Icon: MessageCircle,
+        detail: WHATSAPP_DISPLAY,
+        href: WHATSAPP_HREF,
+        Icon: 'whatsapp' as const,
         color: '#13A35D',
         bg: 'linear-gradient(145deg,#EAF8EF 0%,#D8F3E4 100%)',
     },
     {
         title: 'Email Us',
-        detail: 'hello@gpos.com',
+        detail: EMAIL_DISPLAY,
+        href: EMAIL_HREF,
         Icon: Mail,
         color: '#7A22D7',
         bg: 'linear-gradient(145deg,#F8EDFF 0%,#ECD9FF 100%)',
@@ -72,8 +77,8 @@ const contactItems = [
 
 function TopPill() {
     return (
-        <span className="inline-flex items-center gap-[10px] rounded-full border border-[#D9E5F5] bg-white/55 px-[14px] py-[9px] text-[18px] font-extrabold leading-none text-[#0649C9] shadow-[0_9px_22px_rgba(15,23,42,0.035),inset_0_1px_0_rgba(255,255,255,0.95)]">
-            <span className="grid h-[22px] w-[22px] place-items-center rounded-full bg-[#0B56EA] text-white shadow-[0_7px_14px_rgba(11,86,234,0.22)]">
+        <span className="home-eyebrow inline-flex items-center gap-[10px] rounded-full border border-[#D9E5F5] bg-white/85 px-[16px] py-[10px] text-[18px] font-extrabold leading-none tracking-[-0.005em] text-[#0649C9] backdrop-blur">
+            <span className="home-chip grid h-[26px] w-[26px] place-items-center rounded-full bg-[linear-gradient(145deg,#1768FF_0%,#003FC9_100%)] text-white">
                 <Play className="h-[12px] w-[12px] translate-x-[1px] fill-current" strokeWidth={2.1} aria-hidden />
             </span>
             See GPOS in Action
@@ -86,12 +91,12 @@ function HighlightItem({ item }: { item: (typeof highlights)[number] }) {
     return (
         <article className="flex items-center gap-[15px]">
             <span
-                className="grid h-[55px] w-[55px] shrink-0 place-items-center rounded-full border border-white/75 shadow-[0_12px_26px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.85)]"
+                className="home-chip grid h-[58px] w-[58px] shrink-0 place-items-center rounded-full border border-white/75"
                 style={{ background: bg, color }}
             >
                 <Icon className="h-[28px] w-[28px]" strokeWidth={2.15} aria-hidden />
             </span>
-            <div className="text-[14px] font-extrabold leading-[1.55] text-[#07142F]">
+            <div className="text-[14px] font-extrabold leading-[1.55] tracking-[-0.005em] text-[#07142F]">
                 <p>{firstLine}</p>
                 <p>{secondLine}</p>
             </div>
@@ -100,47 +105,69 @@ function HighlightItem({ item }: { item: (typeof highlights)[number] }) {
 }
 
 function ContactItem({ item, index }: { item: (typeof contactItems)[number]; index: number }) {
-    const Icon = item.Icon as LucideIcon;
+    const isWhatsApp = item.Icon === 'whatsapp';
+    const Icon = isWhatsApp ? null : (item.Icon as LucideIcon);
+    const href = 'href' in item ? item.href : undefined;
 
-    return (
-        <article
-            className={`flex min-h-[76px] items-center gap-[19px] px-[31px] py-[10px] ${
-                index > 0 ? 'lg:border-l lg:border-[#E2E8F3]' : ''
-            } ${item.featured ? 'lg:min-w-[370px]' : ''}`}
-        >
+    const sizing = item.featured ? 'gap-[19px] px-[28px] lg:min-w-[360px]' : 'gap-[14px] px-[18px]';
+    const divider = index > 0 ? 'lg:border-l lg:border-[#E2E8F3]' : '';
+    const isWhatsAppExternal = isWhatsApp || (href ? /^https?:/.test(href) : false);
+
+    const inner = (
+        <>
             <span
-                className={`${item.featured ? 'h-[76px] w-[76px]' : 'h-[48px] w-[48px]'} grid shrink-0 place-items-center rounded-full border border-white/75 shadow-[0_11px_24px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.86)]`}
+                className={`${item.featured ? 'h-[78px] w-[78px]' : 'h-[46px] w-[46px]'} home-chip grid shrink-0 place-items-center rounded-full border border-white/75`}
                 style={{ background: item.bg, color: item.color }}
             >
-                <Icon className={item.featured ? 'h-[38px] w-[38px]' : 'h-[24px] w-[24px]'} strokeWidth={2.15} aria-hidden />
+                {isWhatsApp ? (
+                    <WhatsAppIcon className="h-[24px] w-[24px]" size={24} variant="brand" aria-hidden />
+                ) : Icon ? (
+                    <Icon className={item.featured ? 'h-[36px] w-[36px]' : 'h-[22px] w-[22px]'} strokeWidth={2.15} aria-hidden />
+                ) : null}
             </span>
-            <div>
-                <h3 className="whitespace-nowrap text-[16px] font-extrabold leading-[1.2] text-[#07142F]">{item.title}</h3>
-                <p className="mt-[8px] whitespace-nowrap text-[14px] font-medium leading-[1.25] text-[#27344E]">{item.detail}</p>
+            <div className="min-w-0">
+                <h3 className="whitespace-nowrap text-[15px] font-extrabold leading-[1.2] tracking-[-0.012em] text-[#07142F]">{item.title}</h3>
+                <p className="mt-[6px] whitespace-nowrap text-[13.5px] font-medium leading-[1.3] text-[#27344E]">{item.detail}</p>
             </div>
-        </article>
+        </>
     );
+
+    const baseClasses = `flex min-h-[80px] items-center py-[12px] ${sizing} ${divider}`;
+
+    if (href) {
+        return (
+            <a
+                href={href}
+                className={`${baseClasses} no-underline transition-colors hover:bg-[#F8FAFE]`}
+                {...(isWhatsAppExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+                {inner}
+            </a>
+        );
+    }
+
+    return <article className={baseClasses}>{inner}</article>;
 }
 
 const DemoCtaSection: React.FC = () => {
     return (
         <section
-            className="overflow-x-clip bg-[#F8FAFE] py-[20px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
             style={{ paddingLeft: 20, paddingRight: 20 }}
         >
-            <div className="mx-auto max-w-[1510px] overflow-hidden rounded-[25px] border border-[#DCE8F8] bg-[linear-gradient(135deg,#F2F7FF_0%,#EEF5FF_54%,#F5F9FF_100%)] px-[25px] pb-[31px] pt-[43px] shadow-[0_18px_46px_rgba(15,23,42,0.05),inset_0_1px_0_rgba(255,255,255,0.84)] lg:px-[36px]">
+            <div className="home-card relative mx-auto max-w-[1510px] overflow-hidden rounded-[28px] border border-white/70 bg-[linear-gradient(135deg,#F2F7FF_0%,#EEF5FF_54%,#F5F9FF_100%)] px-[25px] pb-[31px] pt-[44px] backdrop-blur lg:px-[40px]">
                 <div className="grid items-start gap-[30px] lg:grid-cols-[735px_minmax(0,1fr)]">
                     <div className="pt-[1px]">
                         <TopPill />
 
-                        <h2 className="mt-[32px] text-[clamp(30px,4vw,35px)] font-extrabold leading-[1.15] tracking-[-0.008em] text-[#07142F]">
+                        <h2 className="mt-[28px] text-[clamp(30px,4vw,38px)] font-extrabold leading-[1.1] tracking-[-0.028em] text-[#07142F]">
                             <span className="block whitespace-nowrap">Ready to Transform Your Food Business?</span>
                             <span className="block bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#0A66FF] bg-clip-text text-transparent">
                                 Let&apos;s Get Started!
                             </span>
                         </h2>
 
-                        <p className="mt-[25px] max-w-[650px] text-[20px] font-medium leading-[1.55] text-[#334155]">
+                        <p className="mt-[24px] max-w-[650px] text-[20px] font-medium leading-[1.6] tracking-[-0.005em] text-[#334155]">
                             Book a free demo and see how GPOS can simplify your operations, delight your customers and grow your profits.
                         </p>
 
@@ -150,10 +177,10 @@ const DemoCtaSection: React.FC = () => {
                             ))}
                         </div>
 
-                        <div className="mt-[47px] flex flex-col gap-[20px] sm:flex-row">
+                        <div className="mt-[44px] flex flex-col gap-[16px] sm:flex-row">
                             <Link
                                 to="/get_demo#schedule-demo-form"
-                                className="inline-flex h-[60px] w-full items-center justify-center gap-[15px] whitespace-nowrap rounded-[8px] bg-gradient-to-r from-[#075BFF] to-[#004BE8] px-[24px] text-[18px] font-extrabold text-white no-underline shadow-[0_16px_30px_rgba(11,86,234,0.25),inset_0_1px_0_rgba(255,255,255,0.18)] transition hover:translate-y-[-1px] hover:shadow-[0_18px_34px_rgba(11,86,234,0.3)] sm:w-[320px]"
+                                className="home-cta-primary home-gloss inline-flex h-[60px] w-full items-center justify-center gap-[15px] whitespace-nowrap rounded-[12px] px-[24px] text-[18px] font-extrabold tracking-[-0.005em] text-white no-underline sm:w-[320px]"
                             >
                                 <CalendarDays className="h-[25px] w-[25px]" strokeWidth={2.15} aria-hidden />
                                 Book a Free Demo
@@ -161,7 +188,7 @@ const DemoCtaSection: React.FC = () => {
                             </Link>
                             <Link
                                 to="/restaurant_pos"
-                                className="inline-flex h-[60px] w-full items-center justify-center gap-[12px] whitespace-nowrap rounded-[8px] border border-[#0B56EA] bg-white/80 px-[22px] text-[17px] font-extrabold text-[#0649C9] no-underline shadow-[0_12px_24px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:translate-y-[-1px] hover:bg-white sm:w-[270px]"
+                                className="home-cta-secondary inline-flex h-[60px] w-full items-center justify-center gap-[12px] whitespace-nowrap rounded-[12px] border border-[#0B56EA] px-[22px] text-[17px] font-extrabold tracking-[-0.005em] text-[#0649C9] no-underline sm:w-[270px]"
                             >
                                 <CirclePlay className="h-[25px] w-[25px]" strokeWidth={2.15} aria-hidden />
                                 Watch Product Tour
@@ -194,7 +221,7 @@ const DemoCtaSection: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-[-82px] rounded-[16px] border border-[#E1E8F4] bg-white px-[31px] py-[25px] shadow-[0_16px_36px_rgba(15,23,42,0.045),inset_0_1px_0_rgba(255,255,255,0.94)]">
+                <div className="home-card mt-[-82px] rounded-[20px] border border-white/70 bg-white/95 px-[31px] py-[26px] backdrop-blur">
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1.38fr_repeat(4,1fr)] lg:gap-0">
                         {contactItems.map((item, index) => (
                             <ContactItem key={item.title} item={item} index={index} />

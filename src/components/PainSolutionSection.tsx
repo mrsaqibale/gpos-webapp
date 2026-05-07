@@ -123,9 +123,11 @@ const metrics = [
 
 const PainSolutionSection = () => {
     return (
-        <section className="bg-[#f7f9ff] px-[clamp(20px,4.1vw,64px)] py-[18px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:h-[660px] lg:overflow-hidden">
-            <div className="mx-auto max-w-[1460px] lg:h-full">
-                <div className="relative overflow-hidden rounded-[14px] border border-[#e6ebf4] bg-white px-[34px] pb-[12px] pt-[24px] shadow-[0_18px_55px_rgba(15,23,42,0.06)] lg:h-full">
+        <section className="relative bg-[linear-gradient(180deg,#F6F9FF_0%,#F1F5FE_100%)] px-[clamp(20px,4.1vw,64px)] py-[26px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:h-[680px] lg:overflow-hidden">
+            <div className="pointer-events-none absolute -left-32 top-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.07)_0%,rgba(11,86,234,0)_70%)] blur-2xl" />
+            <div className="pointer-events-none absolute -right-24 bottom-10 h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-2xl" />
+            <div className="relative mx-auto max-w-[1460px] lg:h-full">
+                <div className="home-card relative overflow-hidden rounded-[20px] border border-white/70 bg-white/90 px-[34px] pb-[14px] pt-[26px] backdrop-blur lg:h-full">
                     <div className="pointer-events-none absolute left-[41.5%] top-0 hidden h-[520px] w-[160px] -skew-x-[12deg] bg-gradient-to-r from-transparent via-[#f2f6ff] to-transparent lg:block" />
                     <div className="pointer-events-none absolute left-[43%] top-[188px] hidden h-[260px] w-[160px] bg-[radial-gradient(circle,rgba(6,78,228,0.16)_1px,transparent_2px)] [background-size:12px_12px] opacity-40 lg:block" />
 
@@ -144,12 +146,12 @@ const PainSolutionSection = () => {
                                 {painItems.map(({ title, body, Icon }, index) => (
                                     <div
                                         key={title}
-                                        className={`grid grid-cols-[56px_1fr] items-center gap-[16px] py-[7px] ${
-                                            index !== painItems.length - 1 ? 'border-b border-[#edf0f5]' : ''
+                                        className={`grid grid-cols-[56px_1fr] items-center gap-[16px] py-[9px] ${
+                                            index !== painItems.length - 1 ? 'border-b border-[#EEF1F8]' : ''
                                         }`}
                                     >
-                                        <span className="inline-flex h-[54px] w-[54px] items-center justify-center rounded-full bg-[#ffecef]">
-                                            <Icon className="h-[29px] w-[29px] text-[#c9283a]" strokeWidth={2.4} aria-hidden />
+                                        <span className="home-chip inline-flex h-[54px] w-[54px] items-center justify-center rounded-full border border-white/70 bg-[linear-gradient(145deg,#FFEEF1_0%,#FFE0E5_100%)]">
+                                            <Icon className="h-[28px] w-[28px] text-[#C9283A]" strokeWidth={2.3} aria-hidden />
                                         </span>
                                         <span>
                                             <span className="block text-[17px] font-extrabold leading-[1.15] text-[#07112e]">
@@ -174,14 +176,14 @@ const PainSolutionSection = () => {
                                 you build a loyal base of repeat customers.
                             </p>
 
-                            <div className="mt-[18px] grid max-w-[660px] grid-cols-1 gap-[10px] sm:grid-cols-2">
+                            <div className="mt-[18px] grid max-w-[660px] grid-cols-1 gap-[12px] sm:grid-cols-2">
                                 {solutionCards.map(({ title, body, Icon }) => (
                                     <div
                                         key={body}
-                                        className="grid min-h-[110px] grid-cols-[48px_1fr] gap-[12px] rounded-[10px] border border-[#d9eadf] bg-[#f8fffb]/80 p-[13px] shadow-[0_7px_22px_rgba(15,23,42,0.018)]"
+                                        className="home-card grid min-h-[110px] grid-cols-[48px_1fr] gap-[12px] rounded-[14px] border border-[#D9EADF] bg-[linear-gradient(160deg,#FBFFFC_0%,#F1FAF5_100%)] p-[14px]"
                                     >
-                                        <span className="inline-flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#42bf6c] text-white">
-                                            <Icon className="h-[27px] w-[27px]" strokeWidth={2.25} aria-hidden />
+                                        <span className="home-chip inline-flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[linear-gradient(145deg,#5DD588_0%,#33B65F_100%)] text-white">
+                                            <Icon className="h-[26px] w-[26px]" strokeWidth={2.2} aria-hidden />
                                         </span>
                                         <span>
                                             <span className="block text-[13px] font-extrabold leading-[1.18] text-[#07112e]">
@@ -197,11 +199,11 @@ const PainSolutionSection = () => {
                         </div>
                     </div>
 
-                    <div className="absolute left-[46.8%] top-[44%] hidden h-[54px] w-[54px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#064ee4] text-white shadow-[0_12px_25px_rgba(6,78,228,0.3)] lg:flex">
-                        <ArrowRight className="h-[30px] w-[30px]" strokeWidth={3} aria-hidden />
+                    <div className="home-chip absolute left-[46.8%] top-[44%] hidden h-[58px] w-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[linear-gradient(145deg,#1768FF_0%,#003FC9_100%)] text-white shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_18px_36px_rgba(11,86,234,0.4)] lg:flex">
+                        <ArrowRight className="h-[28px] w-[28px]" strokeWidth={2.6} aria-hidden />
                     </div>
 
-                    <div className="relative mt-[18px] rounded-[10px] border border-[#dbe4f6] bg-[#eef4ff] px-[22px] py-[6px]">
+                    <div className="relative mt-[20px] overflow-hidden rounded-[14px] border border-white/70 bg-[linear-gradient(160deg,#F4F8FF_0%,#EAF1FF_100%)] px-[22px] py-[8px] shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_10px_24px_rgba(11,86,234,0.06)]">
                         <div className="grid items-center gap-[16px] lg:grid-cols-[1.16fr_0.82fr_0.86fr_1fr]">
                             <div className="grid grid-cols-[86px_1fr] items-center gap-[14px]">
                                 <div className="relative h-[84px]">
@@ -252,10 +254,10 @@ const PainSolutionSection = () => {
                     </div>
 
                     <div className="relative mt-[10px] flex min-h-[56px] items-center gap-[16px] rounded-[10px] bg-[#064ee4] px-[24px] text-white shadow-[0_14px_30px_rgba(6,78,228,0.2)]">
-                        <span className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[#28c866]">
-                            <WhatsAppIcon className="h-[25px] w-[25px] text-white" aria-hidden />
+                        <span className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[#25D366]">
+                            <WhatsAppIcon className="h-[24px] w-[24px]" size={24} variant="inverse" aria-hidden />
                         </span>
-                        <p className="text-[15px] font-semibold leading-[1.28]">
+                        <p className="text-[15px] font-semibold leading-[1.28] text-white">
                             We bring your customers back to you on WhatsApp
                             <span className="block">so you keep more profit and build lasting relationships.</span>
                         </p>

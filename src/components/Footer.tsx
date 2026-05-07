@@ -14,6 +14,15 @@ import {
     ShieldCheck,
     Youtube,
 } from 'lucide-react';
+import {
+    EMAIL_DISPLAY,
+    EMAIL_HREF,
+    OFFICE_ADDRESS_LINE_1,
+    OFFICE_ADDRESS_LINE_2,
+    OFFICE_ADDRESS_MAPS_HREF,
+    PHONE_DISPLAY,
+    PHONE_HREF,
+} from '../constants/contact';
 
 export type FooterProps = {
     hideTopCta?: boolean;
@@ -35,9 +44,9 @@ const brandFeatures = [
 ] as const;
 
 const contactItems = [
-    ['+353 89 123 4567', 'Mon - Fri, 9:00 AM - 6:00 PM (GMT)', Phone],
-    ['hello@gpos.com', "We'll respond as soon as possible", Mail],
-    ['123 Innovation Drive', 'Dublin, D02 X123, Ireland', MapPin],
+    [PHONE_DISPLAY, 'Mon - Fri, 9:00 AM - 6:00 PM (GMT)', Phone, PHONE_HREF],
+    [EMAIL_DISPLAY, "We'll respond as soon as possible", Mail, EMAIL_HREF],
+    [OFFICE_ADDRESS_LINE_1.replace(/,$/, ''), OFFICE_ADDRESS_LINE_2, MapPin, OFFICE_ADDRESS_MAPS_HREF],
 ] as const;
 
 const legalLinks = [
@@ -93,12 +102,23 @@ function BrandFeature({ item }: { item: (typeof brandFeatures)[number] }) {
 }
 
 function ContactItem({ item }: { item: (typeof contactItems)[number] }) {
-    const [title, description, Icon] = item;
+    const [title, description, Icon, href] = item;
+    const isExternal = typeof href === 'string' && /^https?:/i.test(href);
     return (
         <article className="flex items-center gap-[17px]">
             <DarkIcon Icon={Icon} small />
             <div>
-                <h3 className="text-[15px] font-semibold leading-[1.2] text-white">{title}</h3>
+                {href ? (
+                    <a
+                        href={href}
+                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="text-[15px] font-semibold leading-[1.2] text-white no-underline transition-colors hover:text-[#7CB6FF] hover:underline"
+                    >
+                        {title}
+                    </a>
+                ) : (
+                    <h3 className="text-[15px] font-semibold leading-[1.2] text-white">{title}</h3>
+                )}
                 <p className="mt-[8px] whitespace-nowrap text-[13px] font-medium leading-[1.2] text-[#C8D2E1]">{description}</p>
             </div>
         </article>

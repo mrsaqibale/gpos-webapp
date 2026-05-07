@@ -4,7 +4,17 @@ import Footer from '../components/Footer';
 import ContactOptions from '../components/ContactOptions';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { WhatsAppIcon } from '../components/icons/WhatsAppIcon';
-import { WHATSAPP_DISPLAY, WHATSAPP_HREF } from '../constants/contact';
+import {
+    WHATSAPP_DISPLAY,
+    WHATSAPP_HREF,
+    PHONE_DISPLAY,
+    PHONE_HREF,
+    EMAIL_DISPLAY,
+    EMAIL_HREF,
+    OFFICE_ADDRESS_LINE_1,
+    OFFICE_ADDRESS_LINE_2,
+    OFFICE_ADDRESS_MAPS_HREF,
+} from '../constants/contact';
 import { useState } from 'react';
 import ScheduleDemoForm, {
     scheduleDemoLabelClass,
@@ -92,7 +102,19 @@ const Contact = () => {
                                             </div>
                                             <div>
                                                 <h4 className="text-lg font-bold text-primary-navy">Our Office</h4>
-                                                <p className="text-brand-textSecondary mt-1">Barrack St, Bansha,<br />Co. Tipperary, E34 X402, Ireland</p>
+                                                <p className="text-brand-textSecondary mt-1">
+                                                    <a
+                                                        href={OFFICE_ADDRESS_MAPS_HREF}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="hover:text-[#55A630] transition-colors underline-offset-2 hover:underline"
+                                                        aria-label="Open office address in Google Maps"
+                                                    >
+                                                        {OFFICE_ADDRESS_LINE_1}
+                                                        <br />
+                                                        {OFFICE_ADDRESS_LINE_2}
+                                                    </a>
+                                                </p>
                                             </div>
                                         </div>
                                         <div className="flex items-start space-x-6">
@@ -102,8 +124,8 @@ const Contact = () => {
                                             <div>
                                                 <h4 className="text-lg font-bold text-primary-navy">Phone Number</h4>
                                                 <p className="text-brand-textSecondary mt-1">
-                                                    <a href="tel:+3536221302" className="hover:text-[#55A630] transition-colors underline-offset-2 hover:underline">
-                                                        062 21302
+                                                    <a href={PHONE_HREF} className="hover:text-[#55A630] transition-colors underline-offset-2 hover:underline">
+                                                        {PHONE_DISPLAY}
                                                     </a>
                                                 </p>
                                             </div>
@@ -132,7 +154,14 @@ const Contact = () => {
                                             </div>
                                             <div>
                                                 <h4 className="text-lg font-bold text-primary-navy">Email Address</h4>
-                                                <p className="text-brand-textSecondary mt-1">demo@gposapp.com</p>
+                                                <p className="text-brand-textSecondary mt-1">
+                                                    <a
+                                                        href={EMAIL_HREF}
+                                                        className="hover:text-[#55A630] transition-colors underline-offset-2 hover:underline"
+                                                    >
+                                                        {EMAIL_DISPLAY}
+                                                    </a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

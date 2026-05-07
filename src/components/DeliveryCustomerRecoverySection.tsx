@@ -87,7 +87,7 @@ function FeatureItem({
     return (
         <article className="flex items-start gap-[23px]">
             <span
-                className="grid h-[73px] w-[73px] shrink-0 place-items-center rounded-[13px] border border-white/80 shadow-[0_9px_22px_rgba(15,23,42,0.04)]"
+                className="home-chip grid h-[73px] w-[73px] shrink-0 place-items-center rounded-[16px] border border-white/80"
                 style={{ backgroundColor: iconBg, color: iconColor }}
             >
                 {iconVariant === 'whatsapp' ? (
@@ -121,8 +121,8 @@ function FeatureItem({
                 )}
             </span>
             <div className="pt-[7px]">
-                <h3 className="text-[18px] font-extrabold leading-[1.22] text-[#07142F]">{title}</h3>
-                <p className="mt-[7px] max-w-[315px] text-[15px] font-medium leading-[1.45] text-[#27344E]">{description}</p>
+                <h3 className="text-[18px] font-extrabold leading-[1.22] tracking-[-0.012em] text-[#07142F]">{title}</h3>
+                <p className="mt-[7px] max-w-[315px] text-[15px] font-medium leading-[1.55] tracking-[-0.005em] text-[#27344E]">{description}</p>
             </div>
         </article>
     );
@@ -144,15 +144,15 @@ function StatCard({
     iconBg: string;
 }) {
     return (
-        <article className="rounded-[13px] border border-[#E5EAF3] bg-white px-[22px] py-[22px] shadow-[0_4px_18px_rgba(15,23,42,0.025)]">
+        <article className="home-card rounded-[16px] border border-white/70 bg-white px-[22px] py-[22px]">
             <div className="flex items-center justify-between gap-4">
                 <div className="flex min-w-0 items-center gap-[19px]">
-                    <span className="grid h-[76px] w-[76px] shrink-0 place-items-center rounded-full" style={{ backgroundColor: iconBg, color: iconColor }}>
-                        <Icon className="h-[38px] w-[38px]" strokeWidth={2.25} aria-hidden />
+                    <span className="home-chip grid h-[76px] w-[76px] shrink-0 place-items-center rounded-full" style={{ backgroundColor: iconBg, color: iconColor }}>
+                        <Icon className="h-[36px] w-[36px]" strokeWidth={2.2} aria-hidden />
                     </span>
                     <div className="min-w-0">
-                        <p className="truncate text-[15px] font-extrabold leading-tight text-[#111A35]">{title}</p>
-                        <p className="mt-[10px] text-[31px] font-extrabold leading-none tracking-[-0.02em] text-[#07142F]">{value}</p>
+                        <p className="truncate text-[15px] font-extrabold leading-tight tracking-[-0.012em] text-[#111A35]">{title}</p>
+                        <p className="mt-[10px] text-[31px] font-extrabold leading-none tracking-[-0.028em] text-[#07142F]">{value}</p>
                         <p className="mt-[8px] text-[14px] font-medium leading-none text-[#33415E]">This Month</p>
                     </div>
                 </div>
@@ -170,11 +170,11 @@ function StatCard({
 
 function DirectOrdersCard() {
     return (
-        <article className="rounded-[13px] border border-[#E1E9F5] bg-[#F6FAFF] px-[22px] py-[22px] shadow-[0_4px_18px_rgba(15,23,42,0.025)]">
+        <article className="home-card rounded-[16px] border border-white/70 bg-[linear-gradient(160deg,#FAFCFF_0%,#F0F6FF_100%)] px-[22px] py-[22px]">
             <div className="flex items-start justify-between gap-4">
                 <div>
-                    <p className="text-[16px] font-extrabold leading-tight text-[#111A35]">Direct Orders from WhatsApp</p>
-                    <p className="mt-[15px] text-[31px] font-extrabold leading-none tracking-[-0.02em] text-[#07142F]">€12,640</p>
+                    <p className="text-[16px] font-extrabold leading-tight tracking-[-0.012em] text-[#111A35]">Direct Orders from WhatsApp</p>
+                    <p className="mt-[15px] text-[31px] font-extrabold leading-none tracking-[-0.028em] text-[#07142F]">€12,640</p>
                     <p className="mt-[10px] text-[14px] font-medium leading-none text-[#33415E]">This Month</p>
                 </div>
                 <div className="pt-[21px] text-right">
@@ -253,21 +253,21 @@ function BottomBenefit({
     index: number;
 }) {
     return (
-        <article className={`flex min-h-[104px] items-center gap-[10px] px-[10px] py-[10px] ${index > 0 ? 'lg:border-l lg:border-[#E4E9F3]' : ''}`}>
+        <article className={`flex min-h-[108px] items-center gap-[10px] px-[10px] py-[10px] ${index > 0 ? 'lg:border-l lg:border-[#E4E9F3]' : ''}`}>
             <span
-                className={`grid shrink-0 place-items-center rounded-full ${featured ? 'h-[83px] w-[83px] border-[3px] border-white ring-2 ring-[#0A55F5]' : 'h-[58px] w-[58px]'}`}
+                className={`home-chip grid shrink-0 place-items-center rounded-full ${featured ? 'h-[83px] w-[83px] border-[3px] border-white ring-2 ring-[#0A55F5]' : 'h-[58px] w-[58px] border border-white/70'}`}
                 style={{ backgroundColor: iconBg, color: iconColor }}
             >
                 <Icon className={featured ? 'h-[38px] w-[38px]' : 'h-[30px] w-[30px]'} strokeWidth={2.3} aria-hidden />
             </span>
             <div className="min-w-0">
-                <h3 className={`whitespace-nowrap font-extrabold leading-[1.25] text-[#07142F] ${featured ? 'text-[15px]' : 'text-[13px]'}`}>
+                <h3 className={`whitespace-nowrap font-extrabold leading-[1.25] tracking-[-0.012em] text-[#07142F] ${featured ? 'text-[15px]' : 'text-[13px]'}`}>
                     {title}
                 </h3>
                 {highlight ? (
-                    <p className="mt-[4px] whitespace-nowrap text-[17px] font-extrabold leading-[1.15] text-[#0649C9]">{highlight}</p>
+                    <p className="mt-[4px] whitespace-nowrap text-[17px] font-extrabold leading-[1.15] tracking-[-0.018em] text-[#0649C9]">{highlight}</p>
                 ) : null}
-                <p className={`mt-[7px] text-[13px] font-medium leading-[1.42] text-[#40506B] ${featured ? 'whitespace-nowrap' : 'max-w-[172px]'}`}>
+                <p className={`mt-[7px] text-[13px] font-medium leading-[1.45] text-[#40506B] ${featured ? 'whitespace-nowrap' : 'max-w-[172px]'}`}>
                     {description}
                 </p>
             </div>
@@ -278,23 +278,24 @@ function BottomBenefit({
 const DeliveryCustomerRecoverySection: React.FC = () => {
     return (
         <section
-            className="overflow-x-clip bg-[#F8FAFE] py-[22px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F4F8FF_0%,#F8FAFE_100%)] py-[40px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
             style={{ paddingLeft: 20, paddingRight: 20 }}
         >
-            <div className="mx-auto max-w-[1466px]">
+            <div className="pointer-events-none absolute -right-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
+            <div className="relative mx-auto max-w-[1466px]">
                 <div className="mt-[8px] grid items-start gap-[34px] lg:mt-[10px] lg:grid-cols-[520px_minmax(290px,350px)_minmax(460px,1fr)] lg:gap-[24px]">
                     <div className="pt-[9px]">
-                        <span className="inline-flex items-center gap-[9px] rounded-full border border-[#DBF1E4] bg-[#EAF8EF] px-[15px] py-[7px] text-[15px] font-extrabold leading-none text-[#157E49]">
+                        <span className="home-eyebrow inline-flex items-center gap-[9px] rounded-full border border-[#DBF1E4] bg-[#EAF8EF]/85 px-[15px] py-[8px] text-[15px] font-extrabold leading-none tracking-[-0.005em] text-[#157E49] backdrop-blur">
                             <WhatsAppIcon className="h-[19px] w-[19px]" size={19} variant="brand" />
                             Turn One-Time Buyers Into Loyal Customers
                         </span>
 
-                        <h2 className="mt-[33px] text-[clamp(31px,8.3vw,47px)] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#07142F]">
+                        <h2 className="mt-[28px] text-[clamp(31px,8.3vw,48px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
                             <span className="block whitespace-nowrap">Bring Customers Back.</span>
-                            <span className="block whitespace-nowrap text-[#0B56EA]">Keep Them for Life.</span>
+                            <span className="block whitespace-nowrap bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#0A66FF] bg-clip-text text-transparent">Keep Them for Life.</span>
                         </h2>
 
-                        <p className="mt-[23px] max-w-[430px] text-[17px] font-medium leading-[1.58] text-[#26334C]">
+                        <p className="mt-[24px] max-w-[440px] text-[17px] font-medium leading-[1.6] tracking-[-0.005em] text-[#26334C]">
                             GPOS helps you re-engage inactive customers on WhatsApp, promote offers, and drive repeat orders -
                             automatically.
                         </p>
@@ -329,7 +330,7 @@ const DeliveryCustomerRecoverySection: React.FC = () => {
                         </svg>
                     </div>
 
-                    <div className="rounded-[22px] bg-white/45 p-[22px] shadow-[0_14px_36px_rgba(15,23,42,0.035)]">
+                    <div className="home-card rounded-[22px] border border-white/70 bg-white/55 p-[22px] backdrop-blur">
                         <div className="space-y-[16px]">
                             {topStats.map(([title, value, delta, Icon, iconColor, iconBg]) => (
                                 <StatCard key={title} title={title} value={value} delta={delta} Icon={Icon} iconColor={iconColor} iconBg={iconBg} />
@@ -339,7 +340,7 @@ const DeliveryCustomerRecoverySection: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-[20px] rounded-[17px] border border-[#E2EAF6] bg-white px-[6px] py-[14px] shadow-[0_14px_36px_rgba(15,23,42,0.055)]">
+                <div className="home-card mt-[26px] rounded-[20px] border border-white/70 bg-white/95 px-[8px] py-[16px] backdrop-blur">
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-[430px_repeat(4,minmax(250px,1fr))] lg:gap-0">
                         {bottomBenefits.map(([title, highlight, description, Icon, iconColor, iconBg, featured], index) => (
                             <BottomBenefit

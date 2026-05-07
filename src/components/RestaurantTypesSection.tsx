@@ -101,13 +101,18 @@ const industryCards: IndustryCard[] = [
 
 const RestaurantTypesSection: React.FC = () => {
     return (
-        <section className="bg-[linear-gradient(180deg,#fbfcff_0%,#f7faff_58%,#f2f7ff_100%)] px-[clamp(20px,2.45vw,38px)] py-[28px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e]">
-            <div className="mx-auto max-w-[1460px]">
+        <section className="relative bg-[linear-gradient(180deg,#FAFCFF_0%,#F4F8FF_58%,#EFF4FE_100%)] px-[clamp(20px,2.45vw,38px)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e]">
+            <div className="pointer-events-none absolute -left-32 top-32 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
+            <div className="pointer-events-none absolute -right-32 bottom-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
+            <div className="relative mx-auto max-w-[1460px]">
                 <div className="text-center">
-                    <h2 className="text-[clamp(36px,3.18vw,50px)] font-extrabold leading-[1.08] tracking-[0] text-[#07112e]">
-                        Built for <span className="text-[#064ee4]">Every</span> Type of Food Business
+                    <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/80 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
+                        For every food business
+                    </span>
+                    <h2 className="mt-[18px] text-[clamp(36px,3.18vw,52px)] font-extrabold leading-[1.05] tracking-[-0.028em] text-[#07112e]">
+                        Built for <span className="bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#0A66FF] bg-clip-text text-transparent">Every</span> Type of Food Business
                     </h2>
-                    <p className="mx-auto mt-[18px] max-w-none text-[20px] font-medium leading-[1.45] text-[#3c4659]">
+                    <p className="mx-auto mt-[20px] max-w-none text-[20px] font-medium leading-[1.5] tracking-[-0.005em] text-[#3C4659]">
                         <span className="block whitespace-nowrap">
                             GPOS is designed to help all food businesses manage orders, customers and operations
                         </span>
@@ -115,55 +120,57 @@ const RestaurantTypesSection: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="mt-[36px] grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-6">
+                <div className="mt-[40px] grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-6">
                     {industryCards.map(({ title, description, Icon, image }) => (
                         <article
                             key={title}
-                            className="group flex h-full min-h-[505px] flex-col overflow-hidden rounded-[11px] border border-[#e2e8f2] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-transform duration-300 hover:-translate-y-1"
+                            className="home-tile group flex h-full min-h-[510px] flex-col overflow-hidden rounded-[18px] border border-white/70 bg-white/95 backdrop-blur"
                         >
-                            <div className="flex flex-1 flex-col items-center px-[15px] pb-[10px] pt-[24px] text-center">
-                                <span className="inline-flex h-[82px] w-[82px] items-center justify-center rounded-full bg-[#eef3ff] text-[#064ee4]">
-                                    <Icon className="h-[47px] w-[47px]" strokeWidth={2.05} aria-hidden />
+                            <div className="flex flex-1 flex-col items-center px-[16px] pb-[12px] pt-[28px] text-center">
+                                <span className="home-chip inline-flex h-[84px] w-[84px] items-center justify-center rounded-full border border-white/70 bg-[linear-gradient(145deg,#F4F8FF_0%,#E2EBFE_100%)] text-[#064ee4]">
+                                    <Icon className="h-[44px] w-[44px]" strokeWidth={2.05} aria-hidden />
                                 </span>
-                                <h3 className="mt-[22px] text-[22px] font-extrabold leading-[1.1] text-[#07112e]">
+                                <h3 className="mt-[22px] text-[22px] font-extrabold leading-[1.1] tracking-[-0.018em] text-[#07112e]">
                                     {title}
                                 </h3>
-                                <p className="mt-[14px] min-h-[64px] text-[14px] font-medium leading-[1.5] text-[#273244]">
+                                <p className="mt-[14px] min-h-[64px] text-[14px] font-medium leading-[1.55] text-[#27344E]">
                                     {description}
                                 </p>
                             </div>
 
-                            <div className="relative mt-auto px-[2px] pb-[2px]">
-                                <img
-                                    src={image}
-                                    alt=""
-                                    className="h-[221px] w-full rounded-[8px] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
+                            <div className="relative mt-auto px-[6px] pb-[6px]">
+                                <div className="overflow-hidden rounded-[12px]">
+                                    <img
+                                        src={image}
+                                        alt=""
+                                        className="h-[221px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
                             </div>
                         </article>
                     ))}
                 </div>
 
-                <div className="mt-[26px] flex min-h-[121px] items-center justify-between rounded-[10px] border border-[#dbe4f6] bg-[#f3f7ff] px-[50px] shadow-[0_10px_26px_rgba(15,23,42,0.035)]">
-                    <div className="flex items-center gap-[28px]">
-                        <span className="inline-flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#064ee4] text-white">
-                            <Users className="h-[36px] w-[36px]" strokeWidth={2.4} aria-hidden />
+                <div className="home-card mt-[34px] flex min-h-[128px] items-center justify-between rounded-[18px] border border-white/70 bg-[linear-gradient(160deg,#F4F8FF_0%,#EAF1FF_100%)] px-[50px]">
+                    <div className="flex items-center gap-[30px]">
+                        <span className="home-chip inline-flex h-[68px] w-[68px] items-center justify-center rounded-full bg-[linear-gradient(145deg,#1768FF_0%,#003FC9_100%)] text-white">
+                            <Users className="h-[34px] w-[34px]" strokeWidth={2.2} aria-hidden />
                         </span>
-                        <p className="text-[22px] font-medium leading-[1.45] text-[#121b2d]">
+                        <p className="text-[22px] font-medium leading-[1.45] tracking-[-0.005em] text-[#121B2D]">
                             No matter what type of food business you run,
                             <span className="block">
-                                GPOS helps you <span className="font-extrabold text-[#064ee4]">save time, reduce costs and grow faster.</span>
+                                GPOS helps you <span className="font-extrabold text-[#0649C9]">save time, reduce costs and grow faster.</span>
                             </span>
                         </p>
                     </div>
                     <button
                         type="button"
-                        className="inline-flex h-[48px] w-[48px] items-center justify-center rounded-full text-[#064ee4] hover:bg-white"
+                        className="home-chip inline-flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white/90 text-[#0649C9] transition hover:bg-white hover:translate-y-[-1px]"
                         aria-label="Learn more"
                     >
-                        <ArrowRight className="h-[29px] w-[29px]" strokeWidth={2.4} aria-hidden />
+                        <ArrowRight className="h-[26px] w-[26px]" strokeWidth={2.4} aria-hidden />
                     </button>
                 </div>
             </div>

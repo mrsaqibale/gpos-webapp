@@ -5,9 +5,17 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScheduleDemoForm from "../components/ScheduleDemoForm";
 import "./GetDemoPage.css";
-
-const HELPLINE_DISPLAY = "+353 2210200";
-const HELPLINE_TEL = "tel:+3532210200";
+import {
+    EMAIL_DISPLAY,
+    EMAIL_HREF,
+    OFFICE_ADDRESS_LINE_1,
+    OFFICE_ADDRESS_LINE_2,
+    OFFICE_ADDRESS_MAPS_HREF,
+    PHONE_DISPLAY,
+    PHONE_HREF,
+    WHATSAPP_DISPLAY,
+    WHATSAPP_HREF,
+} from "../constants/contact";
 
 export default function GetDemoPage() {
     useEffect(() => {
@@ -48,10 +56,10 @@ export default function GetDemoPage() {
                                     <p className="text-left text-sm text-[#475569] sm:text-[15px]">
                                         Speak with us today:{" "}
                                         <a
-                                            href={HELPLINE_TEL}
+                                            href={PHONE_HREF}
                                             className="font-bold text-[#003B8E] underline-offset-2 hover:underline"
                                         >
-                                            {HELPLINE_DISPLAY}
+                                            {PHONE_DISPLAY}
                                         </a>
                                     </p>
                                 </div>
@@ -64,7 +72,7 @@ export default function GetDemoPage() {
                                         Buy now
                                     </Link>
                                     <a
-                                        href={HELPLINE_TEL}
+                                        href={PHONE_HREF}
                                         className="inline-flex h-12 min-h-[48px] flex-1 items-center justify-center gap-2 rounded-[10px] border-2 border-[#003B8E] bg-white px-5 text-[15px] font-semibold text-[#003B8E] transition hover:bg-[#f8fafc] sm:flex-initial sm:px-6"
                                     >
                                         <Phone className="h-[18px] w-[18px] shrink-0" aria-hidden />
@@ -109,19 +117,25 @@ export default function GetDemoPage() {
                                     <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#003B8E]" aria-hidden />
                                     <div>
                                         <p className="font-semibold text-[#0B1F3A]">Office</p>
-                                        <p className="mt-0.5">
-                                            Barrack St, Bansha,
+                                        <a
+                                            href={OFFICE_ADDRESS_MAPS_HREF}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="mt-0.5 inline-block text-[#475569] transition-colors hover:text-[#003B8E] hover:underline"
+                                            aria-label="Open office address in Google Maps"
+                                        >
+                                            {OFFICE_ADDRESS_LINE_1}
                                             <br />
-                                            Co. Tipperary, E34 X402, Ireland
-                                        </p>
+                                            {OFFICE_ADDRESS_LINE_2}
+                                        </a>
                                     </div>
                                 </li>
                                 <li className="flex gap-3">
                                     <Phone className="mt-0.5 h-5 w-5 shrink-0 text-[#003B8E]" aria-hidden />
                                     <div>
                                         <p className="font-semibold text-[#0B1F3A]">Phone</p>
-                                        <a href={HELPLINE_TEL} className="mt-0.5 inline-block font-medium text-[#003B8E] hover:underline">
-                                            {HELPLINE_DISPLAY}
+                                        <a href={PHONE_HREF} className="mt-0.5 inline-block font-medium text-[#003B8E] hover:underline">
+                                            {PHONE_DISPLAY}
                                         </a>
                                     </div>
                                 </li>
@@ -129,8 +143,13 @@ export default function GetDemoPage() {
                                     <Phone className="mt-0.5 h-5 w-5 shrink-0 text-[#003B8E]" aria-hidden />
                                     <div>
                                         <p className="font-semibold text-[#0B1F3A]">WhatsApp</p>
-                                        <a href={HELPLINE_TEL} className="mt-0.5 inline-block font-medium text-[#003B8E] hover:underline">
-                                            {HELPLINE_DISPLAY}
+                                        <a
+                                            href={WHATSAPP_HREF}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="mt-0.5 inline-block font-medium text-[#003B8E] hover:underline"
+                                        >
+                                            {WHATSAPP_DISPLAY}
                                         </a>
                                     </div>
                                 </li>
@@ -139,10 +158,10 @@ export default function GetDemoPage() {
                                     <div>
                                         <p className="font-semibold text-[#0B1F3A]">Email</p>
                                         <a
-                                            href="mailto:demo@gposapp.com"
+                                            href={EMAIL_HREF}
                                             className="mt-0.5 inline-block font-medium text-[#003B8E] hover:underline"
                                         >
-                                            demo@gposapp.com
+                                            {EMAIL_DISPLAY}
                                         </a>
                                     </div>
                                 </li>

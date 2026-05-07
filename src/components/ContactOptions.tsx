@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HelpCircle, Monitor, Tag } from "lucide-react";
-const HELPLINE_DISPLAY = "+353 2210200";
-const HELPLINE_TEL = "tel:+3532210200";
+import { PHONE_DISPLAY, PHONE_HREF } from "../constants/contact";
 
 const cardClass =
     "rounded-2xl border border-[#E3E8F1] bg-white p-8 text-center shadow-[0_4px_14px_rgba(15,35,60,0.06)] transition hover:shadow-[0_12px_28px_rgba(15,35,60,0.1)] sm:p-10";
@@ -46,10 +45,10 @@ export default function ContactOptions({
                 <p className="mx-auto mb-12 max-w-3xl text-[1.05rem] font-bold leading-snug text-[#1D3158] sm:text-lg md:mb-14 md:text-xl">
                     Need to speak with someone? Call our helpline:{" "}
                     <a
-                        href={HELPLINE_TEL}
+                        href={PHONE_HREF}
                         className="text-primary-navy underline-offset-2 hover:underline"
                     >
-                        {HELPLINE_DISPLAY}
+                        {PHONE_DISPLAY}
                     </a>
                 </p>
 

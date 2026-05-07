@@ -37,14 +37,17 @@ const avatarColors = ['#d6ecff', '#111827', '#f0c7b4'];
 
 const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
     return (
-        <section className="relative overflow-hidden bg-[#fbfcff] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e]">
-            <div className="absolute inset-x-0 bottom-0 h-[34%] bg-[radial-gradient(ellipse_at_70%_82%,rgba(6,78,228,0.18),rgba(197,216,255,0.12)_36%,transparent_64%)]" />
+        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#FFFFFF_0%,#FAFCFF_55%,#F4F8FF_100%)] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e]">
+            <div className="pointer-events-none absolute inset-x-0 top-[-180px] h-[420px] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.95),rgba(255,255,255,0)_55%)]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[34%] bg-[radial-gradient(ellipse_at_70%_82%,rgba(6,78,228,0.18),rgba(197,216,255,0.12)_36%,transparent_64%)]" />
             <div className="pointer-events-none absolute inset-x-0 bottom-[-130px] h-[420px] opacity-[0.34] [background-image:repeating-radial-gradient(ellipse_at_center,transparent_0,transparent_26px,rgba(6,78,228,0.11)_27px,transparent_29px)]" />
+            <div className="pointer-events-none absolute -left-24 top-24 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.10)_0%,rgba(11,86,234,0)_70%)] blur-2xl" />
+            <div className="pointer-events-none absolute -right-24 top-[-30px] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.09)_0%,rgba(20,167,95,0)_70%)] blur-2xl" />
 
             <div className="relative mx-auto grid min-h-[600px] w-full max-w-[1536px] grid-cols-1 px-[clamp(20px,4.1vw,64px)] pb-0 pt-0 lg:h-[600px] lg:min-h-[600px] lg:grid-cols-[0.98fr_1.12fr] lg:gap-8">
                 <div className="relative z-10 max-w-[720px] pt-[6px]">
-                    <div className="inline-flex h-[42px] items-center gap-3 rounded-[16px] border border-[#e3e9f6] bg-[#f8faff] px-[18px] text-[15px] font-semibold text-[#0642c6] shadow-[0_8px_22px_rgba(6,78,228,0.04)]">
-                        <Star className="h-[18px] w-[18px]" strokeWidth={2.2} aria-hidden />
+                    <div className="home-pill home-eyebrow inline-flex h-[44px] items-center gap-3 rounded-full border border-[#E3E9F6] bg-white/80 px-[20px] text-[15px] font-semibold tracking-[-0.005em] text-[#0642c6] backdrop-blur">
+                        <Star className="h-[18px] w-[18px] fill-[#FFB400] text-[#FFB400]" strokeWidth={1.6} aria-hidden />
                         #1 Restaurant POS for Food Businesses
                     </div>
 
@@ -53,20 +56,22 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
                         <span className="block whitespace-nowrap text-[#064ee4]">Smarter, Faster, Better</span>
                     </h1>
 
-                    <p className="mt-[12px] max-w-[590px] text-[17px] font-normal leading-[1.48] text-[#525c70]">
+                    <p className="mt-[14px] max-w-[590px] text-[17px] font-normal leading-[1.55] tracking-[-0.005em] text-[#3F4A63]">
                         GPOS is an all-in-one restaurant management system that simplifies billing, kitchen operations,
                         delivery, staff management and reports - all in one powerful platform.
                     </p>
 
-                    <div className="mt-[18px] grid max-w-[584px] grid-cols-2 rounded-[9px] border border-[#e8ebf2] bg-white shadow-[0_8px_28px_rgba(15,23,42,0.035)] sm:grid-cols-4">
+                    <div className="home-card mt-[20px] grid max-w-[584px] grid-cols-2 rounded-[14px] border border-[#E5EAF4] bg-white/85 backdrop-blur sm:grid-cols-4">
                         {featureItems.map(({ label, Icon, compact }) => (
                             <div
                                 key={label}
-                                className="flex min-h-[74px] flex-col items-center justify-center gap-[5px] px-3 text-center"
+                                className="flex min-h-[78px] flex-col items-center justify-center gap-[6px] px-3 text-center"
                             >
-                                <Icon className="h-[24px] w-[24px] text-[#064ee4]" strokeWidth={2.15} aria-hidden />
+                                <span className="grid h-[34px] w-[34px] place-items-center rounded-full bg-[linear-gradient(145deg,#EEF5FF_0%,#DCEAFF_100%)] text-[#064ee4] shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_6px_14px_rgba(11,86,234,0.10)]">
+                                    <Icon className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
+                                </span>
                                 <span
-                                    className={`whitespace-pre-line font-semibold leading-[1.45] text-[#050b1f] ${
+                                    className={`whitespace-pre-line font-semibold leading-[1.4] tracking-[-0.005em] text-[#050b1f] ${
                                         compact ? 'text-[12.5px]' : 'text-[13.5px]'
                                     }`}
                                 >
@@ -76,21 +81,21 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
                         ))}
                     </div>
 
-                    <div className="mt-[18px] flex flex-wrap items-center gap-[22px]">
+                    <div className="mt-[20px] flex flex-wrap items-center gap-[18px]">
                         <button
                             type="button"
                             onClick={onGetStartedClick}
-                            className="inline-flex h-[50px] min-w-[222px] items-center justify-center gap-3 rounded-[9px] border-0 bg-[#064ee4] px-6 text-[15px] font-semibold text-white shadow-[0_14px_28px_rgba(6,78,228,0.24)] hover:bg-[#033fc0]"
+                            className="home-cta-primary home-gloss inline-flex h-[52px] min-w-[226px] items-center justify-center gap-3 rounded-[12px] border-0 px-6 text-[15px] font-semibold tracking-[-0.005em] text-white"
                         >
                             <CalendarDays className="h-[22px] w-[22px]" strokeWidth={2} aria-hidden />
                             Book a Free Demo
                         </button>
                         <Link
                             to="/get_demo"
-                            className="inline-flex h-[50px] min-w-[178px] items-center justify-center gap-3 rounded-[9px] border border-[#e0e4ec] bg-white px-6 text-[15px] font-semibold text-[#050b1f] no-underline shadow-[0_8px_18px_rgba(15,23,42,0.035)] hover:border-[#cbd3e4]"
+                            className="home-cta-secondary inline-flex h-[52px] min-w-[180px] items-center justify-center gap-3 rounded-[12px] border border-[#E0E4EC] px-6 text-[15px] font-semibold tracking-[-0.005em] text-[#050b1f] no-underline"
                         >
-                            <span className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-full border-[2px] border-[#064ee4]">
-                                <CirclePlay className="h-[19px] w-[19px] text-[#064ee4]" fill="none" strokeWidth={2.1} aria-hidden />
+                            <span className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-full border-[2px] border-[#064ee4] bg-white shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_4px_10px_rgba(11,86,234,0.18)]">
+                                <CirclePlay className="h-[18px] w-[18px] text-[#064ee4]" fill="none" strokeWidth={2.1} aria-hidden />
                             </span>
                             Watch Video
                         </Link>
@@ -153,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
                         />
                     </svg>
 
-                    <div className="relative ml-auto w-full max-w-[628px] rounded-[24px] bg-[#eef3ff] px-[32px] pb-[16px] pt-[14px] shadow-[inset_0_0_0_1px_rgba(6,78,228,0.04)]">
+                    <div className="relative ml-auto w-full max-w-[628px] rounded-[24px] border border-white/70 bg-[linear-gradient(160deg,#F4F8FF_0%,#EAF1FF_56%,#E8F4FF_100%)] px-[32px] pb-[16px] pt-[14px] shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_18px_44px_rgba(11,86,234,0.10),0_2px_4px_rgba(15,23,42,0.04)]">
                         <h2 className="text-[26px] font-extrabold leading-[1.06] text-[#064ee4]">Save 15% to 30%</h2>
                         <p className="mt-[4px] text-[16px] font-semibold leading-[1.12] text-[#050b1f]">
                             on Online Ordering Commissions
@@ -182,7 +187,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
                             so you pay less commission and keep more profit.
                         </p>
 
-                        <div className="relative z-20 mt-[12px] flex min-h-[86px] items-center justify-between rounded-[12px] border border-[#d8e1f4] bg-[#edf4ff] px-[16px] py-[8px] shadow-[0_10px_18px_rgba(6,78,228,0.035)]">
+                        <div className="relative z-20 mt-[12px] flex min-h-[86px] items-center justify-between rounded-[14px] border border-white/80 bg-white/85 px-[16px] py-[8px] backdrop-blur shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_12px_28px_rgba(11,86,234,0.08),0_2px_4px_rgba(15,23,42,0.04)]">
                             <div>
                                 <p className="text-[16px] font-bold leading-none text-[#050b1f]">Annual Savings</p>
                                 <p className="mt-[6px] text-[25px] font-extrabold leading-none text-[#064ee4]">

@@ -75,19 +75,24 @@ const Testimonials: React.FC = () => {
     );
 
     return (
-        <section className="relative min-w-0 overflow-x-clip overflow-hidden bg-gradient-to-br from-sky-50 via-white to-[#eff6ff] py-20">
+        <section className="relative min-w-0 overflow-x-clip overflow-hidden bg-[linear-gradient(180deg,#F4F8FF_0%,#FFFFFF_50%,#EFF6FF_100%)] py-24">
             <div className="pointer-events-none absolute inset-0">
                 <div className="testimonial-float-a absolute left-12 top-8 h-28 w-28 rounded-full bg-[#3B82F6]/18 blur-3xl" />
                 <div className="testimonial-float-b absolute bottom-10 right-10 h-44 w-44 rounded-full bg-[#60A5FA]/16 blur-3xl" />
                 <div className="testimonial-float-c absolute right-1/4 top-24 h-24 w-24 rounded-full bg-white/70 blur-2xl" />
+                <div className="absolute -left-32 top-1/3 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.07)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
+                <div className="absolute -right-32 bottom-1/4 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
             </div>
 
             <div className="relative mx-auto min-w-0 max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-                <div className="mb-12 text-center">
-                    <h2 className="text-[clamp(2.125rem,6.5vw,4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#032c7e]">
+                <div className="mb-14 text-center">
+                    <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/85 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
+                        Customer Stories
+                    </span>
+                    <h2 className="mt-[18px] text-[clamp(2.125rem,6.5vw,4rem)] font-extrabold leading-[1.05] tracking-[-0.028em] text-[#032c7e]">
                         What Our Clients Say
                     </h2>
-                    <p className="mt-3 font-['Poppins',sans-serif] text-lg font-semibold leading-snug tracking-tight text-[#334155] md:text-xl">
+                    <p className="mt-4 font-['Poppins',sans-serif] text-lg font-medium leading-[1.55] tracking-[-0.005em] text-[#334155] md:text-xl">
                         Trusted by Busy Restaurants
                     </p>
                 </div>
