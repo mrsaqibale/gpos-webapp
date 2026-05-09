@@ -18,9 +18,8 @@ import {
 } from "lucide-react";
 import Footer from "../components/Footer";
 import BuiltForRestaurantOperationsSection from "../components/BuiltForRestaurantOperationsSection";
-import FeaturesGridSection from "../components/FeaturesGridSection";
-import WhyRestaurantsChooseGPOS from "../components/WhyRestaurantsChooseGPOS";
-import HomePricingMockup from "../components/HomePricingMockup";
+import DeliveryOrderFlowSection from "../components/DeliveryOrderFlowSection";
+import StaffManagementSection from "../components/StaffManagementSection";
 import ScheduleDemoFormModal from "../components/ScheduleDemoFormModal";
 import featuresPageHeroDashboard from "../assets/features-page-hero-dashboard.png?url";
 import "./RestaurantPOSPage.css";
@@ -311,14 +310,10 @@ export default function RestaurantPos() {
                         </div>
 
                         <div className="relative flex min-w-0 justify-center pt-0 lg:justify-end">
-                            <div
-                                className="pointer-events-none absolute -inset-x-7 top-8 h-[78%] rounded-[34px] bg-gradient-to-br from-[#eef5ff] via-white/70 to-[#e9f1ff] opacity-75 blur-2xl"
-                                aria-hidden
-                            />
                             <img
                                 src={featuresPageHeroDashboard}
                                 alt="GPOS dashboard preview with sales overview, recent orders, top selling items, and sales by channel"
-                                className="relative z-10 mt-0 block h-auto w-full max-w-[740px] rounded-[17px] border border-[#e4eaf3] bg-white shadow-[0_25px_58px_rgba(31,42,68,0.10),0_10px_26px_rgba(7,86,217,0.06)]"
+                                className="relative z-10 mt-0 block h-auto w-full max-w-[740px]"
                                 loading="eager"
                                 decoding="async"
                                 fetchPriority="high"
@@ -354,11 +349,9 @@ export default function RestaurantPos() {
 
             <BuiltForRestaurantOperationsSection />
 
-            <FeaturesGridSection />
+            <DeliveryOrderFlowSection />
 
-            <WhyRestaurantsChooseGPOS />
-
-            <HomePricingMockup scheduleDemoFormIdPrefix="features-pricing" />
+            <StaffManagementSection />
 
             <Footer />
 
