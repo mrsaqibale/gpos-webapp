@@ -45,6 +45,7 @@ const reportFeatures: FeatureItem[] = [
 const BuiltForRestaurantOperationsSection: React.FC = () => {
     return (
         <section
+            id="features"
             className="relative overflow-hidden bg-[#f8faff] px-[39px] pb-[30px] pt-[28px] font-['Poppins',Inter,Arial,sans-serif] max-lg:px-6 max-md:px-4"
             aria-labelledby="reports-analytics-heading"
         >
@@ -101,18 +102,17 @@ const BuiltForRestaurantOperationsSection: React.FC = () => {
 
                 <div className="relative flex min-w-0 justify-center lg:justify-end">
                     <div
-                        className="pointer-events-none absolute -inset-x-6 top-8 h-[78%] rounded-[34px] bg-gradient-to-br from-[#eef5ff] via-white/80 to-[#e9f1ff] opacity-75 blur-2xl"
+                        className="pointer-events-none absolute -inset-x-6 top-8 h-[78%] rounded-[34px] bg-gradient-to-br from-[#eef5ff] via-[#e8f0fc] to-[#e9f1ff] opacity-60 blur-2xl"
                         aria-hidden
                     />
-                    <div className="relative z-10 w-full max-w-[1034px] overflow-hidden rounded-[12px] border border-[#e5ebf3] bg-white shadow-[0_24px_56px_rgba(31,42,68,0.09),0_10px_24px_rgba(7,86,217,0.055)]">
+                    <div className="relative z-10 w-full max-w-[1034px] overflow-hidden rounded-[12px]">
                         <img
                             src={reportsAnalyticsDashboard}
                             alt="GPOS reports overview dashboard showing sales charts, channel breakdowns, and payment methods"
-                            className="block h-auto w-full bg-white"
+                            className="block h-auto w-full"
                             loading="lazy"
                             decoding="async"
                         />
-
                     </div>
                 </div>
             </div>

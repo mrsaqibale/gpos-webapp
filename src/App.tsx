@@ -13,6 +13,9 @@ import AdminNewsletterPage from './pages/AdminNewsletterPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
+import ReportsAnalyticsShowcasePage from './pages/ReportsAnalyticsShowcasePage';
+import BookDemoCtaShowcasePage from './pages/BookDemoCtaShowcasePage';
+import CustomerGrowthShowcasePage from './pages/CustomerGrowthShowcasePage';
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -26,10 +29,13 @@ function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/restaurant_pos" element={<RestaurantPos />} />
+                    <Route path="/reports_analytics" element={<ReportsAnalyticsShowcasePage />} />
                     <Route path="/shop" element={<ProductPage />} />
                     <Route path="/product" element={<Navigate to="/shop" replace />} />
                     <Route path="/pricing" element={<PricingPage />} />
                     <Route path="/get_demo" element={<GetDemoPage />} />
+                    <Route path="/book_demo_cta" element={<BookDemoCtaShowcasePage />} />
+                    <Route path="/customer_growth" element={<CustomerGrowthShowcasePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/admin/login" element={<AdminLoginPage />} />
                     <Route path="/admin/newsletter" element={<AdminNewsletterPage />} />

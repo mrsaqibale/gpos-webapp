@@ -20,6 +20,9 @@ import Footer from "../components/Footer";
 import BuiltForRestaurantOperationsSection from "../components/BuiltForRestaurantOperationsSection";
 import DeliveryOrderFlowSection from "../components/DeliveryOrderFlowSection";
 import StaffManagementSection from "../components/StaffManagementSection";
+import ReportsAnalyticsShowcaseSection from "../components/ReportsAnalyticsShowcaseSection";
+import CustomerGrowthShowcaseSection from "../components/CustomerGrowthShowcaseSection";
+import BookDemoCtaSection from "../components/BookDemoCtaSection";
 import ScheduleDemoFormModal from "../components/ScheduleDemoFormModal";
 import featuresPageHeroDashboard from "../assets/features-page-hero-dashboard.png?url";
 import "./RestaurantPOSPage.css";
@@ -352,6 +355,12 @@ export default function RestaurantPos() {
             <DeliveryOrderFlowSection />
 
             <StaffManagementSection />
+
+            <ReportsAnalyticsShowcaseSection embed />
+
+            <CustomerGrowthShowcaseSection embed />
+
+            <BookDemoCtaSection embed />
 
             <Footer />
 
