@@ -14,7 +14,8 @@
   font-family: Inter, Arial, sans-serif;
   background: #f8fbff;
   color: var(--rp-text);
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .gpos-page .container {

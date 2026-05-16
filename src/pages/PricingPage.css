@@ -4,444 +4,53 @@
 }
 
 .pricing-page {
-  --pp-blue: #032c7e;
-  --pp-blue-dark: #021b4b;
-  --pp-green: #55a630;
-  --pp-green-dark: #3f7f24;
-  --pp-text: #1e3a8a;
-  --pp-muted: #64748b;
   min-height: 100vh;
-  font-family: Inter, Arial, sans-serif;
+  font-family: var(--gpos-typeface);
   background:
-    radial-gradient(circle at top left, rgba(3, 44, 126, 0.12), transparent 24%),
-    radial-gradient(circle at top right, rgba(85, 166, 48, 0.12), transparent 22%),
-    linear-gradient(180deg, #f8fbff 0%, #eef4ff 45%, #f7fcf4 100%);
-  /* Avoid clipping wide headings (e.g. RestaurantNeedsOnePosSection); children should manage their own overflow */
-  overflow-x: visible;
-  overflow-y: visible;
-  color: var(--pp-text);
+    radial-gradient(circle at 8% 18%, rgba(11, 86, 234, 0.055), transparent 22%),
+    radial-gradient(circle at 92% 32%, rgba(11, 86, 234, 0.045), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #f8faff 18%, #f8faff 100%);
 }
 
-.pricing-page .container {
-  width: min(1200px, 92%);
-  margin: 0 auto;
+.pricing-page :is(h1, h2, h3, h4, p, span, a, button, li) {
+  font-family: var(--gpos-typeface);
+  text-rendering: optimizeLegibility;
 }
 
-.pricing-page section {
-  padding: 90px 0;
+.pricing-page :is(h1, h2) {
+  text-wrap: balance;
 }
 
-.pricing-page .page-badge,
-.pricing-page .section-badge {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(3, 44, 126, 0.14);
-  color: var(--pp-blue);
-  font-size: 14px;
-  margin-bottom: 18px;
-  backdrop-filter: blur(12px);
+.pricing-page p {
+  text-wrap: pretty;
 }
 
-.pricing-page .section-heading {
-  max-width: 760px;
-  margin-bottom: 50px;
+.pricing-page :is(a, button) {
+  white-space: nowrap;
 }
 
-.pricing-page .section-heading.center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+.pricing-page img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.pricing-page .section-heading h2,
-.pricing-page .pricing-hero-content h1,
-.pricing-page .pricing-cta-box h2,
-.pricing-page .comparison-left h2 {
-  margin: 0 0 18px;
-  line-height: 1.1;
+.pricing-page :is(a, button) {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.pricing-page .section-heading h2 {
-  font-size: clamp(32px, 4vw, 48px);
-  color: var(--pp-blue);
+.pricing-page :is(a, button):focus-visible {
+  outline: 3px solid rgba(11, 86, 234, 0.28);
+  outline-offset: 3px;
 }
 
-.pricing-page .section-heading p,
-.pricing-page .pricing-hero-content p,
-.pricing-page .price-subtext,
-.pricing-page .compare-card p,
-.pricing-page .faq-card p,
-.pricing-page .comparison-left p,
-.pricing-page .pricing-cta-box p {
-  color: var(--pp-muted);
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-.pricing-page .pricing-hero {
-  position: relative;
-  padding-top: 130px;
-  padding-bottom: 50px;
-  text-align: center;
-}
-
-.pricing-page .pricing-hero-content {
-  max-width: 860px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.pricing-page .pricing-hero-content h1 {
-  font-size: clamp(42px, 6vw, 74px);
-  font-weight: 800;
-  letter-spacing: -1.8px;
-}
-
-@media (max-width: 700px) {
-  .pricing-page .pricing-hero-content h1 {
-    font-size: clamp(30px, 6vw, 32px);
+@media (max-width: 1024px) {
+  .pricing-page {
+    overflow-x: clip;
   }
 }
 
-.pricing-page .pricing-hero-content h1 span {
-  color: var(--pp-green);
-  text-shadow: 0 0 22px rgba(85, 166, 48, 0.2);
-}
-
-.pricing-page .hero-mini-points {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 28px;
-}
-
-.pricing-page .hero-pill {
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--pp-blue);
-  border: 1px solid rgba(3, 44, 126, 0.12);
-  font-weight: 600;
-}
-
-.pricing-page .pricing-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(10px);
-}
-
-.pricing-page .pricing-glow-1 {
-  width: 320px;
-  height: 320px;
-  left: -80px;
-  top: 40px;
-  background: rgba(3, 44, 126, 0.16);
-}
-
-.pricing-page .pricing-glow-2 {
-  width: 280px;
-  height: 280px;
-  right: -60px;
-  top: 140px;
-  background: rgba(85, 166, 48, 0.14);
-}
-
-.pricing-page .main-pricing-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 28px;
-  align-items: stretch;
-}
-
-.pricing-page .pricing-left-card,
-.pricing-page .pricing-right-card,
-.pricing-page .compare-card,
-.pricing-page .faq-card,
-.pricing-page .comparison-box,
-.pricing-page .pricing-cta-box {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(3, 44, 126, 0.12);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 60px rgba(3, 44, 126, 0.12);
-}
-
-.pricing-page .pricing-left-card,
-.pricing-page .pricing-right-card {
-  border-radius: 30px;
-  padding: 34px;
-}
-
-.pricing-page .popular-tag {
-  display: inline-block;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(85, 166, 48, 0.22), rgba(3, 44, 126, 0.22));
-  color: var(--pp-blue);
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.pricing-page .pricing-left-card h2 {
-  margin: 0 0 20px;
-  font-size: 34px;
-  color: var(--pp-blue);
-}
-
-.pricing-page .price-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  margin-bottom: 18px;
-}
-
-.pricing-page .currency {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-.pricing-page .amount {
-  font-size: 86px;
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -2px;
-  color: var(--pp-blue);
-}
-
-.pricing-page .duration {
-  font-size: 24px;
-  color: var(--pp-green-dark);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.pricing-page .price-subtext {
-  margin-bottom: 28px;
-  max-width: 520px;
-}
-
-.pricing-page .pricing-buttons {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.pricing-page .primary-btn,
-.pricing-page .secondary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 15px 26px;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  font-family: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.pricing-page .primary-btn {
-  border: none;
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--pp-blue), var(--pp-green));
-  box-shadow: 0 10px 30px rgba(3, 44, 126, 0.28);
-}
-
-.pricing-page .primary-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(3, 44, 126, 0.35);
-}
-
-.pricing-page .secondary-btn {
-  border: 1px solid rgba(3, 44, 126, 0.25);
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--pp-blue);
-  backdrop-filter: blur(10px);
-}
-
-.pricing-page .secondary-btn:hover {
-  background: #ffffff;
-  transform: translateY(-2px);
-}
-
-.pricing-page .trust-line {
-  margin-top: 22px;
-  color: var(--pp-muted);
-  font-size: 14px;
-}
-
-.pricing-page .pricing-right-card h3 {
-  margin: 0 0 20px;
-  font-size: 28px;
-  color: var(--pp-blue);
-}
-
-.pricing-page .included-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px 18px;
-}
-
-.pricing-page .included-item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 14px 14px;
-  border-radius: 16px;
-  background: rgba(3, 44, 126, 0.05);
-  color: var(--pp-blue);
-}
-
-.pricing-page .tick {
-  color: var(--pp-green);
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1;
-  margin-top: 1px;
-}
-
-.pricing-page .compare-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
-
-.pricing-page .compare-card {
-  border-radius: 24px;
-  padding: 28px;
-  transition: 0.3s ease;
-}
-
-.pricing-page .compare-card h3 {
-  color: var(--pp-blue);
-}
-
-.pricing-page .compare-card:hover,
-.pricing-page .faq-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(3, 44, 126, 0.35);
-}
-
-.pricing-page .compare-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 18px;
-  font-weight: 800;
-  background: linear-gradient(135deg, rgba(85, 166, 48, 0.22), rgba(3, 44, 126, 0.22));
-  color: var(--pp-blue);
-}
-
-.pricing-page .comparison-box {
-  border-radius: 30px;
-  padding: 34px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.pricing-page .comparison-left h2 {
-  font-size: clamp(30px, 4vw, 46px);
-  color: var(--pp-blue);
-}
-
-.pricing-page .comparison-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.pricing-page .comparison-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  align-items: center;
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(3, 44, 126, 0.05);
-}
-
-.pricing-page .comparison-row span {
-  color: var(--pp-muted);
-}
-
-.pricing-page .comparison-row strong {
-  color: var(--pp-green-dark);
-}
-
-.pricing-page .faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.pricing-page .faq-card {
-  border-radius: 24px;
-  padding: 28px;
-  transition: 0.3s ease;
-}
-
-.pricing-page .faq-card h3 {
-  margin: 0 0 12px;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--pp-blue);
-}
-
-.pricing-page .pricing-cta-box {
-  border-radius: 34px;
-  padding: 60px 28px;
-  text-align: center;
-}
-
-.pricing-page .center-btns {
-  justify-content: center;
-}
-
-@media (max-width: 1100px) {
-
-  .pricing-page .main-pricing-grid,
-  .pricing-page .comparison-box,
-  .pricing-page .compare-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pricing-page .compare-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .pricing-page section {
-    padding: 70px 0;
-  }
-
-  .pricing-page .included-grid,
-  .pricing-page .faq-grid,
-  .pricing-page .compare-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pricing-page .pricing-hero {
-    padding-top: 110px;
-  }
-
-  .pricing-page .amount {
-    font-size: 68px;
-  }
-
-  .pricing-page .price-row {
-    flex-wrap: wrap;
-    align-items: center;
+@media (max-width: 768px) {
+  .pricing-page :is(a, button) {
+    white-space: normal;
   }
 }

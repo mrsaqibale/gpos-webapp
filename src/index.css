@@ -27,6 +27,7 @@
   --secondary-color: #55b919;
   --secondary-hover: #008F5A;
   --secondary-active: #007548;
+  --gpos-typeface: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color-scheme: light;
 }
 
@@ -49,6 +50,7 @@
 
   body {
     @apply bg-brand-soft-white text-brand-text-primary font-sans antialiased overflow-x-clip max-w-full;
+    font-family: var(--gpos-typeface);
     font-feature-settings: "kern", "liga", "cv02", "cv03", "cv04";
   }
 
@@ -82,6 +84,7 @@
   h5,
   h6 {
     @apply font-semibold text-primary-navy;
+    font-family: var(--gpos-typeface);
   }
 
   #root {
@@ -348,6 +351,88 @@
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.95) inset,
       0 8px 22px rgba(11, 86, 234, 0.06);
+    max-width: 100%;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .home-premium-main :is(.home-eyebrow, .home-pill, .home-chip, .home-card, .home-tile) {
+    min-width: 0;
+  }
+
+  .home-premium-main :is(h1, h2, h3, h4, p, span, a, button) {
+    overflow-wrap: break-word;
+  }
+
+  .home-premium-main :is(a, button) {
+    min-width: 0;
+  }
+
+  .home-premium-main :is(a, button) > span,
+  .home-premium-main :is(a, button) > svg {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .home-premium-main :is(h1, h2) .whitespace-nowrap,
+    .home-premium-main :is(h3, p, span).whitespace-nowrap {
+      white-space: normal !important;
+    }
+
+    .home-premium-main .home-eyebrow {
+      align-items: center;
+      justify-content: center;
+      line-height: 1.25;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .home-premium-main :is(h1, h2) {
+      letter-spacing: -0.022em;
+    }
+
+    .home-premium-main :is(p) {
+      line-height: 1.55;
+    }
+  }
+}
+
+#root,
+#root :is(section, article, header, footer, nav, aside, main, div, h1, h2, h3, h4, h5, h6, p, span, a, button, label, input, textarea, select, li, td, th) {
+  font-family: var(--gpos-typeface) !important;
+}
+
+#root :is(h1, h2, h3, h4, h5, h6, p, a, button, label, li, span) {
+  font-feature-settings: "kern", "liga", "cv02", "cv03", "cv04";
+}
+
+#root :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 750 !important;
+}
+
+.gpos-page,
+.pricing-page,
+.about-page,
+.demo-page {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gpos-page :is(h1, h2, h3, h4, p, span, a, button),
+.pricing-page :is(h1, h2, h3, h4, p, span, a, button),
+.about-page :is(h1, h2, h3, h4, p, span, a, button),
+.demo-page :is(h1, h2, h3, h4, p, span, a, button) {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .gpos-page :is(h1, h2) .whitespace-nowrap,
+  .gpos-page :is(h3, p, span).whitespace-nowrap,
+  .pricing-page :is(h1, h2) .whitespace-nowrap,
+  .pricing-page :is(h3, p, span).whitespace-nowrap {
+    white-space: normal !important;
   }
 }
 
