@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import {
     ArrowRight,
     BarChart3,
@@ -710,11 +711,11 @@ const ReportsAnalyticsShowcaseSection: React.FC<ReportsAnalyticsShowcaseSectionP
             style={{ backgroundColor: BG, fontFamily: 'Inter, system-ui, sans-serif' }}
             aria-label="Reports and Analytics"
         >
-            {!embed && <ShowcaseNavbar />}
+            {!embed && <Navbar />}
             <div className={`mx-auto w-full max-w-[1480px] px-6 pb-10 sm:px-10 ${embed ? 'pt-10' : 'pt-8'}`}>
                 <div className="flex flex-col gap-9 lg:flex-row lg:items-start">
                     {/* Left column ~31% */}
-                    <div className="w-full shrink-0 lg:w-[31%] lg:min-w-0">
+                    <div className="w-full shrink-0 lg:w-[36%] lg:min-w-0">
                         <div
                             className="inline-flex h-[42px] items-center rounded-full border bg-white px-[18px]"
                             style={{ borderColor: BORDER, gap: 10 }}
@@ -817,17 +818,19 @@ const ReportsAnalyticsShowcaseSection: React.FC<ReportsAnalyticsShowcaseSectionP
                             ))}
                         </ul>
 
-                        <Link
-                            to={embed ? '#features' : '/restaurant_pos'}
-                            className="mt-9 inline-flex h-[58px] items-center gap-2 rounded-[14px] px-7 text-[16px] font-semibold text-white no-underline transition-opacity hover:opacity-95"
-                            style={{ backgroundColor: PRIMARY }}
-                        >
-                            Explore All Features
-                            <ArrowRight width={20} height={20} strokeWidth={ICON_STROKE} aria-hidden />
-                        </Link>
+                        <div className="mt-9 flex w-full max-w-[560px] justify-center">
+                            <Link
+                                to={embed ? '#features' : '/restaurant_pos'}
+                                className="inline-flex h-[58px] items-center gap-2 rounded-[14px] px-7 text-[16px] font-semibold text-white no-underline transition-opacity hover:opacity-95"
+                                style={{ backgroundColor: PRIMARY }}
+                            >
+                                Explore All Features
+                                <ArrowRight width={20} height={20} strokeWidth={ICON_STROKE} aria-hidden />
+                            </Link>
+                        </div>
                     </div>
 
-                    {/* Right column ~69% */}
+                    {/* Right column */}
                     <div className="min-w-0 w-full flex-1">
                         <DashboardCard />
                     </div>

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import {
     ArrowRight,
     Bell,
@@ -572,10 +573,10 @@ const CustomerGrowthShowcaseSection: React.FC<CustomerGrowthShowcaseSectionProps
             style={{ backgroundColor: BG, fontFamily: 'Inter,system-ui,sans-serif' }}
             aria-label="Customer Growth Tools"
         >
-            {!embed && <ShowcaseNavbar />}
+            {!embed && <Navbar />}
             <div className={`mx-auto w-full max-w-[1480px] px-6 sm:px-10 ${embed ? 'pt-10' : 'pt-8'} pb-10`}>
                 <div className="flex flex-col gap-9 lg:flex-row lg:items-start">
-                    <div className="w-full shrink-0 lg:w-[31%] lg:min-w-0">
+                    <div className="w-full shrink-0 lg:w-[36%] lg:min-w-0">
                         <div
                             className="inline-flex h-[42px] items-center gap-2.5 rounded-full border bg-white px-[18px]"
                             style={{ borderColor: BORDER, gap: 10 }}
@@ -650,16 +651,18 @@ const CustomerGrowthShowcaseSection: React.FC<CustomerGrowthShowcaseSectionProps
                                 </li>
                             ))}
                         </ul>
-                        <Link
-                            to={embed ? '#features' : '/restaurant_pos'}
-                            className="mt-9 inline-flex h-[58px] items-center gap-2 rounded-[14px] px-7 text-[16px] font-semibold text-white no-underline hover:opacity-95"
-                            style={{ backgroundColor: PRIMARY, marginTop: 36 }}
-                        >
-                            Explore All Features
-                            <ArrowRight width={18} height={18} strokeWidth={ICON_STROKE} absoluteStrokeWidth aria-hidden />
-                        </Link>
+                        <div className="mt-9 flex w-full max-w-[560px] justify-center">
+                            <Link
+                                to={embed ? '#features' : '/restaurant_pos'}
+                                className="inline-flex h-[58px] items-center gap-2 rounded-[14px] px-7 text-[16px] font-semibold text-white no-underline hover:opacity-95"
+                                style={{ backgroundColor: PRIMARY }}
+                            >
+                                Explore All Features
+                                <ArrowRight width={18} height={18} strokeWidth={ICON_STROKE} absoluteStrokeWidth aria-hidden />
+                            </Link>
+                        </div>
                     </div>
-                    <div className="min-w-0 flex-1 lg:w-[69%]">
+                    <div className="min-w-0 flex-1">
                         <DashboardCard />
                         <div
                             className="mx-auto mt-6 w-full max-w-[min(100%,920px)] rounded-[20px] border bg-white px-5 py-5 sm:px-6 lg:max-w-[min(100%,980px)] lg:px-8 lg:py-6"

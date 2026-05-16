@@ -381,7 +381,7 @@ const StaffDashboard = () => (
 const StaffManagementSection: React.FC = () => {
     return (
         <section className="bg-[#F5F7FC] px-[40px] pb-[40px] pt-[32px] font-['Inter',Arial,sans-serif] max-lg:px-[24px] max-sm:px-[18px]">
-            <div className="mx-auto grid max-w-[1480px] grid-cols-1 items-start gap-[36px] lg:grid-cols-[560px_minmax(0,1fr)] xl:grid-cols-[600px_minmax(0,1fr)]">
+            <div className="mx-auto grid max-w-[1480px] grid-cols-1 items-start gap-[36px] lg:grid-cols-[640px_minmax(0,1fr)] xl:grid-cols-[680px_minmax(0,1fr)]">
                 <div className="pt-[4px]">
                     <div className="inline-flex h-[42px] items-center gap-[10px] rounded-full border border-[#E8EDF5] bg-white px-[18px] text-[16px] font-[600] text-[#2155FF] shadow-[0_4px_12px_rgba(15,23,42,0.035)]">
                         <Users className="h-[18px] w-[18px]" strokeWidth={2.1} aria-hidden />
@@ -404,13 +404,15 @@ const StaffManagementSection: React.FC = () => {
                         ))}
                     </div>
 
-                    <a
-                        href="#features"
-                        className="mt-[36px] inline-flex h-[54px] items-center justify-center gap-[16px] rounded-[12px] bg-[#2155FF] px-[28px] text-[15px] font-[800] text-white no-underline shadow-[0_12px_24px_rgba(33,85,255,0.20)]"
-                    >
-                        Explore All Features
-                        <ArrowRight className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
-                    </a>
+                    <div className="mt-[36px] flex w-full max-w-[560px] justify-center">
+                        <a
+                            href="#features"
+                            className="inline-flex h-[54px] items-center justify-center gap-[16px] rounded-[12px] bg-[#2155FF] px-[28px] text-[15px] font-[800] text-white no-underline shadow-[0_12px_24px_rgba(33,85,255,0.20)]"
+                        >
+                            Explore All Features
+                            <ArrowRight className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
+                        </a>
+                    </div>
                 </div>
 
                 <StaffDashboard />

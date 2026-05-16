@@ -9,7 +9,6 @@ import {
     CalendarDays,
     Check,
     CheckCircle2,
-    ChevronDown,
     CircleGauge,
     CircleUserRound,
     CreditCard,
@@ -32,6 +31,7 @@ import {
     UsersRound,
     WalletCards,
 } from "lucide-react";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import cashDrawer from "../assets/cash-drawer.png.png";
 import printer from "../assets/printer.png.png";
@@ -70,14 +70,6 @@ type CompareRow = {
     starter: "yes" | "no" | string;
     growth: "yes" | string;
 };
-
-const navLinks = [
-    { label: "Features", to: "/restaurant_pos", dropdown: true },
-    { label: "Pricing", to: "/pricing", active: true },
-    { label: "Demo", to: "/get_demo" },
-    { label: "Resources", to: "#", dropdown: true },
-    { label: "About Us", to: "/about" },
-];
 
 const heroTrust: IconItem[] = [
     { title: "Trusted by 1000+ Restaurants", description: "", Icon: ShieldCheck },
@@ -176,20 +168,6 @@ const hardwareAddons = [
     { title: "Barcode Scanner", price: "€99", image: scanner },
 ];
 
-const GposWordmark = () => (
-    <span className="inline-flex items-center gap-[13px]" aria-label="GPOS">
-        <span className="relative flex h-[50px] w-[50px] shrink-0 items-center justify-center">
-            <span className="absolute inset-0 rounded-[14px] bg-[#0B56EA] [clip-path:polygon(50%_0,93%_25%,93%_74%,50%_100%,7%_74%,7%_25%)]" />
-            <span className="absolute inset-[7px] rounded-[9px] bg-white [clip-path:polygon(50%_0,93%_25%,93%_74%,50%_100%,7%_74%,7%_25%)]" />
-            <span className="absolute inset-[13px] rounded-[7px] bg-[#0B56EA] [clip-path:polygon(50%_0,93%_25%,93%_74%,50%_100%,7%_74%,7%_25%)]" />
-            <span className="absolute right-[7px] top-[20px] h-[10px] w-[25px] rounded-l-full bg-white" />
-        </span>
-        <span className="font-['Poppins',Arial,sans-serif] text-[38px] font-extrabold leading-none tracking-[-0.025em] text-[#061236]">
-            GPOS
-        </span>
-    </span>
-);
-
 const GposMiniWordmark = () => (
     <span className="inline-flex items-center gap-[8px]" aria-label="GPOS">
         <span className="relative flex h-[30px] w-[30px] shrink-0 items-center justify-center">
@@ -200,45 +178,6 @@ const GposMiniWordmark = () => (
         </span>
         <span className="text-[19px] font-[850] tracking-[-0.035em] text-[#061236]">GPOS</span>
     </span>
-);
-
-const PricingNavbar = () => (
-    <header className="sticky top-0 z-50 border-b border-[#E8ECF3] bg-white font-['Poppins',Arial,sans-serif]">
-        <div className="mx-auto flex h-[90px] max-w-[1536px] items-center justify-between px-[42px] max-lg:px-[24px] max-md:h-[76px]">
-            <Link to="/" className="inline-flex shrink-0 items-center no-underline">
-                <GposWordmark />
-            </Link>
-            <nav className="hidden items-center gap-[48px] lg:flex" aria-label="Pricing navigation">
-                {navLinks.map(({ label, to, dropdown, active }) => (
-                    <Link
-                        key={label}
-                        to={to}
-                        className={`inline-flex h-[90px] items-center gap-[8px] text-[17px] font-[700] leading-none no-underline ${
-                            active ? "text-[#0B56EA]" : "text-[#07122F]"
-                        }`}
-                    >
-                        {label}
-                        {dropdown && <ChevronDown className="h-[17px] w-[17px]" strokeWidth={2.4} aria-hidden />}
-                    </Link>
-                ))}
-            </nav>
-            <div className="hidden items-center gap-[20px] lg:flex">
-                <a
-                    href="https://dashboard.gposapp.com/"
-                    className="inline-flex h-[48px] min-w-[103px] items-center justify-center rounded-[8px] border border-[#0B3D91] bg-white px-[25px] text-[16px] font-[700] text-[#07347F] no-underline shadow-[0_8px_18px_rgba(15,23,42,0.025)]"
-                >
-                    Login
-                </a>
-                <Link
-                    to="/get_demo"
-                    className="inline-flex h-[48px] min-w-[158px] items-center justify-center gap-[9px] rounded-[8px] bg-[#0757F2] px-[25px] text-[16px] font-[700] text-white no-underline shadow-[0_12px_24px_rgba(4,82,232,0.24)]"
-                >
-                    Book a Demo
-                    <ArrowRight className="h-[18px] w-[18px]" strokeWidth={2.2} aria-hidden />
-                </Link>
-            </div>
-        </div>
-    </header>
 );
 
 const Badge = ({ children, Icon = Star }: { children: React.ReactNode; Icon?: LucideIcon }) => (
@@ -749,7 +688,7 @@ const HardwareAddonsSection = () => (
 export default function PricingPage() {
     return (
         <div className="pricing-page w-full min-w-0 max-w-full overflow-x-clip bg-[#F8FAFF] text-[#071333]">
-            <PricingNavbar />
+            <Navbar />
             <PricingHero />
             <SimplePlansSection />
             <CompareFeaturesSection />

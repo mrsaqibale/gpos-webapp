@@ -355,8 +355,8 @@ const StatusFlowCard = () => (
 );
 
 const DashboardShowcase = () => (
-    <div className="min-w-0 w-full max-w-[920px] justify-self-start mr-[10px] max-lg:mr-0">
-        <div className="flex h-[660px] w-full overflow-hidden rounded-[26px] border border-[#E7ECF5] bg-white p-[16px] shadow-[0_4px_12px_rgba(15,23,42,0.05)] max-xl:h-auto">
+    <div className="min-w-0 w-full max-w-[880px] justify-self-start mr-[10px] max-lg:mr-0">
+        <div className="flex h-[620px] w-full overflow-hidden rounded-[26px] border border-[#E7ECF5] bg-white p-[16px] shadow-[0_4px_12px_rgba(15,23,42,0.05)] max-xl:h-auto">
             <Sidebar />
 
             <div className="min-w-0 flex-1 pl-[16px]">
@@ -411,64 +411,71 @@ const DashboardShowcase = () => (
                 </div>
             </div>
         </div>
+        <BottomFeatureStrip />
+    </div>
+);
 
-        <div className="mt-[24px] grid h-[82px] w-full grid-cols-[1fr_1fr_1fr_1.18fr] items-center overflow-hidden rounded-[16px] border border-[#E7ECF5] bg-white shadow-[0_4px_12px_rgba(15,23,42,0.05)] max-lg:h-auto max-lg:grid-cols-2 max-sm:grid-cols-1">
+const BottomFeatureStrip = () => (
+    <div className="mt-[18px] grid min-h-[76px] w-full grid-cols-[1fr_1fr_1fr_1.16fr] items-center overflow-hidden rounded-[16px] border border-[#E3EAF5] bg-white shadow-[0_12px_28px_rgba(15,23,42,0.052),inset_0_1px_0_rgba(255,255,255,0.95)] max-lg:grid-cols-2 max-sm:grid-cols-1">
             {bottomStrip.map(({ title, subtitle, Icon, boxClass, iconClass }, index) => (
                 <article
                     key={title}
-                    className={`flex h-full items-center gap-[10px] px-[16px] max-lg:min-h-[82px] ${
+                    className={`flex h-full min-w-0 items-center gap-[11px] px-[15px] py-[14px] max-lg:min-h-[76px] ${
                         index > 0 ? "border-l border-[#E7ECF5] max-lg:border-l-0" : ""
                     } ${index === bottomStrip.length - 1 ? "px-[18px]" : ""}`}
                 >
-                    <span className={`grid h-[43px] w-[43px] shrink-0 place-items-center rounded-full ${boxClass}`}>
-                        <Icon className={`h-[21px] w-[21px] ${iconClass}`} strokeWidth={2.1} aria-hidden />
+                    <span className={`grid h-[41px] w-[41px] shrink-0 place-items-center rounded-[13px] ${boxClass} shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]`}>
+                        <Icon className={`h-[20px] w-[20px] ${iconClass}`} strokeWidth={2.15} aria-hidden />
                     </span>
                     <span className="min-w-0 flex-1">
-                        <span className="block whitespace-nowrap text-[13.5px] font-[850] leading-[1.15] text-[#081B44]">{title}</span>
-                        <span className="mt-[5px] block max-w-[158px] text-[11px] font-[600] leading-[1.22] text-[#4B5B7C]">{subtitle}</span>
+                        <span className="block whitespace-nowrap text-[13px] font-[850] leading-[1.15] tracking-[-0.01em] text-[#081B44]">{title}</span>
+                        <span className="mt-[5px] block text-[10.8px] font-[600] leading-[1.25] text-[#4B5B7C]">{subtitle}</span>
                     </span>
                 </article>
             ))}
-        </div>
     </div>
 );
 
 const DeliveryOrderFlowSection: React.FC = () => {
     return (
         <section className="bg-[#F5F7FC] px-[40px] pb-[40px] pt-[36px] font-['Inter',Arial,sans-serif] max-lg:px-[24px] max-sm:px-[18px]">
-            <div className="mx-auto grid max-w-[1480px] grid-cols-1 items-start gap-[36px] pr-[18px] lg:grid-cols-[560px_minmax(0,1fr)] xl:grid-cols-[600px_minmax(0,1fr)] max-lg:pr-0">
-                <div className="pt-[4px]">
-                    <div className="inline-flex h-[36px] items-center gap-[10px] rounded-full border border-[#E7ECF5] bg-white px-[15px] text-[14px] font-[700] text-[#2155FF] shadow-[0_4px_12px_rgba(15,23,42,0.035)]">
-                        <Truck className="h-[17px] w-[17px]" strokeWidth={2.1} aria-hidden />
-                        Delivery &amp; Order Flow
+            <div className="mx-auto max-w-[1480px] pr-[18px] max-lg:pr-0">
+                <div className="grid grid-cols-1 items-start gap-[36px] lg:grid-cols-[640px_minmax(0,1fr)] xl:grid-cols-[680px_minmax(0,1fr)]">
+                    <div className="pt-[4px]">
+                        <div className="inline-flex h-[36px] items-center gap-[10px] rounded-full border border-[#E7ECF5] bg-white px-[15px] text-[14px] font-[700] text-[#2155FF] shadow-[0_4px_12px_rgba(15,23,42,0.035)]">
+                            <Truck className="h-[17px] w-[17px]" strokeWidth={2.1} aria-hidden />
+                            Delivery &amp; Order Flow
+                        </div>
+
+                        <h2 className="mt-[24px] font-['Inter',Arial,sans-serif] text-[clamp(36px,3.35vw,52px)] font-[740] leading-[1.08] tracking-[-0.04em] text-[#081B44]">
+                            <span className="block whitespace-nowrap">Smooth Order Flow.</span>
+                            <span className="block whitespace-nowrap">Happy Customers.</span>
+                            <span className="block whitespace-nowrap text-[#2155FF]">More Repeat Orders.</span>
+                        </h2>
+
+                        <p className="mt-[16px] max-w-[555px] text-[16px] font-[500] leading-[1.55] text-[#4B5B7C]">
+                            Manage collection, delivery and online orders in one place. Real-time status tracking keeps your customers informed at every step.
+                        </p>
+
+                        <div className="mt-[22px] grid gap-[18px]">
+                            {featureItems.map((item) => (
+                                <FeatureRow key={item.title} {...item} />
+                            ))}
+                        </div>
+
+                        <div className="mt-[25px] flex w-full max-w-[555px] justify-center">
+                            <a
+                                href="#features"
+                                className="inline-flex h-[44px] items-center justify-center gap-[11px] rounded-[8px] bg-[#2155FF] px-[20px] text-[13px] font-[800] text-white no-underline shadow-[0_10px_20px_rgba(33,85,255,0.18)]"
+                            >
+                                Explore All Features
+                                <ArrowRight className="h-[16px] w-[16px]" strokeWidth={2.1} aria-hidden />
+                            </a>
+                        </div>
                     </div>
 
-                    <h2 className="mt-[31px] font-['Inter',Arial,sans-serif] text-[clamp(36px,3.35vw,52px)] font-[850] leading-[1.1] tracking-[-0.045em] text-[#081B44]">
-                        <span className="block whitespace-nowrap">Smooth Order Flow.</span>
-                        <span className="block whitespace-nowrap">Happy Customers.</span>
-                        <span className="block whitespace-nowrap text-[#2155FF]">More Repeat Orders.</span>
-                    </h2>
-
-                    <p className="mt-[22px] max-w-[490px] text-[17px] font-[500] leading-[1.72] text-[#4B5B7C]">
-                        Manage collection, delivery and online orders in one place. Real-time status tracking keeps your team aligned and your customers informed at every step.
-                    </p>
-
-                    <div className="mt-[26px] grid gap-[20px]">
-                        {featureItems.map((item) => (
-                            <FeatureRow key={item.title} {...item} />
-                        ))}
-                    </div>
-
-                    <a
-                        href="#features"
-                        className="mt-[29px] inline-flex h-[50px] items-center justify-center gap-[15px] rounded-[9px] bg-[#2155FF] px-[24px] text-[14px] font-[800] text-white no-underline shadow-[0_12px_24px_rgba(33,85,255,0.20)]"
-                    >
-                        Explore All Features
-                        <ArrowRight className="h-[18px] w-[18px]" strokeWidth={2.1} aria-hidden />
-                    </a>
+                    <DashboardShowcase />
                 </div>
-
-                <DashboardShowcase />
             </div>
         </section>
     );

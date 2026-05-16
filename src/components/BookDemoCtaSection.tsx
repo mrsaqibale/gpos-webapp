@@ -1,5 +1,6 @@
 import React, { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import type { LucideIcon } from 'lucide-react';
 import {
     ArrowRight,
@@ -230,9 +231,8 @@ function DemoBookingForm() {
                     <h2 className="text-[38px] font-extrabold leading-[1.1] tracking-[-0.03em]" style={{ color: NAVY }}>
                         Book a Free Demo
                     </h2>
-                    <p className={`mt-2 text-[15px] leading-[1.75] tracking-[-0.01em]`} style={{ color: MUTED }}>
-                        <span className="block">Fill in your details and we&apos;ll get back</span>
-                        <span className="block">to you shortly.</span>
+                    <p className="mt-2 text-[15px] leading-[1.55] tracking-[-0.01em] md:whitespace-nowrap" style={{ color: MUTED }}>
+                        Fill in your details and we&apos;ll get back to you shortly.
                     </p>
                 </div>
             </div>
@@ -379,7 +379,7 @@ const BookDemoCtaSection: React.FC<BookDemoCtaSectionProps> = ({ embed = false }
                 />
             </div>
 
-            {!embed && <BookDemoNavbar />}
+            {!embed && <Navbar />}
 
             <div className="relative z-[1] mx-auto w-full max-w-[1480px] px-6 pt-9 pb-[42px] sm:px-10">
                 <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,48fr)_minmax(0,52fr)] lg:gap-12">

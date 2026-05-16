@@ -5,152 +5,24 @@ import {
     ArrowRight,
     BarChart3,
     CalendarDays,
-    ChevronDown,
     CirclePlay,
     Headphones,
     LockKeyhole,
-    Menu,
     RefreshCw,
     ShieldCheck,
     Star,
     Users,
-    X,
 } from "lucide-react";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BuiltForRestaurantOperationsSection from "../components/BuiltForRestaurantOperationsSection";
 import DeliveryOrderFlowSection from "../components/DeliveryOrderFlowSection";
 import StaffManagementSection from "../components/StaffManagementSection";
-import ReportsAnalyticsShowcaseSection from "../components/ReportsAnalyticsShowcaseSection";
 import CustomerGrowthShowcaseSection from "../components/CustomerGrowthShowcaseSection";
 import BookDemoCtaSection from "../components/BookDemoCtaSection";
 import ScheduleDemoFormModal from "../components/ScheduleDemoFormModal";
 import featuresPageHeroDashboard from "../assets/features-page-hero-dashboard.png?url";
 import "./RestaurantPOSPage.css";
-
-const GposWordmark = () => (
-    <span className="inline-flex items-center gap-[13px]" aria-label="GPOS">
-        <span className="relative flex h-[49px] w-[49px] shrink-0 items-center justify-center">
-            <span className="absolute inset-0 rounded-[14px] bg-[#0b55f0] [clip-path:polygon(50%_0,93%_25%,93%_74%,50%_100%,7%_74%,7%_25%)]" />
-            <span className="absolute inset-[7px] rounded-[9px] bg-white [clip-path:polygon(50%_0,93%_25%,93%_74%,50%_100%,7%_74%,7%_25%)]" />
-            <span className="absolute inset-[13px] rounded-[7px] bg-[#0b55f0] [clip-path:polygon(50%_0,93%_25%,93%_74%,50%_100%,7%_74%,7%_25%)]" />
-            <span className="absolute right-[7px] top-[20px] h-[10px] w-[25px] rounded-l-full bg-white" />
-        </span>
-        <span className="font-['Poppins',Arial,sans-serif] text-[35px] font-extrabold leading-none tracking-[-0.02em] text-[#07122f]">
-            GPOS
-        </span>
-    </span>
-);
-
-const FeaturesHeroNavbar = ({ onDemoClick }: { onDemoClick: () => void }) => {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const navLinks = [
-        { label: "Features", to: "/restaurant_pos", active: true },
-        { label: "Pricing", to: "/pricing" },
-        { label: "Demo", to: "/get_demo" },
-    ];
-
-    return (
-        <header className="sticky top-0 z-50 border-b border-[#e8ebf2] bg-white font-['Poppins',Arial,sans-serif]">
-            <div className="mx-auto flex h-[92px] w-full max-w-[1536px] items-center justify-between px-[42px] max-md:h-[78px] max-md:px-5">
-                <Link to="/" className="inline-flex shrink-0 items-center no-underline">
-                    <GposWordmark />
-                </Link>
-
-                <nav className="hidden items-center gap-[59px] lg:flex" aria-label="Features page navigation">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.label}
-                            to={link.to}
-                            className={`inline-flex h-[92px] items-center text-[17px] font-semibold leading-none no-underline transition-colors ${
-                                link.active ? "text-[#0757e8]" : "text-[#07122f] hover:text-[#0757e8]"
-                            }`}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
-                    <Link
-                        to="#"
-                        className="inline-flex h-[92px] items-center gap-[10px] text-[17px] font-semibold leading-none text-[#07122f] no-underline hover:text-[#0757e8]"
-                    >
-                        Resources
-                        <ChevronDown className="h-[19px] w-[19px]" strokeWidth={2.4} aria-hidden />
-                    </Link>
-                </nav>
-
-                <div className="hidden items-center gap-[25px] lg:flex">
-                    <a
-                        href="https://dashboard.gposapp.com/"
-                        className="inline-flex h-[47px] min-w-[99px] items-center justify-center rounded-[8px] border border-[#0b3d91] bg-white px-6 text-[16px] font-semibold text-[#07347f] no-underline shadow-[0_8px_18px_rgba(15,23,42,0.025)]"
-                    >
-                        Login
-                    </a>
-                    <button
-                        type="button"
-                        onClick={onDemoClick}
-                        className="inline-flex h-[47px] min-w-[155px] items-center justify-center rounded-[8px] bg-gradient-to-br from-[#0866ff] via-[#0757f2] to-[#004ad9] px-7 text-[16px] font-semibold text-white shadow-[0_11px_23px_rgba(4,82,232,0.26),inset_0_1px_0_rgba(255,255,255,0.22)]"
-                    >
-                        Book a Demo
-                    </button>
-                </div>
-
-                <button
-                    type="button"
-                    onClick={() => setMobileOpen((open) => !open)}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-[#dfe8f7] bg-white text-[#07122f] shadow-[0_8px_18px_rgba(15,23,42,0.04)] lg:hidden"
-                    aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                    aria-expanded={mobileOpen}
-                >
-                    {mobileOpen ? <X className="h-6 w-6" aria-hidden /> : <Menu className="h-6 w-6" aria-hidden />}
-                </button>
-            </div>
-
-            {mobileOpen && (
-                <div className="border-t border-[#edf1f7] bg-white px-5 pb-6 pt-3 shadow-[0_18px_34px_rgba(15,23,42,0.07)] lg:hidden">
-                    <nav className="grid gap-1" aria-label="Mobile features navigation">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.label}
-                                to={link.to}
-                                onClick={() => setMobileOpen(false)}
-                                className={`rounded-[10px] px-3 py-3 text-[16px] font-semibold no-underline ${
-                                    link.active ? "bg-[#eef5ff] text-[#0757e8]" : "text-[#07122f]"
-                                }`}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        <Link
-                            to="#"
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center justify-between rounded-[10px] px-3 py-3 text-[16px] font-semibold text-[#07122f] no-underline"
-                        >
-                            Resources
-                            <ChevronDown className="h-5 w-5" aria-hidden />
-                        </Link>
-                    </nav>
-                    <div className="mt-4 grid gap-3">
-                        <a
-                            href="https://dashboard.gposapp.com/"
-                            className="inline-flex h-[48px] items-center justify-center rounded-[8px] border border-[#0b3d91] bg-white text-[16px] font-semibold text-[#07347f] no-underline"
-                        >
-                            Login
-                        </a>
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setMobileOpen(false);
-                                onDemoClick();
-                            }}
-                            className="inline-flex h-[48px] items-center justify-center rounded-[8px] bg-gradient-to-br from-[#0866ff] via-[#0757f2] to-[#004ad9] text-[16px] font-semibold text-white shadow-[0_11px_23px_rgba(4,82,232,0.22)]"
-                        >
-                            Book a Demo
-                        </button>
-                    </div>
-                </div>
-            )}
-        </header>
-    );
-};
 
 const GradientText = ({ children }: { children: React.ReactNode }) => (
     <span className="block bg-gradient-to-r from-[#0565ff] via-[#0756e8] to-[#0249d3] bg-clip-text text-transparent drop-shadow-[0_7px_18px_rgba(5,101,255,0.10)]">
@@ -254,11 +126,11 @@ export default function RestaurantPos() {
 
     return (
         <div className="gpos-page w-full min-w-0 max-w-full overflow-x-clip bg-[#f8faff]">
-            <FeaturesHeroNavbar onDemoClick={openHeroDemoModal} />
+            <Navbar />
 
             <section className="features-page-hero relative overflow-hidden bg-[#f8faff] px-[38px] pb-[32px] pt-[28px] font-['Poppins',Arial,sans-serif] max-lg:px-6 max-md:px-4">
                 <div className="mx-auto w-full max-w-[1455px]">
-                    <div className="grid items-start gap-[30px] lg:grid-cols-[530px_minmax(0,1fr)] xl:grid-cols-[545px_minmax(0,1fr)]">
+                    <div className="grid items-start gap-[30px] lg:grid-cols-[590px_minmax(0,1fr)] xl:grid-cols-[620px_minmax(0,1fr)]">
                         <div className="pt-[6px]">
                             <div className="inline-flex h-[36px] items-center gap-[10px] rounded-full border border-[#dce9ff] bg-[#eef5ff] px-[15px] text-[14px] font-semibold text-[#0757d8] shadow-[0_10px_28px_rgba(7,86,217,0.045),inset_0_1px_0_rgba(255,255,255,0.82)]">
                                 <Star className="h-[16px] w-[16px]" strokeWidth={2.35} aria-hidden />
@@ -292,7 +164,7 @@ export default function RestaurantPos() {
                                 ))}
                             </div>
 
-                            <div className="mt-[24px] flex w-full max-w-[505px] flex-nowrap items-center gap-[clamp(10px,2.1vw,22px)]">
+                            <div className="mt-[24px] flex w-full max-w-[560px] flex-nowrap items-center justify-center gap-[clamp(10px,2.1vw,22px)]">
                                 <Link
                                     to="#features"
                                     className="inline-flex h-[52px] min-w-0 flex-1 items-center justify-center gap-[clamp(8px,1.4vw,14px)] whitespace-nowrap rounded-[8px] bg-gradient-to-br from-[#0866ff] via-[#0757f0] to-[#0048d4] px-[clamp(12px,1.8vw,22px)] font-['Poppins',Arial,sans-serif] text-[clamp(12px,1.02vw,15px)] font-semibold text-white no-underline shadow-[0_18px_34px_rgba(4,86,232,0.24),inset_0_1px_0_rgba(255,255,255,0.22)]"
@@ -355,8 +227,6 @@ export default function RestaurantPos() {
             <DeliveryOrderFlowSection />
 
             <StaffManagementSection />
-
-            <ReportsAnalyticsShowcaseSection embed />
 
             <CustomerGrowthShowcaseSection embed />
 
