@@ -8,8 +8,6 @@ const navLinks = [
     { name: 'Features', to: '/restaurant_pos' },
     { name: 'Pricing', to: '/pricing' },
     { name: 'Demo', to: '/get_demo' },
-    { name: 'Resources', to: '#', dropdown: true },
-    { name: 'About Us', to: '/about' },
 ];
 
 const GposWordmark = () => (
