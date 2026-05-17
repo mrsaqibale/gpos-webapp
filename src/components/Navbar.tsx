@@ -48,7 +48,7 @@ const Navbar = () => {
 
     const desktopClass = ({ isActive }: { isActive: boolean }) =>
         [
-            "inline-flex h-[92px] items-center gap-[10px] font-['Poppins',Arial,sans-serif] text-[17px] font-semibold leading-none text-[#07122f] no-underline transition-colors hover:text-[#0757e8]",
+            "inline-flex h-[72px] items-center gap-[10px] font-['Poppins',Arial,sans-serif] text-[17px] font-semibold leading-none text-[#07122f] no-underline transition-colors hover:text-[#0757e8]",
             isActive ? 'text-[#0757e8]' : '',
         ].join(' ');
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                 scrolled ? 'shadow-[0_8px_28px_rgba(15,23,42,0.06)]' : ''
             }`}
         >
-            <div className="mx-auto flex h-[92px] w-full max-w-[1536px] items-center justify-between px-[42px] max-md:h-[78px] max-md:px-5">
+            <div className="mx-auto flex h-[72px] w-full max-w-[1536px] items-center justify-between px-[42px] max-md:h-[72px] max-md:px-5">
                 <Link to="/" className="inline-flex shrink-0 items-center no-underline">
                     <GposWordmark />
                 </Link>
