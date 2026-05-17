@@ -687,7 +687,7 @@ const HardwareAddonsSection = () => (
 
 export default function PricingPage() {
     return (
-        <div className="pricing-page w-full min-w-0 max-w-full overflow-x-clip bg-[#F8FAFF] text-[#071333]">
+        <div className="pricing-page w-full min-w-0 max-w-full overflow-x-clip bg-[#F8FAFC] text-[#071333]">
             <Navbar />
             <PricingHero />
             <SimplePlansSection />

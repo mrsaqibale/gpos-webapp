@@ -380,7 +380,7 @@ const StaffDashboard = () => (
 
 const StaffManagementSection: React.FC = () => {
     return (
-        <section className="bg-[#F5F7FC] px-[40px] pb-[40px] pt-[32px] font-['Inter',Arial,sans-serif] max-lg:px-[24px] max-sm:px-[18px]">
+        <section className="bg-[#F8FAFC] px-[40px] pb-[40px] pt-[32px] font-['Inter',Arial,sans-serif] max-lg:px-[24px] max-sm:px-[18px]">
             <div className="mx-auto grid max-w-[1480px] grid-cols-1 items-start gap-[36px] lg:grid-cols-[640px_minmax(0,1fr)] xl:grid-cols-[680px_minmax(0,1fr)]">
                 <div className="pt-[4px]">
                     <div className="inline-flex h-[42px] items-center gap-[10px] rounded-full border border-[#E8EDF5] bg-white px-[18px] text-[16px] font-[600] text-[#2155FF] shadow-[0_4px_12px_rgba(15,23,42,0.035)]">

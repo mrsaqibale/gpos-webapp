@@ -49,7 +49,7 @@ const PRIMARY = '#2155FF';
 const NAVY = '#081B44';
 const MUTED = '#55627A';
 const BORDER = '#E8EDF5';
-const BG = '#F5F7FC';
+const BG = '#F8FAFC';
 const CARD_SHADOW = '0 4px 12px rgba(15,23,42,0.05)';
 
 /** Mockup: ~1.5–2px strokes; Lucide reads clean at 2.1px */

@@ -148,7 +148,7 @@ const FeatureCard = ({ title, description, Icon, accentClass }: ManagementCard) 
 
 const FeaturesManagementSection: React.FC = () => {
     return (
-        <section className="bg-[#F3F5FA] px-[40px] pt-[20px] pb-[54px] font-['Inter',Arial,sans-serif] max-md:px-[24px] max-sm:px-[18px]">
+        <section className="bg-[#F8FAFC] px-[40px] pt-[20px] pb-[54px] font-['Inter',Arial,sans-serif] max-md:px-[24px] max-sm:px-[18px]">
             <div className="mx-auto w-full max-w-[1500px]">
                 <CategoryTabs />
 

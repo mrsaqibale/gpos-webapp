@@ -123,7 +123,7 @@ const metrics = [
 
 const PainSolutionSection = () => {
     return (
-        <section className="relative bg-[linear-gradient(180deg,#F6F9FF_0%,#F1F5FE_100%)] px-[clamp(20px,4.1vw,64px)] py-[26px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:h-[680px] lg:overflow-hidden">
+        <section className="relative bg-[#F8FAFC] px-[clamp(20px,4.1vw,64px)] py-[26px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:h-[680px] lg:overflow-hidden">
             <div className="pointer-events-none absolute -left-32 top-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.07)_0%,rgba(11,86,234,0)_70%)] blur-2xl" />
             <div className="pointer-events-none absolute -right-24 bottom-10 h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-2xl" />
             <div className="relative mx-auto max-w-[1460px] lg:h-full">

@@ -22,7 +22,7 @@ import {
 
 const GetDemoHeroSection: React.FC = () => {
     return (
-        <section className="get-demo-hero-v2 relative overflow-hidden bg-[#f0f7ff] pt-20 pb-16 lg:pt-32 lg:pb-24">
+        <section className="get-demo-hero-v2 relative overflow-hidden bg-[#F8FAFC] pt-20 pb-16 lg:pt-32 lg:pb-24">
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-[#e0efff] rounded-full blur-[120px] opacity-50 pointer-events-none" />
 

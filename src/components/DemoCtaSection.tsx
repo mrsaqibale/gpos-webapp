@@ -15,9 +15,9 @@ import {
     ShieldCheck,
     Users,
 } from 'lucide-react';
-import demoCtaPreview from '../assets/demo-cta-dashboard-phone-preview.png';
 import { WHATSAPP_DISPLAY, WHATSAPP_HREF, PHONE_DISPLAY, PHONE_HREF, EMAIL_DISPLAY, EMAIL_HREF } from '../constants/contact';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
+import ScheduleDemoForm from './ScheduleDemoForm';
 
 type LucideIcon = React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string; 'aria-hidden'?: boolean }>;
 
@@ -152,11 +152,11 @@ function ContactItem({ item, index }: { item: (typeof contactItems)[number]; ind
 const DemoCtaSection: React.FC = () => {
     return (
         <section
-            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
+            className="home-demo-cta-section relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
             style={{ paddingLeft: 20, paddingRight: 20 }}
         >
-            <div className="home-card relative mx-auto max-w-[1510px] overflow-hidden rounded-[28px] border border-white/70 bg-[linear-gradient(135deg,#F2F7FF_0%,#EEF5FF_54%,#F5F9FF_100%)] px-[25px] pb-[31px] pt-[44px] backdrop-blur lg:px-[40px]">
-                <div className="grid items-start gap-[30px] lg:grid-cols-[735px_minmax(0,1fr)]">
+            <div className="home-demo-cta-card home-card relative mx-auto max-w-[1510px] overflow-hidden rounded-[28px] border border-white/70 bg-[linear-gradient(135deg,#F2F7FF_0%,#EEF5FF_54%,#F5F9FF_100%)] px-[25px] pb-[31px] pt-[44px] backdrop-blur lg:px-[40px]">
+                <div className="grid items-start gap-[30px] lg:grid-cols-[minmax(0,690px)_minmax(420px,1fr)]">
                     <div className="pt-[1px]">
                         <TopPill />
 
@@ -208,20 +208,30 @@ const DemoCtaSection: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="relative min-h-[580px] lg:min-h-[650px]">
+                    <div className="relative min-h-[520px] lg:min-h-[560px]">
                         <div className="pointer-events-none absolute right-[-42px] top-[-5px] h-[642px] w-[700px] rounded-[50%] bg-[radial-gradient(circle,#E4EEFF_0%,#EAF3FF_45%,rgba(234,243,255,0)_72%)] opacity-90" />
                         <div className="pointer-events-none absolute bottom-[24px] left-[-38px] h-[150px] w-[240px] opacity-[0.24] [background-image:radial-gradient(#7AA7EF_1px,transparent_1px)] [background-size:14px_14px]" />
-                        <img
-                            src={demoCtaPreview}
-                            alt="GPOS dashboard and WhatsApp recovery preview"
-                            className="relative z-10 mt-[54px] h-auto w-[min(100%,790px)] max-w-none object-contain drop-shadow-[0_24px_38px_rgba(15,23,42,0.12)] lg:absolute lg:right-0 lg:top-[42px] lg:mt-0 lg:w-[640px]"
-                            loading="lazy"
-                            decoding="async"
-                        />
+                        <div className="relative z-10 ml-auto mt-[8px] max-w-[580px] rounded-[24px] border border-[#D8E3F4] bg-white/95 p-[24px] shadow-[0_24px_54px_rgba(15,23,42,0.10)] lg:mt-0">
+                            <div className="mb-[22px]">
+                                <p className="text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#0B56EA]">Book your demo</p>
+                                <h3 className="mt-[8px] text-[28px] font-extrabold leading-[1.12] tracking-[-0.025em] text-[#07142F]">
+                                    See how GPOS fits your business.
+                                </h3>
+                                <p className="mt-[10px] text-[15px] font-medium leading-[1.55] text-[#526176]">
+                                    Share your details and our team will contact you shortly.
+                                </p>
+                            </div>
+                            <ScheduleDemoForm
+                                mode="submit"
+                                idPrefix="home-demo-cta"
+                                className="!mt-0"
+                                submitLabel="Send Details"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div className="home-card mt-[-82px] rounded-[20px] border border-white/70 bg-white/95 px-[31px] py-[26px] backdrop-blur">
+                <div className="home-demo-cta-contact-strip home-card mt-[18px] rounded-[20px] border border-white/70 bg-white/95 px-[31px] py-[26px] backdrop-blur">
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1.38fr_repeat(4,1fr)] lg:gap-0">
                         {contactItems.map((item, index) => (
                             <ContactItem key={item.title} item={item} index={index} />

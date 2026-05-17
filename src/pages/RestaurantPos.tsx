@@ -125,10 +125,10 @@ export default function RestaurantPos() {
     }, [location.hash, location.pathname]);
 
     return (
-        <div className="gpos-page w-full min-w-0 max-w-full overflow-x-clip bg-[#f8faff]">
+        <div className="gpos-page w-full min-w-0 max-w-full overflow-x-clip bg-[#F8FAFC]">
             <Navbar />
 
-            <section className="features-page-hero relative overflow-hidden bg-[#f8faff] px-[38px] pb-[32px] pt-[28px] font-['Poppins',Arial,sans-serif] max-lg:px-6 max-md:px-4">
+            <section className="features-page-hero relative overflow-hidden bg-[#F8FAFC] px-[38px] pb-[32px] pt-[28px] font-['Poppins',Arial,sans-serif] max-lg:px-6 max-md:px-4">
                 <div className="mx-auto w-full max-w-[1455px]">
                     <div className="grid items-start gap-[30px] lg:grid-cols-[590px_minmax(0,1fr)] xl:grid-cols-[620px_minmax(0,1fr)]">
                         <div className="pt-[6px]">

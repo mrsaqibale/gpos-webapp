@@ -7,10 +7,7 @@
 
   min-height: 100vh;
   box-sizing: border-box;
-  background:
-    radial-gradient(circle at top left, rgba(85, 166, 48, 0.14), transparent 28%),
-    radial-gradient(circle at top right, rgba(3, 44, 126, 0.1), transparent 24%),
-    linear-gradient(180deg, #f8fbff 0%, #eef4ff 40%, #f7fcf4 100%);
+  background: #F8FAFC;
   overflow-x: hidden;
   color: var(--ab-text);
 }

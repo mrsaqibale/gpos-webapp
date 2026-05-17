@@ -438,7 +438,7 @@ const BottomFeatureStrip = () => (
 
 const DeliveryOrderFlowSection: React.FC = () => {
     return (
-        <section className="bg-[#F5F7FC] px-[40px] pb-[40px] pt-[36px] font-['Inter',Arial,sans-serif] max-lg:px-[24px] max-sm:px-[18px]">
+        <section className="bg-[#F8FAFC] px-[40px] pb-[40px] pt-[36px] font-['Inter',Arial,sans-serif] max-lg:px-[24px] max-sm:px-[18px]">
             <div className="mx-auto max-w-[1480px] pr-[18px] max-lg:pr-0">
                 <div className="grid grid-cols-1 items-start gap-[36px] lg:grid-cols-[640px_minmax(0,1fr)] xl:grid-cols-[680px_minmax(0,1fr)]">
                     <div className="pt-[4px]">

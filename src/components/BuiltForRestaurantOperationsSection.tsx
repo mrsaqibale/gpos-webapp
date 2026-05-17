@@ -39,7 +39,7 @@ const BuiltForRestaurantOperationsSection: React.FC = () => {
     return (
         <section
             id="features"
-            className="relative overflow-hidden bg-[#f8faff] px-[39px] pb-[30px] pt-[28px] font-['Poppins',Inter,Arial,sans-serif] max-lg:px-6 max-md:px-4"
+            className="relative overflow-hidden bg-[#F8FAFC] px-[39px] pb-[30px] pt-[28px] font-['Poppins',Inter,Arial,sans-serif] max-lg:px-6 max-md:px-4"
             aria-labelledby="reports-analytics-heading"
         >
             <div className="mx-auto grid w-full max-w-[1456px] items-start gap-[22px] lg:grid-cols-[640px_minmax(0,1fr)] xl:grid-cols-[670px_minmax(0,1fr)]">

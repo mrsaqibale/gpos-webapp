@@ -1,7 +1,6 @@
 .product-page {
   min-height: 100vh;
-  /* Match pricing page hero area: flat surface, no layered gradients */
-  background: #f8fbff;
+  background: #F8FAFC;
   overflow: hidden;
 }
 
@@ -12,16 +11,16 @@
   margin-right: auto;
 }
 
-section {
+.product-page section {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-section.hero-section {
+.product-page section.hero-section {
   padding: 90px 0 0px 0;
 }
 
-section.logo-carousel-section {
+.product-page section.logo-carousel-section {
   padding: 0px 0 0px 0;
 }
 
