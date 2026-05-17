@@ -86,10 +86,10 @@ const Navbar = () => {
                         Login
                     </Link>
                     <Link
-                        to="/get_demo"
+                        to="/contact-sales"
                         className="inline-flex h-[47px] min-w-[155px] items-center justify-center rounded-[8px] bg-gradient-to-br from-[#0866ff] via-[#0757f2] to-[#004ad9] px-7 font-['Poppins',Arial,sans-serif] text-[16px] font-semibold text-white no-underline shadow-[0_11px_23px_rgba(4,82,232,0.26),inset_0_1px_0_rgba(255,255,255,0.22)]"
                     >
-                        Book a Demo
+                        Contact Sales
                     </Link>
                 </div>
 
@@ -149,11 +149,11 @@ const Navbar = () => {
                                 Login
                             </Link>
                             <Link
-                                to="/get_demo"
+                                to="/contact-sales"
                                 onClick={() => setIsOpen(false)}
                                 className="inline-flex h-[48px] items-center justify-center rounded-[8px] bg-gradient-to-br from-[#0866ff] via-[#0757f2] to-[#004ad9] text-[16px] font-semibold text-white no-underline shadow-[0_11px_23px_rgba(4,82,232,0.22)]"
                             >
-                                Book a Demo
+                                Contact Sales
                             </Link>
                         </div>
                     </motion.div>
