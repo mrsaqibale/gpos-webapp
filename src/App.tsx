@@ -16,6 +16,7 @@ import CookiePolicy from './pages/CookiePolicy';
 import ReportsAnalyticsShowcasePage from './pages/ReportsAnalyticsShowcasePage';
 import BookDemoCtaShowcasePage from './pages/BookDemoCtaShowcasePage';
 import CustomerGrowthShowcasePage from './pages/CustomerGrowthShowcasePage';
+import ContactSales from './pages/ContactSales';
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/contact-sales" element={<ContactSales />} />
                     <Route path="/restaurant_pos" element={<RestaurantPos />} />
                     <Route path="/reports_analytics" element={<ReportsAnalyticsShowcasePage />} />
                     <Route path="/shop" element={<ProductPage />} />
