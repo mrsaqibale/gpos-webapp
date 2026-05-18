@@ -278,12 +278,11 @@ function BottomBenefit({
 const DeliveryCustomerRecoverySection: React.FC = () => {
     return (
         <section
-            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F4F8FF_0%,#F8FAFE_100%)] py-[40px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
-            style={{ paddingLeft: 20, paddingRight: 20 }}
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F4F8FF_0%,#F8FAFE_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] lg:px-8 lg:py-[84px]"
         >
             <div className="pointer-events-none absolute -right-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
-            <div className="relative mx-auto max-w-[1466px]">
-                <div className="mt-[8px] grid items-start gap-[34px] lg:mt-[10px] lg:grid-cols-[520px_minmax(290px,350px)_minmax(460px,1fr)] lg:gap-[24px]">
+            <div className="relative mx-auto max-w-[1200px]">
+                <div className="mt-[8px] grid items-start gap-[34px] lg:mt-[10px] lg:grid-cols-[380px_minmax(240px,280px)_minmax(0,1fr)] lg:gap-[24px]">
                     <div className="pt-[9px]">
                         <span className="home-eyebrow inline-flex items-center gap-[9px] rounded-full border border-[#DBF1E4] bg-[#EAF8EF]/85 px-[15px] py-[8px] text-[15px] font-extrabold leading-none tracking-[-0.005em] text-[#157E49] backdrop-blur">
                             <WhatsAppIcon className="h-[19px] w-[19px]" size={19} variant="brand" />

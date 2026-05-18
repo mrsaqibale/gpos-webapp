@@ -84,7 +84,7 @@ const Testimonials: React.FC = () => {
                 <div className="absolute -right-32 bottom-1/4 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
             </div>
 
-            <div className="relative mx-auto min-w-0 max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+            <div className="relative mx-auto min-w-0 max-w-[1200px] px-4 sm:px-6 lg:px-8">
                 <div className="mb-14 text-center">
                     <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/85 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
                         Customer Stories

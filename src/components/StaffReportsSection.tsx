@@ -135,11 +135,10 @@ function InsightItem({
 const StaffReportsSection: React.FC = () => {
     return (
         <section
-            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F2F6FE_100%)] py-[40px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
-            style={{ paddingLeft: 20, paddingRight: 20 }}
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F2F6FE_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] lg:px-8 lg:py-[84px]"
         >
             <div className="pointer-events-none absolute -left-32 top-0 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
-            <div className="relative mx-auto max-w-[1468px]">
+            <div className="relative mx-auto max-w-[1200px]">
                 <div className="mt-[8px] grid items-start gap-[38px] lg:grid-cols-[510px_minmax(0,1fr)] lg:gap-[22px]">
                     <div className="pt-[13px]">
                         <TopPill />

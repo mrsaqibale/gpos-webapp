@@ -123,11 +123,11 @@ const metrics = [
 
 const PainSolutionSection = () => {
     return (
-        <section className="relative bg-[#F8FAFC] px-[clamp(20px,4.1vw,64px)] py-[26px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:h-[680px] lg:overflow-hidden">
+        <section className="relative bg-[linear-gradient(180deg,#F8FAFC_0%,#F3F7FF_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:px-8 lg:py-[84px]">
             <div className="pointer-events-none absolute -left-32 top-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.07)_0%,rgba(11,86,234,0)_70%)] blur-2xl" />
             <div className="pointer-events-none absolute -right-24 bottom-10 h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-2xl" />
-            <div className="relative mx-auto max-w-[1460px] lg:h-full">
-                <div className="home-card relative overflow-hidden rounded-[20px] border border-white/70 bg-white/90 px-[34px] pb-[14px] pt-[26px] backdrop-blur lg:h-full">
+            <div className="relative mx-auto max-w-[1200px]">
+                <div className="relative overflow-hidden px-0 pb-[14px] pt-0">
                     <div className="pointer-events-none absolute left-[41.5%] top-0 hidden h-[520px] w-[160px] -skew-x-[12deg] bg-gradient-to-r from-transparent via-[#f2f6ff] to-transparent lg:block" />
                     <div className="pointer-events-none absolute left-[43%] top-[188px] hidden h-[260px] w-[160px] bg-[radial-gradient(circle,rgba(6,78,228,0.16)_1px,transparent_2px)] [background-size:12px_12px] opacity-40 lg:block" />
 

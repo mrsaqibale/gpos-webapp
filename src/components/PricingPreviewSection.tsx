@@ -202,12 +202,11 @@ function BrandPill({ name, accent }: { name: string; accent: string }) {
 const PricingPreviewSection: React.FC = () => {
     return (
         <section
-            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F4F8FF_0%,#F8FAFE_100%)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
-            style={{ paddingLeft: 20, paddingRight: 20 }}
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F4F8FF_0%,#F8FAFE_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] lg:px-8 lg:py-[84px]"
         >
             <div className="pointer-events-none absolute -left-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
             <div className="pointer-events-none absolute -right-32 bottom-10 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
-            <div className="relative mx-auto max-w-[1468px]">
+            <div className="relative mx-auto max-w-[1200px]">
                 <TrustBadge />
 
                 <div className="mx-auto mt-[6px] max-w-[820px] text-center">

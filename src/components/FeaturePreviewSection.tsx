@@ -144,11 +144,10 @@ function FeatureCard({
 const FeaturePreviewSection: React.FC = () => {
     return (
         <section
-            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[40px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
-            style={{ paddingLeft: 20, paddingRight: 20 }}
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] lg:px-8 lg:py-[84px]"
         >
             <div className="pointer-events-none absolute -right-32 top-32 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
-            <div className="relative mx-auto max-w-[1468px]">
+            <div className="relative mx-auto max-w-[1200px]">
                 <div className="mx-auto mt-[8px] max-w-[900px] text-center">
                     <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/85 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
                         Built to scale

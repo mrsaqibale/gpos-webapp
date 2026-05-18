@@ -1,0 +1,181 @@
+Work only on the existing GPOS homepage design.
+
+Very important:
+Do not remove any section.
+Do not add any new section.
+Do not change section order.
+Do not change text meaning.
+Do not change links, buttons functionality, routes, forms, API calls, business logic, data mapping, animations logic, or component logic.
+Only improve the visual design, spacing, background rhythm, containers, cards, typography spacing, and responsive layout.
+
+Goal:
+Keep the same current homepage, but make it look like one unified Apple-level premium SaaS website with a clean blue theme.
+
+Theme:
+Use a premium blue SaaS style.
+Main page background should be a very soft blue/white gradient, not plain separated blocks.
+Use these colors consistently:
+- Deep navy: #071A3D
+- Premium blue: #2563EB
+- Light blue: #EFF6FF
+- Soft page background: #F8FAFC / #F3F7FF
+- Text dark: #0F172A
+- Text muted: #64748B
+- Border: rgba(37, 99, 235, 0.12)
+
+Global homepage layout rules:
+1. Make the whole homepage feel continuous, not like separate stacked containers.
+2. Remove unnecessary section-level card wrappers.
+3. Do not put every section inside a white rounded box.
+4. Keep the main background consistent across the homepage.
+5. Only actual content cards should have white backgrounds, borders, radius and soft shadows.
+6. Section wrappers should usually be transparent.
+7. No random grey/white/blue background switching between sections.
+8. Remove irregular blank spaces above and below sections.
+9. Keep all sections aligned to the same max-width container.
+10. Make spacing consistent from top to bottom.
+
+Container rules:
+Use one shared page container width for all homepage sections:
+- max-width: 1180px or 1200px
+- margin: 0 auto
+- desktop horizontal padding: 24px
+- mobile horizontal padding: 16px
+
+Avoid nested containers like:
+container > rounded section card > inner container > cards
+
+Correct structure should be:
+section > page container > content/cards
+
+Spacing rules:
+Set consistent vertical spacing:
+- Hero section bottom spacing should naturally connect to next section.
+- Major sections: padding-top 84px and padding-bottom 84px on desktop.
+- Medium sections: 72px top/bottom.
+- Mobile sections: 52px to 60px top/bottom.
+- Section header to content grid gap: 36px to 44px.
+- Heading to paragraph gap: 12px to 16px.
+- Remove extra margin-bottom from last child elements inside sections.
+- Remove any random mt-20, mb-24, py-32, large empty gaps unless truly needed.
+
+Hero section:
+Keep the same hero content and current assets.
+Improve only layout and spacing.
+Hero should feel premium and open, with a soft blue gradient background.
+Do not wrap hero in a heavy card.
+Use clean typography:
+- heading large, bold, tight line-height
+- paragraph max-width around 560px
+- buttons aligned cleanly
+- hero visual should blend into the background, not look pasted inside a separate box
+Add subtle blue glow/background shapes only if already easy through CSS, but do not make it cinematic.
+
+Sections:
+For every existing homepage section:
+- Keep the same section.
+- Keep the same content.
+- Remove the feeling that it is a separate full-width container.
+- Use transparent section background unless it is a CTA/footer type section.
+- Align heading, paragraph, and cards consistently.
+- Make section transitions smooth with consistent spacing.
+
+Cards:
+Cards should be premium but light:
+- background: rgba(255, 255, 255, 0.82)
+- border: 1px solid rgba(37, 99, 235, 0.12)
+- border-radius: 20px to 24px
+- box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05)
+- padding: 24px to 28px
+- no heavy shadows
+- no thick borders
+- no over-rounded cartoon look
+
+Feature cards:
+Make all cards equal height.
+Icons should sit in soft blue icon containers.
+Icon container:
+- 44px to 52px
+- rounded 14px to 16px
+- background: #EFF6FF
+- icon color: #2563EB
+Text should be vertically balanced.
+Avoid excessive blank space inside cards.
+
+Pricing section:
+Do not remove or change pricing content.
+Make it feel naturally part of the homepage.
+Do not place it inside multiple nested containers.
+Use one highlighted pricing card only.
+Use premium blue border/glow on the main plan card.
+Keep surrounding info cards simple and lighter.
+
+Hardware / product visual sections:
+Keep existing items and images.
+Make image/card spacing consistent.
+Hardware cards should not feel like separate website blocks.
+Use same card radius, border and shadow as feature cards.
+Keep blue theme consistent.
+
+CTA section:
+CTA can be the only strong full-width visual band.
+Use premium blue/navy gradient:
+linear-gradient(135deg, #071A3D 0%, #1D4ED8 100%)
+Keep it clean and not too tall.
+Remove extra blank space above/below CTA.
+CTA content should be centered/aligned professionally.
+
+Footer:
+Keep existing footer content.
+Make footer spacing clean and premium.
+Footer should feel connected to CTA.
+Use dark navy background if already present.
+Reduce any excessive top padding or empty footer gaps.
+
+Typography:
+Use consistent font sizing and spacing:
+- Section eyebrow: small, uppercase or semi-bold, blue
+- Section heading: bold, dark navy
+- Section paragraph: muted slate
+- Card titles: semibold, dark navy
+- Card body: muted slate
+
+Do not overuse different font sizes.
+Do not make sections look crowded.
+
+Buttons:
+Keep existing button actions.
+Improve button visuals only:
+Primary button:
+- blue gradient or solid #2563EB
+- white text
+- radius 12px to 14px
+- height 44px to 48px
+- subtle shadow
+Secondary button:
+- white / transparent
+- blue border
+- blue text
+- same height/radius
+
+Responsive:
+On mobile:
+- reduce vertical section padding
+- keep cards stacked cleanly
+- avoid huge blank spaces
+- hero text and visual should stack naturally
+- no horizontal overflow
+
+Final check:
+After updating, review the complete homepage from top to bottom.
+Remove:
+- irregular top/bottom spaces
+- duplicate containers
+- section-level rounded boxes
+- mismatched backgrounds
+- unnecessary wrapper shadows
+- large empty gaps
+- inconsistent card heights
+- inconsistent left/right alignment
+
+The final result must be the same current GPOS homepage, but visually more premium, clean, unified, blue-themed, and Apple-level.

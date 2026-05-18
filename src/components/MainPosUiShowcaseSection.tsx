@@ -117,11 +117,10 @@ function DashboardShell() {
 const MainPosUiShowcaseSection: React.FC = () => {
     return (
         <section
-            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[40px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
-            style={{ paddingLeft: 20, paddingRight: 20 }}
+            className="relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] lg:px-8 lg:py-[84px]"
         >
             <div className="pointer-events-none absolute -left-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
-            <div className="relative mx-auto max-w-[1466px]">
+            <div className="relative mx-auto max-w-[1200px]">
                 <div className="mt-[8px] grid items-start gap-[28px] lg:mt-[10px] lg:grid-cols-[570px_minmax(0,1fr)] lg:gap-[12px]">
                     <div className="pt-[8px]">
                         <span className="home-eyebrow inline-flex rounded-full border border-[#E4EAF7] bg-white/85 px-[19px] py-[9px] text-[16px] font-extrabold leading-none tracking-[-0.005em] text-[#0649C9] backdrop-blur">

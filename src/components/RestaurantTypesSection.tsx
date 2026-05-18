@@ -101,10 +101,10 @@ const industryCards: IndustryCard[] = [
 
 const RestaurantTypesSection: React.FC = () => {
     return (
-        <section className="relative bg-[linear-gradient(180deg,#FAFCFF_0%,#F4F8FF_58%,#EFF4FE_100%)] px-[clamp(20px,2.45vw,38px)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e]">
+        <section className="relative bg-[linear-gradient(180deg,#FAFCFF_0%,#F4F8FF_58%,#EFF4FE_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07112e] lg:px-8 lg:py-[84px]">
             <div className="pointer-events-none absolute -left-32 top-32 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(11,86,234,0.06)_0%,rgba(11,86,234,0)_70%)] blur-3xl" />
             <div className="pointer-events-none absolute -right-32 bottom-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
-            <div className="relative mx-auto max-w-[1460px]">
+            <div className="relative mx-auto max-w-[1200px]">
                 <div className="text-center">
                     <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/80 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
                         For every food business

@@ -152,10 +152,9 @@ function ContactItem({ item, index }: { item: (typeof contactItems)[number]; ind
 const DemoCtaSection: React.FC = () => {
     return (
         <section
-            className="home-demo-cta-section relative overflow-x-clip bg-[linear-gradient(180deg,#F8FAFE_0%,#F4F8FF_100%)] py-[44px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]"
-            style={{ paddingLeft: 20, paddingRight: 20 }}
+            className="home-demo-cta-section relative overflow-x-clip bg-[linear-gradient(135deg,#071A3D_0%,#1D4ED8_100%)] px-5 py-[52px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F] lg:px-8 lg:py-[84px]"
         >
-            <div className="home-demo-cta-card home-card relative mx-auto max-w-[1510px] overflow-hidden rounded-[28px] border border-white/70 bg-[linear-gradient(135deg,#F2F7FF_0%,#EEF5FF_54%,#F5F9FF_100%)] px-[25px] pb-[31px] pt-[44px] backdrop-blur lg:px-[40px]">
+            <div className="home-demo-cta-card home-card relative mx-auto max-w-[1200px] overflow-hidden rounded-[28px] border border-white/15 bg-[linear-gradient(135deg,#F2F7FF_0%,#EEF5FF_54%,#F5F9FF_100%)] px-[25px] pb-[31px] pt-[44px] backdrop-blur lg:px-[40px]">
                 <div className="grid items-start gap-[30px] lg:grid-cols-[minmax(0,690px)_minmax(420px,1fr)]">
                     <div className="pt-[1px]">
                         <TopPill />
