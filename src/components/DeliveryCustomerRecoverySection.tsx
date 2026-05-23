@@ -123,7 +123,7 @@ function FeatureItem({
             </span>
             <div className="pt-[4px]">
                 <h3 className="text-[15px] font-extrabold leading-[1.22] tracking-[-0.012em] text-[#07142F]">{title}</h3>
-                <p className="mt-[5px] max-w-[280px] text-[13px] font-medium leading-[1.55] tracking-[-0.005em] text-[#27344E]">{description}</p>
+                <p className="mt-[5px] max-w-[360px] text-[13px] font-medium leading-[1.55] tracking-[-0.005em] text-[#27344E]">{description}</p>
             </div>
         </article>
     );
@@ -283,24 +283,24 @@ const DeliveryCustomerRecoverySection: React.FC = () => {
         >
             <div className="pointer-events-none absolute -right-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
             <div className="relative mx-auto max-w-[1200px]">
-                <div className="mt-[8px] grid items-start gap-[24px] lg:mt-[10px] lg:grid-cols-[360px_minmax(0,1fr)_420px] lg:gap-[20px]">
+                <div className="mt-[8px] grid items-start gap-[24px] lg:mt-[10px] lg:grid-cols-[440px_260px_minmax(0,1fr)] lg:gap-[20px]">
                     <div className="pt-[2px]">
                         <span className="home-eyebrow inline-flex items-center gap-[9px] rounded-full border border-[#DBF1E4] bg-[#EAF8EF]/85 px-[15px] py-[8px] text-[14px] font-extrabold leading-none tracking-[-0.005em] text-[#157E49] backdrop-blur">
                             <WhatsAppIcon className="h-[17px] w-[17px]" size={17} variant="brand" />
                             Turn One-Time Buyers Into Loyal Customers
                         </span>
 
-                        <h2 className="mt-[14px] text-[clamp(26px,6vw,38px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
+                        <h2 className="mt-[16px] text-[clamp(28px,6.5vw,40px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
                             <span className="block whitespace-nowrap">Bring Customers Back.</span>
                             <span className="block whitespace-nowrap bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#0A66FF] bg-clip-text text-transparent">Keep Them for Life.</span>
                         </h2>
 
-                        <p className="mt-[10px] max-w-[340px] text-[14px] font-medium leading-[1.55] tracking-[-0.005em] text-[#26334C]">
+                        <p className="mt-[12px] max-w-[400px] text-[14px] font-medium leading-[1.55] tracking-[-0.005em] text-[#26334C]">
                             GPOS helps you re-engage inactive customers on WhatsApp, promote offers, and drive repeat orders -
                             automatically.
                         </p>
 
-                        <div className="mt-[16px] space-y-[14px]">
+                        <div className="mt-[20px] space-y-[16px]">
                             {recoveryFeatures.map(({ title, description, Icon, iconColor, iconBg, filled, iconVariant }) => (
                                 <FeatureItem
                                     key={title}
