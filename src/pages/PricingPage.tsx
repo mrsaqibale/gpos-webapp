@@ -694,7 +694,7 @@ const HardwareAddonsSection = () => (
 const RunWithLessChaosSection = () => (
     <section
         style={{ backgroundColor: "#07142F", fontFamily: "'Inter',Arial,sans-serif" }}
-        className="relative overflow-hidden px-[40px] py-[64px] max-lg:px-[24px]"
+        className="run-chaos-section relative overflow-hidden px-[40px] py-[64px] max-lg:px-[24px]"
     >
         <div
             className="pointer-events-none absolute left-[-80px] top-[-80px] h-[340px] w-[340px] rounded-full"
@@ -714,7 +714,7 @@ const RunWithLessChaosSection = () => (
                     className="mt-[20px] text-[clamp(36px,4vw,56px)] font-[850] leading-[1.08] tracking-[-0.04em]"
                 >
                     Run Your Restaurant<br />
-                    With <span style={{ color: "#0757F2" }}>Less Chaos.</span>
+                    With <span className="accent-blue" style={{ color: "#0757F2" }}>Less Chaos.</span>
                 </h2>
                 <p style={{ color: "#8FA8C8" }} className="mt-[18px] max-w-[480px] text-[17px] font-[500] leading-[1.65] max-lg:mx-auto">
                     Join hundreds of restaurants using GPOS to save time, delight customers and grow revenue.

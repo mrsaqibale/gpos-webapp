@@ -9,6 +9,19 @@
   background: #F8FAFC;
 }
 
+.pricing-page .run-chaos-section {
+  background-color: #07142F !important;
+}
+
+.pricing-page .run-chaos-section h2,
+.pricing-page .run-chaos-section h2 * {
+  color: #ffffff !important;
+}
+
+.pricing-page .run-chaos-section h2 .accent-blue {
+  color: #0757F2 !important;
+}
+
 .pricing-page :is(h1, h2, h3, h4, p, span, a, button, li) {
   font-family: var(--gpos-typeface);
   text-rendering: optimizeLegibility;
