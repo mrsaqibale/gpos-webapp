@@ -123,8 +123,8 @@ const Footer: React.FC<FooterProps> = ({ hideTopCta: _hideTopCta = false }) => {
     };
 
     return (
-        <footer className="w-full overflow-x-clip bg-[#F8FAFC] px-[16px] pb-[24px] pt-[34px] font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]">
-            <div className="mx-auto max-w-[1280px] overflow-hidden rounded-[20px] border border-[#DDE6F2] bg-white px-[28px] pb-[24px] pt-[32px] shadow-[0_8px_24px_rgba(15,23,42,0.04)] lg:px-[40px] lg:pb-[28px] lg:pt-[40px]">
+        <footer className="w-full overflow-x-clip border-t border-[#DDE6F2] bg-white font-['Poppins',Inter,Arial,sans-serif] text-[#07142F]">
+            <div className="mx-auto w-full max-w-[1440px] px-[20px] pb-[24px] pt-[36px] lg:px-[48px] lg:pb-[28px] lg:pt-[44px]">
                 <div className="grid grid-cols-1 items-start gap-[36px] lg:grid-cols-[1.3fr_repeat(4,minmax(0,1fr))_1.2fr] lg:gap-[28px]">
                     <section className="flex flex-col">
                         <BrandMark />
