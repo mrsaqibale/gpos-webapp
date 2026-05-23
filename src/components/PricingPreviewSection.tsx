@@ -213,9 +213,9 @@ const PricingPreviewSection: React.FC = () => {
                     <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/85 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
                         Pricing
                     </span>
-                    <h2 className="mt-[18px] text-[clamp(35px,5.7vw,52px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
-                        <span className="block whitespace-nowrap">Simple, Transparent Pricing</span>
-                        <span className="block whitespace-nowrap bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#65A3FF] bg-clip-text text-transparent">
+                    <h2 className="mt-[18px] whitespace-nowrap text-[clamp(20px,3.2vw,34px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
+                        Simple, Transparent Pricing —{' '}
+                        <span className="bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#65A3FF] bg-clip-text text-transparent">
                             Choose the Plan That Fits You
                         </span>
                     </h2>

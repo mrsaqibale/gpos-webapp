@@ -152,7 +152,7 @@ const FeaturePreviewSection: React.FC = () => {
                     <span className="home-eyebrow inline-flex items-center gap-[8px] rounded-full border border-[#E0E8F8] bg-white/85 px-[16px] py-[8px] text-[13px] font-extrabold uppercase tracking-[0.08em] text-[#0649C9] backdrop-blur">
                         Built to scale
                     </span>
-                    <h2 className="mt-[18px] text-[clamp(33px,5.4vw,46px)] font-extrabold leading-[1.08] tracking-[-0.028em] text-[#07142F]">
+                    <h2 className="mt-[18px] whitespace-nowrap text-[clamp(22px,3.6vw,38px)] font-extrabold leading-[1.08] tracking-[-0.028em] text-[#07142F]">
                         Everything You Need to{' '}
                         <span className="bg-gradient-to-r from-[#075BFF] via-[#0A55F5] to-[#003FC9] bg-clip-text text-transparent">
                             Run &amp; Grow
