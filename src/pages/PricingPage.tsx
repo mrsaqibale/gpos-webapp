@@ -222,7 +222,7 @@ const SectionTitle = ({
 const MiniDashboard = () => {
     const chartPoints = "M0 92 L42 74 L77 82 L116 42 L153 58 L190 28 L226 48 L260 34";
     return (
-        <div className="relative mx-auto mt-[34px] h-[300px] max-w-[880px] max-lg:h-auto">
+        <div className="relative mx-auto mt-[clamp(10px,1.8vh,34px)] h-[clamp(190px,24vh,300px)] max-w-[880px] max-lg:h-auto">
             <div className="absolute left-[-198px] top-[60px] hidden w-[214px] rotate-[-7deg] rounded-[14px] border border-[#E5ECF7] bg-white p-[20px] shadow-[0_22px_48px_rgba(15,23,42,0.09)] xl:block">
                 <p className="text-[17px] font-[800] text-[#071333]">Total Sales</p>
                 <div className="mt-[18px] flex items-center gap-[12px]">
@@ -242,7 +242,7 @@ const MiniDashboard = () => {
             </div>
 
             <div className="relative mx-auto overflow-hidden rounded-[18px] border border-[#E6ECF5] bg-white shadow-[0_24px_60px_rgba(15,23,42,0.09)]">
-                <div className="grid h-[300px] grid-cols-[145px_1fr] max-md:grid-cols-1">
+                <div className="grid h-[clamp(190px,24vh,300px)] grid-cols-[145px_1fr] max-md:grid-cols-1">
                     <aside className="bg-[#F4F8FF] px-[20px] py-[25px] max-md:hidden">
                         <div className="flex items-center gap-[9px]">
                             <GposMiniWordmark />
@@ -345,19 +345,19 @@ const MiniDashboard = () => {
 };
 
 const PricingHero = () => (
-    <section className="relative overflow-hidden bg-[#F8FAFF] px-[40px] pb-[42px] pt-[46px] font-['Inter',Arial,sans-serif] max-lg:px-[24px]">
+    <section className="relative overflow-hidden bg-[#F8FAFF] px-[40px] pb-[clamp(16px,2vh,42px)] pt-[clamp(18px,2.2vh,46px)] font-['Inter',Arial,sans-serif] max-lg:px-[24px]">
         <div className="pointer-events-none absolute left-[5%] top-[45%] h-[92px] w-[92px] rounded-full bg-[#EAF2FF]" />
         <div className="pointer-events-none absolute right-[6%] top-[35%] h-[96px] w-[96px] rounded-full bg-[#EAF2FF]" />
         <div className="pointer-events-none absolute bottom-[72px] right-[8%] h-[172px] w-[172px] rounded-full bg-[#EAF2FF]" />
         <div className="mx-auto max-w-[1450px] text-center">
             <Badge>Simple Pricing. Powerful Results.</Badge>
-            <h1 className="mx-auto mt-[26px] max-w-[790px] font-['Inter',Arial,sans-serif] text-[clamp(40px,4.75vw,66px)] font-[850] leading-[1.07] tracking-[-0.048em] text-[#071333]">
+            <h1 className="mx-auto mt-[clamp(10px,1.5vh,26px)] max-w-[790px] font-['Inter',Arial,sans-serif] text-[clamp(40px,4.75vw,66px)] font-[850] leading-[1.07] tracking-[-0.048em] text-[#071333]">
                 Choose the Perfect Plan for <span className="bg-gradient-to-r from-[#0D66FF] via-[#0757F2] to-[#0049D8] bg-clip-text text-transparent">Your Restaurant</span>
             </h1>
-            <p className="mx-auto mt-[20px] max-w-[640px] text-[18px] font-[550] leading-[1.55] tracking-[-0.015em] text-[#4F5D76]">
+            <p className="mx-auto mt-[clamp(8px,1.2vh,20px)] max-w-[640px] text-[18px] font-[550] leading-[1.55] tracking-[-0.015em] text-[#4F5D76]">
                 Transparent pricing, no hidden fees. Start free and upgrade as your business grows with GPOS.
             </p>
-            <div className="mt-[32px] flex flex-wrap justify-center gap-[16px]">
+            <div className="mt-[clamp(12px,2vh,32px)] flex flex-wrap justify-center gap-[16px]">
                 <a href="#plans" className="inline-flex h-[58px] min-w-[250px] items-center justify-center gap-[16px] rounded-[9px] bg-[#0757F2] px-[30px] text-[17px] font-[800] text-white no-underline shadow-[0_16px_30px_rgba(7,87,242,0.20)]">
                     View Pricing Plans
                     <ArrowRight className="h-[24px] w-[24px]" strokeWidth={2.2} aria-hidden />
@@ -367,7 +367,7 @@ const PricingHero = () => (
                     <ArrowRight className="h-[24px] w-[24px]" strokeWidth={2.2} aria-hidden />
                 </Link>
             </div>
-            <div className="mx-auto mt-[42px] grid max-w-[1135px] grid-cols-4 items-center max-lg:grid-cols-2 max-sm:grid-cols-1">
+            <div className="mx-auto mt-[clamp(12px,2vh,42px)] grid max-w-[1135px] grid-cols-4 items-center max-lg:grid-cols-2 max-sm:grid-cols-1">
                 {heroTrust.map(({ title, Icon }, index) => (
                     <div key={title} className={`flex items-center justify-center gap-[15px] px-[28px] ${index > 0 ? "border-l border-[#DDE5F0] max-lg:border-l-0" : ""}`}>
                         <span className="grid h-[44px] w-[44px] place-items-center rounded-full bg-[#EDF4FF] text-[#0757F2]">
