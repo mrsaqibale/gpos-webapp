@@ -13,12 +13,15 @@ import {
 } from 'lucide-react';
 import {
     PHONE_DISPLAY,
-    PHONE_HREF,
     WHATSAPP_DISPLAY,
-    WHATSAPP_HREF,
     EMAIL_DISPLAY,
-    EMAIL_HREF
 } from '../constants/contact';
+import supportAgentImg from '../assets/support-agent-headset.png';
+
+const scrollToDemoForm = () => {
+    const el = document.getElementById('schedule-demo-form');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
 
 const GetDemoHeroSection: React.FC = () => {
     return (
@@ -89,7 +92,11 @@ const GetDemoHeroSection: React.FC = () => {
 
                         {/* Actions */}
                         <div className="mt-10 flex flex-wrap items-center gap-6">
-                            <button className="flex items-center justify-center gap-3 rounded-xl bg-[#0052FF] px-8 py-4 font-bold text-white shadow-lg shadow-[#0052ff2a] transition-all hover:bg-[#0041cc] hover:shadow-xl">
+                            <button
+                                type="button"
+                                onClick={scrollToDemoForm}
+                                className="flex items-center justify-center gap-3 rounded-xl bg-[#0052FF] px-8 py-4 font-bold text-white shadow-lg shadow-[#0052ff2a] transition-all hover:bg-[#0041cc] hover:shadow-xl"
+                            >
                                 Book a Free Demo
                                 <ArrowRight className="h-5 w-5" />
                             </button>
@@ -114,7 +121,7 @@ const GetDemoHeroSection: React.FC = () => {
                         {/* Main Support Agent (girl) image */}
                         <div className="relative z-10 flex justify-center">
                             <img
-                                src="/src/assets/support-agent-headset.png"
+                                src={supportAgentImg}
                                 alt="GPOS Support Expert"
                                 className="w-full max-w-[480px] h-auto object-contain drop-shadow-[0_24px_48px_rgba(15,23,42,0.18)]"
                             />
@@ -148,21 +155,8 @@ const GetDemoHeroSection: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Customer Count Card — bottom-right */}
-                        <div className="absolute bottom-[14%] right-[-8px] sm:right-[-28px] lg:right-[-40px] z-30">
-                            <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_18px_38px_rgba(15,23,42,0.12)] border border-[#e2e8f0]">
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f0f7ff] text-[#0052FF]">
-                                    <Users className="h-5 w-5" />
-                                </div>
-                                <div>
-                                    <p className="text-[13px] font-bold text-[#0B1F3A] leading-tight">1,000+ Restaurants</p>
-                                    <p className="text-[11px] text-[#64748B] leading-tight">Trust GPOS daily</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 5-star rating card — bottom-left */}
-                        <div className="absolute bottom-[6%] left-[-8px] sm:left-[-28px] lg:left-[-40px] z-30">
+                        {/* 5-star rating card — middle-right */}
+                        <div className="absolute top-[34%] right-[-8px] sm:right-[-28px] lg:right-[-40px] z-30">
                             <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_18px_38px_rgba(15,23,42,0.12)] border border-[#e2e8f0]">
                                 <div className="flex items-center gap-1 text-[#FBBF24]">
                                     {[0,1,2,3,4].map(i => (
@@ -173,6 +167,45 @@ const GetDemoHeroSection: React.FC = () => {
                                 </div>
                                 <p className="mt-1 text-[12px] font-bold text-[#0B1F3A] leading-tight">Rated 4.9 / 5</p>
                                 <p className="text-[10.5px] text-[#64748B] leading-tight">By our customers</p>
+                            </div>
+                        </div>
+
+                        {/* Bottom CTA Card — overlaid at bottom of image */}
+                        <div className="absolute bottom-[-36px] left-1/2 -translate-x-1/2 z-30 w-[92%] max-w-[440px]">
+                            <div className="rounded-2xl bg-white p-5 shadow-[0_24px_50px_rgba(15,23,42,0.18)] border border-[#e2e8f0]">
+                                <p className="text-[16px] font-extrabold text-[#0B1F3A] leading-tight">Ready to See GPOS in Action?</p>
+                                <p className="mt-1.5 text-[12.5px] text-[#475569] leading-snug">
+                                    Book a free demo and see how GPOS can transform your restaurant operations.
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={scrollToDemoForm}
+                                    className="mt-3 inline-flex h-[42px] w-full items-center justify-center gap-2 rounded-[10px] bg-[#0052FF] px-5 text-[14px] font-bold text-white shadow-[0_10px_22px_rgba(0,82,255,0.25)] transition-all hover:bg-[#0041cc]"
+                                >
+                                    Book Your Free Demo
+                                    <ArrowRight className="h-4 w-4" />
+                                </button>
+                                <div className="mt-3 flex items-center gap-2.5">
+                                    <div className="flex -space-x-2">
+                                        {[
+                                            { bg: "linear-gradient(135deg,#F472B6,#DB2777)", initial: "S" },
+                                            { bg: "linear-gradient(135deg,#60A5FA,#2563EB)", initial: "D" },
+                                            { bg: "linear-gradient(135deg,#34D399,#059669)", initial: "M" },
+                                        ].map((u, i) => (
+                                            <span
+                                                key={i}
+                                                className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white text-[11px] font-extrabold text-white"
+                                                style={{ background: u.bg }}
+                                                aria-hidden
+                                            >
+                                                {u.initial}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <p className="text-[11.5px] font-medium leading-tight text-[#64748B]">
+                                        Trusted by <span className="font-bold text-[#0B1F3A]">1,000+ restaurant owners</span> across Ireland &amp; the UK.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
