@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
+import OperationsManagementSection from '../components/OperationsManagementSection';
 import PainSolutionSection from '../components/PainSolutionSection';
 import RestaurantTypesSection from '../components/RestaurantTypesSection';
 import MainPosUiShowcaseSection from '../components/MainPosUiShowcaseSection';
@@ -116,6 +117,7 @@ const Home = () => {
 
             <main className="home-premium-main m-0 p-0">
                 <Hero onGetStartedClick={openPromoFromUserAction} />
+                <OperationsManagementSection />
                 <PainSolutionSection />
                 <RestaurantTypesSection />
                 <MainPosUiShowcaseSection />
