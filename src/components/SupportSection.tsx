@@ -5,8 +5,6 @@ import {
     Users, 
     Clock, 
     MapPin, 
-    Calendar, 
-    ArrowRight, 
     Star, 
     Award, 
     Lock, 
@@ -72,7 +70,7 @@ const SupportSection: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Right Content (Image & CTA Card) */}
+                        {/* Right Content (Image) */}
                         <div className="support-right relative">
                             <div className="support-image-container overflow-hidden rounded-[24px] shadow-2xl">
                                 <img
@@ -80,39 +78,6 @@ const SupportSection: React.FC = () => {
                                     alt="GPOS Support"
                                     className="h-full w-full object-cover"
                                 />
-                            </div>
-
-                            {/* Overlay Card */}
-                            <div className="support-cta-card absolute -bottom-10 left-1/2 w-[90%] -translate-x-1/2 rounded-[24px] bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.1)] lg:w-[480px]">
-                                <div className="flex items-start gap-4">
-                                    <div className="cta-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#eef2ff] text-[#003B8E]">
-                                        <Calendar className="h-6 w-6" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-xl font-bold text-[#0B1F3A]">Ready to See GPOS in Action?</h4>
-                                        <p className="mt-1 text-sm text-[#64748B]">Book a free demo and see how GPOS can transform your restaurant operations.</p>
-                                    </div>
-                                </div>
-                                <button className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#0052FF] py-4 font-bold text-white transition-all hover:bg-[#0041cc]">
-                                    <Calendar className="h-5 w-5" />
-                                    Book Your Free Demo
-                                    <ArrowRight className="h-5 w-5" />
-                                </button>
-                                <div className="mt-6 flex items-center gap-3 border-t border-[#f1f5f9] pt-6">
-                                    <div className="avatar-group flex -space-x-3">
-                                        {[1, 2, 3].map((i) => (
-                                            <img
-                                                key={i}
-                                                src="/assets/84457.jpg"
-                                                alt="Trusted User"
-                                                className="h-10 w-10 rounded-full border-2 border-white object-cover"
-                                            />
-                                        ))}
-                                    </div>
-                                    <p className="text-xs font-medium text-[#64748B]">
-                                        Trusted by 1,000+ restaurant owners across Ireland & the UK.
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
