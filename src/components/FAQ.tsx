@@ -109,12 +109,13 @@ function FaqItem({
 function SupportItem({ item }: { item: (typeof supportItems)[number]; index: number }) {
     const [line1, line2, Icon, color, bg] = item;
     return (
-        <article className="flex items-center gap-[12px]">
-            <span className="home-chip grid h-[42px] w-[42px] shrink-0 place-items-center rounded-full border border-white/75" style={{ background: bg, color }}>
-                <Icon className="h-[22px] w-[22px]" strokeWidth={2.15} aria-hidden />
+        <article className="flex items-center gap-[10px]">
+            <span className="grid h-[36px] w-[36px] shrink-0 place-items-center rounded-full" style={{ background: bg, color }}>
+                <Icon className="h-[18px] w-[18px]" strokeWidth={2.15} aria-hidden />
             </span>
-            <p className="whitespace-nowrap text-[14px] font-semibold leading-[1.3] tracking-[-0.005em] text-[#27344E]">
-                {line1} {line2}
+            <p className="text-[12px] font-semibold leading-[1.3] tracking-[-0.005em] text-[#27344E]">
+                <span className="block">{line1}</span>
+                <span className="block">{line2}</span>
             </p>
         </article>
     );
@@ -166,41 +167,41 @@ const FAQAccordion: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="home-card mt-[26px] grid min-h-[180px] grid-cols-1 overflow-hidden rounded-[20px] border border-white/70 bg-white/95 backdrop-blur lg:grid-cols-[1.55fr_1fr]">
-                    <div className="flex flex-col gap-5 px-[33px] py-[34px] sm:flex-row sm:items-center sm:justify-between lg:border-r lg:border-[#E5EBF4]">
-                        <div className="flex items-center gap-[24px]">
-                            <span className="home-chip grid h-[96px] w-[96px] shrink-0 place-items-center rounded-full bg-[linear-gradient(145deg,#EEF5FF_0%,#DCEAFF_100%)] text-[#0B56EA]">
-                                <MessageCircleQuestion className="h-[48px] w-[48px]" strokeWidth={2.1} aria-hidden />
+                <div className="mt-[26px] grid grid-cols-1 items-center gap-[20px] overflow-hidden rounded-[16px] border border-[#DDE6F2] bg-[#EEF3FB] px-[22px] py-[20px] lg:grid-cols-[1.55fr_1fr] lg:gap-[28px] lg:px-[28px] lg:py-[22px]">
+                    <div className="flex flex-col gap-[18px] sm:flex-row sm:items-center sm:justify-between lg:gap-[20px]">
+                        <div className="flex items-center gap-[16px]">
+                            <span className="grid h-[56px] w-[56px] shrink-0 place-items-center rounded-full bg-[#DCE8FC] text-[#0B56EA]">
+                                <MessageCircleQuestion className="h-[28px] w-[28px]" strokeWidth={2.1} aria-hidden />
                             </span>
-                            <div>
-                                <h3 className="whitespace-nowrap text-[24px] font-extrabold leading-[1.2] tracking-[-0.018em] text-[#07142F]">Still have questions?</h3>
-                                <p className="mt-[8px] max-w-[330px] text-[14px] font-medium leading-[1.5] text-[#334155]">
+                            <div className="min-w-0">
+                                <h3 className="text-[18px] font-extrabold leading-[1.2] tracking-[-0.018em] text-[#07142F]">Still have questions?</h3>
+                                <p className="mt-[4px] max-w-[300px] text-[13px] font-medium leading-[1.45] text-[#5A6478]">
                                     Our team is here to help you find the perfect solution for your business.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-[14px] sm:flex-row sm:items-center">
+                        <div className="flex flex-col gap-[10px] sm:flex-row sm:items-center">
                             <Link
                                 to="/contact"
-                                className="home-cta-primary home-gloss inline-flex h-[52px] min-w-[218px] items-center justify-center gap-[11px] whitespace-nowrap rounded-[10px] px-[24px] text-[15px] font-extrabold tracking-[-0.005em] text-white no-underline"
+                                className="inline-flex h-[42px] items-center justify-center gap-[8px] whitespace-nowrap rounded-[8px] bg-[#1259EA] px-[18px] text-[13px] font-bold tracking-[-0.005em] text-white no-underline shadow-[0_4px_10px_rgba(11,86,234,0.22)] transition hover:bg-[#0E4FD1]"
                             >
-                                <Headphones className="h-[22px] w-[22px]" strokeWidth={2.15} aria-hidden />
+                                <Headphones className="h-[16px] w-[16px]" strokeWidth={2.2} aria-hidden />
                                 Talk to Our Experts
                             </Link>
                             <Link
                                 to="/contact"
-                                className="home-cta-secondary inline-flex h-[52px] min-w-[148px] items-center justify-center gap-[11px] whitespace-nowrap rounded-[10px] border border-[#9CB2D5] px-[24px] text-[15px] font-extrabold tracking-[-0.005em] text-[#0649C9] no-underline"
+                                className="inline-flex h-[42px] items-center justify-center gap-[8px] whitespace-nowrap rounded-[8px] border border-[#C5D2E5] bg-white px-[18px] text-[13px] font-bold tracking-[-0.005em] text-[#07142F] no-underline transition hover:border-[#9CB2D5]"
                             >
-                                <Mail className="h-[22px] w-[22px]" strokeWidth={2.15} aria-hidden />
+                                <Mail className="h-[16px] w-[16px]" strokeWidth={2.2} aria-hidden />
                                 Email Us
                             </Link>
                         </div>
                     </div>
 
-                    <div className="px-[33px] py-[34px]">
-                        <h3 className="text-[21px] font-extrabold leading-[1.2] tracking-[-0.018em] text-[#07142F]">We&apos;re here for you</h3>
-                        <div className="mt-[20px] flex flex-col gap-[14px]">
+                    <div className="lg:pl-[20px]">
+                        <h3 className="text-[14px] font-extrabold leading-[1.2] tracking-[-0.012em] text-[#07142F]">We&apos;re here for you</h3>
+                        <div className="mt-[12px] flex flex-wrap items-center gap-x-[20px] gap-y-[10px]">
                             {supportItems.map((item, index) => (
                                 <SupportItem key={`${item[0]} ${item[1]}`} item={item} index={index} />
                             ))}
