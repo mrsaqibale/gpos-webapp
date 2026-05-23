@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -9,15 +9,20 @@ import {
     CalendarDays,
     Check,
     CheckCircle2,
+    ChevronDown,
     CircleGauge,
     CircleUserRound,
+    Clock,
     CreditCard,
     Gift,
     Headphones,
     Info,
     LockKeyhole,
+    Mail,
+    MessageCircle,
     PackageCheck,
     PanelTop,
+    Phone,
     Rocket,
     RotateCcw,
     Settings,
@@ -35,6 +40,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import cashDrawer from "../assets/cash-drawer.png.png";
 import printer from "../assets/printer.png.png";
+import faqPosVisual from "../assets/faq-pos-visual.png";
 import scanner from "../assets/scanner.png.png";
 import "./PricingPage.css";
 
@@ -685,6 +691,195 @@ const HardwareAddonsSection = () => (
     </section>
 );
 
+const RunWithLessChaosSection = () => (
+    <section className="relative overflow-hidden bg-[#07142F] px-[40px] py-[64px] font-['Inter',Arial,sans-serif] max-lg:px-[24px]">
+        <div className="pointer-events-none absolute left-[-80px] top-[-80px] h-[340px] w-[340px] rounded-full bg-[rgba(7,87,242,0.07)]" />
+        <div className="pointer-events-none absolute bottom-[-60px] right-[-60px] h-[260px] w-[260px] rounded-full bg-[rgba(7,87,242,0.07)]" />
+        <div className="relative mx-auto flex max-w-[1200px] items-center gap-[60px] max-lg:flex-col max-lg:text-center">
+            <div className="flex-1">
+                <p className="text-[12.5px] font-[800] uppercase tracking-[0.12em] text-[#0757F2]">Ready to Simplify Your Operations?</p>
+                <h2 className="mt-[20px] text-[clamp(36px,4vw,56px)] font-[850] leading-[1.08] tracking-[-0.04em] text-white">
+                    Run Your Restaurant<br />
+                    With <span className="text-[#0757F2]">Less Chaos.</span>
+                </h2>
+                <p className="mt-[18px] max-w-[480px] text-[17px] font-[500] leading-[1.65] text-[#8FA8C8] max-lg:mx-auto">
+                    Join hundreds of restaurants using GPOS to save time, delight customers and grow revenue.
+                </p>
+                <div className="mt-[34px] flex flex-wrap gap-[14px] max-lg:justify-center">
+                    <Link to="/get_demo" className="inline-flex h-[54px] items-center justify-center gap-[10px] rounded-[9px] bg-[#0757F2] px-[28px] text-[16px] font-[800] text-white no-underline shadow-[0_12px_28px_rgba(7,87,242,0.30)]">
+                        <CalendarDays className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
+                        Book a Demo
+                        <ArrowRight className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
+                    </Link>
+                    <a href="tel:+35311234567" className="inline-flex h-[54px] items-center justify-center gap-[10px] rounded-[9px] border border-[rgba(255,255,255,0.22)] bg-transparent px-[28px] text-[16px] font-[800] text-white no-underline">
+                        <Phone className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
+                        Contact Sales
+                    </a>
+                </div>
+                <div className="mt-[36px] flex flex-wrap items-center gap-x-[28px] gap-y-[10px] max-lg:justify-center">
+                    {["No commitment", "Personalized demo", "See GPOS in action", "Find the right plan"].map((label) => (
+                        <span key={label} className="flex items-center gap-[8px] text-[14px] font-[700] text-[#8FA8C8]">
+                            <CheckCircle2 className="h-[16px] w-[16px] shrink-0 text-[#0757F2]" strokeWidth={2.3} aria-hidden />
+                            {label}
+                        </span>
+                    ))}
+                </div>
+            </div>
+            <div className="w-[440px] shrink-0 max-lg:w-full max-lg:max-w-[440px]">
+                <img src={faqPosVisual} alt="GPOS POS terminal" className="w-full object-contain drop-shadow-[0_32px_64px_rgba(0,0,0,0.35)]" />
+            </div>
+        </div>
+    </section>
+);
+
+const faqItems = [
+    {
+        Icon: RotateCcw,
+        question: "Can I upgrade or downgrade my plan anytime?",
+        answer: "Yes! You can upgrade or downgrade your plan at any time. Changes will be applied from your next billing cycle.",
+    },
+    {
+        Icon: CalendarDays,
+        question: "Is there a free trial available?",
+        answer: "Yes, we offer a 14-day free trial on all plans so you can explore GPOS before committing. No credit card required.",
+    },
+    {
+        Icon: Info,
+        question: "Are there any setup fees?",
+        answer: "There are no hidden setup fees on our software plans. Optional hardware bundles are available at a one-time cost.",
+    },
+    {
+        Icon: CreditCard,
+        question: "What payment methods do you accept?",
+        answer: "We accept all major credit and debit cards, bank transfers, and direct debit (SEPA) for EU customers.",
+    },
+    {
+        Icon: ShieldCheck,
+        question: "Is my data secure?",
+        answer: "Absolutely. All data is encrypted in transit and at rest. We are GDPR compliant and perform regular security audits.",
+    },
+    {
+        Icon: Headphones,
+        question: "Do you offer support?",
+        answer: "Yes — every plan includes access to our support team via email and chat. Our Growth plan includes priority phone support.",
+    },
+    {
+        Icon: PackageCheck,
+        question: "Do the plans include hardware?",
+        answer: "Software plans do not include hardware, but we offer full POS hardware bundles as optional add-ons. See the Hardware section above.",
+    },
+];
+
+const FaqSection = () => {
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+    return (
+        <section className="bg-white px-[40px] pb-[0] pt-[64px] font-['Inter',Arial,sans-serif] max-lg:px-[24px]">
+            <div className="mx-auto max-w-[1200px]">
+                <div className="text-center">
+                    <span className="inline-flex items-center gap-[7px] rounded-full border border-[#D6E4FF] bg-[#EDF4FF] px-[14px] py-[6px] text-[12.5px] font-[800] uppercase tracking-[0.1em] text-[#0757F2]">
+                        FAQ
+                    </span>
+                    <h2 className="mt-[18px] text-[clamp(32px,3.6vw,48px)] font-[850] leading-[1.1] tracking-[-0.04em] text-[#071333]">
+                        Frequently Asked Questions
+                    </h2>
+                    <p className="mt-[12px] text-[17px] font-[500] leading-[1.6] text-[#526079]">
+                        Everything you need to know about GPOS pricing and plans.
+                    </p>
+                </div>
+
+                <div className="mt-[44px] divide-y divide-[#E8EDF5] rounded-[16px] border border-[#E8EDF5] bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)]">
+                    {faqItems.map(({ Icon, question, answer }, index) => {
+                        const isOpen = openIndex === index;
+                        return (
+                            <div key={question}>
+                                <button
+                                    className="flex w-full items-center gap-[16px] px-[28px] py-[22px] text-left"
+                                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                                    aria-expanded={isOpen}
+                                >
+                                    <span className="grid h-[38px] w-[38px] shrink-0 place-items-center rounded-[10px] bg-[#EDF4FF] text-[#0757F2]">
+                                        <Icon className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
+                                    </span>
+                                    <span className="flex-1 text-[16px] font-[750] leading-[1.4] text-[#071333]">{question}</span>
+                                    <ChevronDown
+                                        className={`h-[20px] w-[20px] shrink-0 text-[#526079] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                                        strokeWidth={2.2}
+                                        aria-hidden
+                                    />
+                                </button>
+                                {isOpen && (
+                                    <div className="px-[28px] pb-[24px] pl-[82px] max-sm:pl-[28px]">
+                                        <p className="text-[15px] font-[500] leading-[1.65] text-[#526079]">{answer}</p>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <div className="mt-[44px] overflow-hidden rounded-[16px] border border-[#E8EDF5] bg-[#F8FAFF] shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+                    <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] divide-x divide-[#E8EDF5] max-lg:grid-cols-1 max-lg:divide-x-0 max-lg:divide-y max-lg:divide-[#E8EDF5]">
+                        <div className="flex items-start gap-[16px] p-[28px]">
+                            <span className="grid h-[48px] w-[48px] shrink-0 place-items-center rounded-full bg-[#0757F2] text-white">
+                                <MessageCircle className="h-[24px] w-[24px]" strokeWidth={2.1} aria-hidden />
+                            </span>
+                            <div>
+                                <p className="text-[16px] font-[800] text-[#071333]">Still have questions?</p>
+                                <p className="mt-[6px] text-[13.5px] font-[500] leading-[1.55] text-[#526079]">Our team is here to help you find the perfect solution for your restaurant.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-[14px] p-[28px]">
+                            <span className="grid h-[40px] w-[40px] shrink-0 place-items-center rounded-full bg-[#EDF4FF] text-[#0757F2]">
+                                <Phone className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
+                            </span>
+                            <div>
+                                <p className="text-[13px] font-[800] uppercase tracking-[0.08em] text-[#526079]">Call Us</p>
+                                <p className="mt-[5px] text-[15px] font-[800] text-[#071333]">+353 1 123 4567</p>
+                                <p className="mt-[3px] text-[12.5px] font-[500] text-[#526079]">Mon – Fri 9AM – 6PM IST</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-[14px] p-[28px]">
+                            <span className="grid h-[40px] w-[40px] shrink-0 place-items-center rounded-full bg-[#EDF4FF] text-[#0757F2]">
+                                <Mail className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
+                            </span>
+                            <div>
+                                <p className="text-[13px] font-[800] uppercase tracking-[0.08em] text-[#526079]">Email Us</p>
+                                <p className="mt-[5px] text-[15px] font-[800] text-[#071333]">demo@gposapp.com</p>
+                                <p className="mt-[3px] text-[12.5px] font-[500] text-[#526079]">We reply within 1 business day</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-[14px] p-[28px]">
+                            <span className="grid h-[40px] w-[40px] shrink-0 place-items-center rounded-full bg-[#EDF4FF] text-[#0757F2]">
+                                <Clock className="h-[19px] w-[19px]" strokeWidth={2.1} aria-hidden />
+                            </span>
+                            <div>
+                                <p className="text-[13px] font-[800] uppercase tracking-[0.08em] text-[#526079]">Business Hours</p>
+                                <p className="mt-[5px] text-[15px] font-[800] text-[#071333]">Mon – Fri 9AM – 6PM IST</p>
+                                <p className="mt-[3px] text-[12.5px] font-[500] text-[#526079]">Saturday: 10AM – 2PM IST</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-[36px] grid grid-cols-4 items-center border-t border-[#E8EDF5] py-[28px] max-md:grid-cols-2 max-md:gap-y-[20px] max-sm:grid-cols-1">
+                    {[
+                        { Icon: UsersRound, label: "Trusted by 500+ Restaurants" },
+                        { Icon: ShieldCheck, label: "Secure & Reliable Platform" },
+                        { Icon: RotateCcw, label: "Regular Updates" },
+                        { Icon: Headphones, label: "24/7 Customer Support" },
+                    ].map(({ Icon, label }, index) => (
+                        <div key={label} className={`flex items-center justify-center gap-[10px] ${index > 0 ? "border-l border-[#E8EDF5] max-md:border-l-0" : ""}`}>
+                            <Icon className="h-[19px] w-[19px] shrink-0 text-[#0757F2]" strokeWidth={2.1} aria-hidden />
+                            <span className="text-[14px] font-[750] text-[#334155]">{label}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
 export default function PricingPage() {
     return (
         <div className="pricing-page w-full min-w-0 max-w-full overflow-x-clip bg-[#F8FAFC] text-[#071333]">
@@ -693,6 +888,8 @@ export default function PricingPage() {
             <SimplePlansSection />
             <CompareFeaturesSection />
             <HardwareAddonsSection />
+            <RunWithLessChaosSection />
+            <FaqSection />
             <Footer />
         </div>
     );
