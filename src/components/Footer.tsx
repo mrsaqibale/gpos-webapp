@@ -129,8 +129,8 @@ const Footer: React.FC<FooterProps> = ({ hideTopCta: _hideTopCta = false }) => {
     void _hideTopCta;
 
     return (
-        <footer className="w-full overflow-x-clip bg-[#F8FAFE] px-[17px] pb-[24px] pt-[34px] font-['Poppins',Inter,Arial,sans-serif] text-white">
-            <div className="mx-auto max-w-[1500px] overflow-hidden rounded-[18px] border border-white/[0.04] bg-[radial-gradient(circle_at_18%_8%,rgba(21,74,148,0.2),transparent_32%),radial-gradient(circle_at_86%_18%,rgba(11,86,234,0.11),transparent_31%),linear-gradient(135deg,#061326_0%,#041023_47%,#031024_100%)] px-[48px] pb-[46px] pt-[52px] shadow-[0_24px_55px_rgba(2,8,23,0.22),inset_0_1px_0_rgba(255,255,255,0.045)]">
+        <footer className="w-full overflow-x-clip bg-[#061326] font-['Poppins',Inter,Arial,sans-serif] text-white">
+            <div className="mx-auto w-full max-w-[1500px] overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(21,74,148,0.2),transparent_32%),radial-gradient(circle_at_86%_18%,rgba(11,86,234,0.11),transparent_31%)] px-[48px] pb-[46px] pt-[52px]">
                 <div className="grid grid-cols-1 items-start gap-[44px] lg:grid-cols-[400px_260px_340px_300px] lg:gap-0">
                     <section className="flex flex-col items-start justify-start pr-[42px]">
                         <BrandMark />
