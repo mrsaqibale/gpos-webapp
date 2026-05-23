@@ -16,6 +16,7 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BuiltForRestaurantOperationsSection from "../components/BuiltForRestaurantOperationsSection";
+import OperationsManagementSection from "../components/OperationsManagementSection";
 import DeliveryOrderFlowSection from "../components/DeliveryOrderFlowSection";
 import StaffManagementSection from "../components/StaffManagementSection";
 import CustomerGrowthShowcaseSection from "../components/CustomerGrowthShowcaseSection";
@@ -221,6 +222,8 @@ export default function RestaurantPos() {
                     </div>
                 </div>
             </section>
+
+            <OperationsManagementSection />
 
             <BuiltForRestaurantOperationsSection />
 
