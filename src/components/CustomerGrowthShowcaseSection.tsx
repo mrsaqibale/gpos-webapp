@@ -41,10 +41,10 @@ const STAT_ICON_PX = 16;
 const STAT_ICON_WRAP = 32;
 
 const repeatSegments = [
-    { name: 'Very Active', value: 32, color: '#2155FF' },
-    { name: 'Active', value: 36, color: '#16A34A' },
-    { name: 'At Risk', value: 20, color: '#F97316' },
-    { name: 'Inactive', value: 12, color: '#9333EA' },
+    { name: 'Very Active (5+ orders)', value: 32, count: 220, color: '#2155FF' },
+    { name: 'Active (3-4 orders)', value: 36, count: 247, color: '#16A34A' },
+    { name: 'At Risk (1-2 orders)', value: 20, count: 138, color: '#F97316' },
+    { name: 'Inactive (90+ days)', value: 12, count: 82, color: '#9333EA' },
 ];
 
 function GposGradientMark() {
@@ -165,15 +165,16 @@ function RepeatInsightsDonut() {
             </div>
             <ul className="min-w-0 flex-1 space-y-2">
                 {repeatSegments.map((row) => (
-                    <li key={row.name} className="flex items-center justify-between gap-2 text-[11px] font-medium">
+                    <li key={row.name} className="flex items-center justify-between gap-2 text-[10px] font-medium">
                         <span className="flex min-w-0 items-center gap-2">
                             <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: row.color }} />
-                            <span className="truncate" style={{ color: NAVY }}>
+                            <span className="truncate leading-tight" style={{ color: NAVY }}>
                                 {row.name}
                             </span>
                         </span>
-                        <span className="shrink-0 tabular-nums font-semibold" style={{ color: NAVY }}>
-                            {row.value}%
+                        <span className="flex shrink-0 items-center gap-2 tabular-nums">
+                            <span className="font-semibold" style={{ color: NAVY }}>{row.value}%</span>
+                            <span style={{ color: MUTED }}>({row.count})</span>
                         </span>
                     </li>
                 ))}
@@ -185,9 +186,9 @@ function RepeatInsightsDonut() {
 function DashboardCard() {
     const stamps = Array.from({ length: 9 }, (_, i) => i < 8);
     const topMembers = [
-        { initials: 'SM', name: 'Sarah M.', pts: '2,450 pts' },
-        { initials: 'JK', name: 'James K.', pts: '1,890 pts' },
-        { initials: 'AL', name: 'Amy L.', pts: '1,640 pts' },
+        { initials: 'SJ', name: 'Sarah Johnson', pts: '320 Points' },
+        { initials: 'DW', name: 'David Wilson', pts: '280 Points' },
+        { initials: 'MB', name: 'Michael Brown', pts: '250 Points' },
     ];
 
     return (
@@ -320,10 +321,13 @@ function DashboardCard() {
                                 <span className="text-[20px] font-extrabold tracking-[-0.03em]" style={{ color: NAVY }}>
                                     {s.value}
                                 </span>
-                                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600">
-                                    <TrendingUp width={13} height={13} strokeWidth={ICON_STROKE} absoluteStrokeWidth aria-hidden />
-                                    {s.delta}
-                                </span>
+                                <div className="flex flex-col items-end gap-0.5">
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600">
+                                        <TrendingUp width={11} height={11} strokeWidth={ICON_STROKE} absoluteStrokeWidth aria-hidden />
+                                        {s.delta}
+                                    </span>
+                                    <span className="text-[9px] font-medium" style={{ color: MUTED }}>vs last week</span>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -404,38 +408,36 @@ function DashboardCard() {
 
                     {/* Vouchers */}
                     <div className="flex flex-col rounded-[20px] border bg-white p-4" style={{ borderColor: BORDER }}>
-                        <h3 className="mb-3 text-[14px] font-bold" style={{ color: NAVY }}>
-                            Vouchers &amp; Offers
-                        </h3>
-                        <div className="flex flex-col gap-2.5">
+                        <div className="mb-3 flex items-center justify-between">
+                            <h3 className="text-[14px] font-bold" style={{ color: NAVY }}>
+                                Vouchers &amp; Offers
+                            </h3>
+                            <button type="button" className="text-[11px] font-semibold" style={{ color: PRIMARY }}>
+                                View All
+                            </button>
+                        </div>
+                        <div className="flex flex-col gap-0 divide-y" style={{ borderColor: BORDER }}>
                             {[
-                                { tag: '10% OFF', title: '10% Off All Orders', usage: '428 uses', rev: '€1,842', tagBg: '#EEF2FF', tagColor: PRIMARY },
-                                { tag: '€5', title: '€5 Off Orders Over €30', usage: '256 uses', rev: '€980', tagBg: '#ECFDF3', tagColor: '#16A34A' },
-                                { tag: 'FREE', title: 'Free Delivery', usage: '189 uses', rev: '€423', tagBg: '#FFF4E8', tagColor: '#EA580C' },
+                                { tag: '10% OFF', title: '10% Off on All Orders', sub: 'Min. order €20', used: '128', rev: '€456.80', tagBg: '#EEF2FF', tagColor: PRIMARY },
+                                { tag: '€5 OFF', title: '€5 Off on Orders Over €30', sub: '', used: '96', rev: '€480.00', tagBg: '#ECFDF3', tagColor: '#16A34A' },
+                                { tag: 'FREE DELIVERY', title: 'Free Delivery', sub: 'On Orders Over €25', used: '154', rev: '€615.40', tagBg: '#FFF4E8', tagColor: '#EA580C' },
                             ].map((v) => (
-                                <div
-                                    key={v.title}
-                                    className="rounded-[14px] border bg-[#FAFBFD] p-3"
-                                    style={{ borderColor: BORDER }}
-                                >
-                                    <div className="flex items-start justify-between gap-2">
-                                        <span
-                                            className="shrink-0 rounded-[8px] px-2 py-1 text-[10px] font-extrabold"
-                                            style={{ backgroundColor: v.tagBg, color: v.tagColor }}
-                                        >
-                                            {v.tag}
-                                        </span>
-                                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[9px] font-bold text-emerald-700">Active</span>
+                                <div key={v.title} className="flex items-center gap-2 py-2.5 first:pt-0 last:pb-0">
+                                    <span
+                                        className="shrink-0 rounded-[7px] px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap"
+                                        style={{ backgroundColor: v.tagBg, color: v.tagColor }}
+                                    >
+                                        {v.tag}
+                                    </span>
+                                    <div className="min-w-0 flex-1">
+                                        <div className="truncate text-[11px] font-bold leading-tight" style={{ color: NAVY }}>{v.title}</div>
+                                        {v.sub && <div className="text-[9.5px]" style={{ color: MUTED }}>{v.sub}</div>}
                                     </div>
-                                    <div className="mt-2 text-[12px] font-bold" style={{ color: NAVY }}>
-                                        {v.title}
+                                    <div className="flex shrink-0 flex-col items-end gap-0.5">
+                                        <span className="text-[10px] font-medium tabular-nums" style={{ color: MUTED }}>Used {v.used}</span>
+                                        <span className="text-[11px] font-extrabold tabular-nums" style={{ color: NAVY }}>{v.rev}</span>
                                     </div>
-                                    <div className="mt-1 flex justify-between text-[10px]" style={{ color: MUTED }}>
-                                        <span>{v.usage}</span>
-                                        <span className="font-semibold tabular-nums" style={{ color: NAVY }}>
-                                            {v.rev}
-                                        </span>
-                                    </div>
+                                    <span className="shrink-0 rounded-full bg-emerald-50 px-2 py-0.5 text-[9px] font-bold text-emerald-700">Active</span>
                                 </div>
                             ))}
                         </div>
@@ -474,52 +476,76 @@ function DashboardCard() {
 
                 {/* WhatsApp */}
                 <div className="mt-5 rounded-[20px] border bg-white p-4" style={{ borderColor: BORDER }}>
-                    <h3 className="mb-4 text-[14px] font-bold" style={{ color: NAVY }}>
-                        WhatsApp Recovery Campaigns
-                    </h3>
-                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-stretch">
-                        <div className="flex flex-col justify-center rounded-[14px] bg-[#F8FAFF] p-4 lg:col-span-2">
-                            <span className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: MUTED }}>
-                                Inactive
-                            </span>
-                            <span className="mt-1 text-[32px] font-extrabold leading-none tracking-[-0.04em]" style={{ color: NAVY }}>
-                                82
-                            </span>
-                            <span className="text-[11px] font-medium" style={{ color: MUTED }}>
-                                customers
-                            </span>
-                        </div>
-                        <div className="flex items-center justify-center lg:col-span-5">
-                            <div
-                                className="max-w-[320px] rounded-[18px] rounded-tl-sm border bg-[#E7F7E8] p-4 shadow-sm"
-                                style={{ borderColor: '#C8E6CA' }}
-                            >
-                                <p className="whitespace-pre-line text-[12px] leading-[1.55]" style={{ color: NAVY }}>
-                                    {`Hi {name}! 👋\nWe miss you! Here's 15% OFF on your next order.\nUse code: WELCOME15`}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-3 lg:col-span-5 lg:grid-cols-2">
-                            {[
-                                ['Sent', '82'],
-                                ['Delivered', '79'],
-                                ['Orders', '24'],
-                                ['Revenue', '€1,842'],
-                            ].map(([k, v]) => (
-                                <div key={k as string} className="rounded-[12px] border bg-[#FAFBFD] p-3 text-center" style={{ borderColor: BORDER }}>
-                                    <div className="text-[10px] font-semibold" style={{ color: MUTED }}>
-                                        {k}
+                    <div className="mb-3 flex items-center justify-between">
+                        <h3 className="text-[14px] font-bold" style={{ color: NAVY }}>
+                            WhatsApp Recovery Campaigns
+                        </h3>
+                        <button type="button" className="text-[11px] font-semibold" style={{ color: PRIMARY }}>
+                            View All Campaigns
+                        </button>
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-start">
+                        {/* Left: inactive customers + message preview */}
+                        <div className="flex flex-col gap-3 lg:col-span-7">
+                            <div className="flex items-start gap-3">
+                                <div className="flex flex-col gap-0.5">
+                                    <span className="text-[11px] font-semibold" style={{ color: MUTED }}>Inactive Customers</span>
+                                    <div className="flex items-end gap-1.5">
+                                        <span className="text-[28px] font-extrabold leading-none tracking-[-0.04em]" style={{ color: NAVY }}>82</span>
                                     </div>
-                                    <div className="mt-1 text-[15px] font-extrabold tabular-nums" style={{ color: NAVY }}>
-                                        {v}
+                                    <span className="text-[10px]" style={{ color: MUTED }}>Not ordered in 90+ days</span>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-1.5">
+                                <span className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: MUTED }}>Your Message Preview</span>
+                                <div
+                                    className="w-full max-w-[340px] rounded-[16px] rounded-tl-sm bg-[#E7F7E8] p-3 shadow-sm"
+                                    style={{ border: '1px solid #C8E6CA' }}
+                                >
+                                    <p className="text-[11.5px] leading-[1.6]" style={{ color: '#1A3A1A' }}>
+                                        <span className="font-semibold">Hi &#123;name&#125;! 👋</span><br />
+                                        We miss you! Here&apos;s 15% OFF on your next order.<br />
+                                        Use code: <span className="font-bold">WELCOME15</span><br />
+                                        Order now: &#123;store_link&#125;
+                                    </p>
+                                    <div className="mt-2 flex justify-end">
+                                        <span className="text-[9px]" style={{ color: MUTED }}>11:30 AM ✓✓</span>
                                     </div>
                                 </div>
-                            ))}
+                            </div>
+                        </div>
+                        {/* Right: performance stats */}
+                        <div className="flex flex-col gap-2.5 lg:col-span-5">
+                            <span className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: MUTED }}>Performance (This Week)</span>
+                            <div className="grid grid-cols-2 gap-2">
+                                {[
+                                    { label: 'Sent', value: '82', sub: '', icon: MessageCircleMore, iconColor: '#25D366' },
+                                    { label: 'Delivered', value: '76', sub: '92%', icon: UserCheck, iconColor: '#16A34A' },
+                                    { label: 'Orders', value: '18', sub: '22%', icon: ClipboardList, iconColor: PRIMARY },
+                                    { label: 'Revenue', value: '€324.60', sub: '', icon: Euro, iconColor: '#EA580C' },
+                                ].map((s) => (
+                                    <div key={s.label} className="flex items-center gap-2 rounded-[12px] border bg-[#FAFBFD] p-2.5" style={{ borderColor: BORDER }}>
+                                        <span
+                                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                                            style={{ backgroundColor: `${s.iconColor}18` }}
+                                        >
+                                            <s.icon width={13} height={13} strokeWidth={ICON_STROKE} absoluteStrokeWidth style={{ color: s.iconColor }} aria-hidden />
+                                        </span>
+                                        <div className="min-w-0">
+                                            <div className="text-[10px] font-medium" style={{ color: MUTED }}>{s.label}</div>
+                                            <div className="text-[13px] font-extrabold tabular-nums leading-tight" style={{ color: NAVY }}>
+                                                {s.value}
+                                                {s.sub && <span className="ml-1 text-[9px] font-medium text-emerald-600">({s.sub})</span>}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <button
                         type="button"
-                        className="mt-4 flex h-[52px] w-full items-center justify-center rounded-[14px] text-[14px] font-bold text-white"
+                        className="mt-4 flex h-[46px] w-full items-center justify-center rounded-[12px] text-[13px] font-bold text-white"
                         style={{ backgroundColor: PRIMARY }}
                     >
                         Send WhatsApp Campaign

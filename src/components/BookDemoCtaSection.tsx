@@ -447,9 +447,8 @@ const BookDemoCtaSection: React.FC<BookDemoCtaSectionProps> = ({ embed = false }
             <div className="relative z-[1] mx-auto w-full max-w-[1480px] px-6 pb-10 sm:px-10">
                 <div className="flex items-center gap-5">
                     <div className="h-px flex-1 bg-[#E8EDF5]" aria-hidden />
-                    <p className="shrink-0 text-center text-[16px] font-semibold leading-snug tracking-[-0.01em]" style={{ color: NAVY }}>
-                        <span className="block">Trusted by 1000+ restaurants</span>
-                        <span className="block">and growing</span>
+                    <p className="shrink-0 whitespace-nowrap text-center text-[16px] font-semibold leading-snug tracking-[-0.01em]" style={{ color: NAVY }}>
+                        Trusted by 1000+ restaurants and growing
                     </p>
                     <div className="h-px flex-1 bg-[#E8EDF5]" aria-hidden />
                 </div>
