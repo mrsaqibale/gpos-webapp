@@ -4,24 +4,18 @@ import {
     MessageSquare,
     Mail,
     Clock,
-    Play,
-    ArrowRight,
     ShieldCheck,
     Headset,
     Users,
-    CheckCircle2
+    CheckCircle2,
+    CalendarCheck,
 } from 'lucide-react';
 import {
     PHONE_DISPLAY,
     WHATSAPP_DISPLAY,
     EMAIL_DISPLAY,
 } from '../constants/contact';
-import supportAgentImg from '../assets/support-agent-headset.png';
-
-const scrollToDemoForm = () => {
-    const el = document.getElementById('schedule-demo-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
+import ScheduleDemoForm from './ScheduleDemoForm';
 
 const GetDemoHeroSection: React.FC = () => {
     return (
@@ -90,122 +84,38 @@ const GetDemoHeroSection: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Actions */}
-                        <div className="mt-10 flex flex-wrap items-center gap-6">
-                            <button
-                                type="button"
-                                onClick={scrollToDemoForm}
-                                className="flex items-center justify-center gap-3 rounded-xl bg-[#0052FF] px-8 py-4 font-bold text-white shadow-lg shadow-[#0052ff2a] transition-all hover:bg-[#0041cc] hover:shadow-xl"
-                            >
-                                Book a Free Demo
-                                <ArrowRight className="h-5 w-5" />
-                            </button>
-                            <button className="flex items-center gap-3 text-[17px] font-bold text-[#0052FF] transition-all hover:gap-4">
-                                See GPOS in Action
-                                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0052FF]">
-                                    <Play className="h-4 w-4 fill-current" />
-                                </div>
-                            </button>
-                        </div>
                     </div>
 
-                    {/* Right Image Content — Support Agent as Main Visual */}
-                    <div className="hero-visual relative mx-auto w-full max-w-[520px]">
-                        {/* Soft blue backdrop circle behind the girl */}
+                    {/* Right side — Schedule Demo Form */}
+                    <div className="hero-form relative w-full">
                         <div
-                            className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[110%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-                            style={{ background: "radial-gradient(circle at center, #DCEBFF 0%, #EAF3FF 55%, transparent 75%)" }}
-                            aria-hidden
-                        />
-
-                        {/* Main Support Agent (girl) image */}
-                        <div className="relative z-10 flex justify-center">
-                            <img
-                                src={supportAgentImg}
-                                alt="GPOS Support Expert"
-                                className="w-full max-w-[480px] h-auto object-contain drop-shadow-[0_24px_48px_rgba(15,23,42,0.18)]"
-                            />
-                        </div>
-
-                        {/* Chat Bubble — top-right */}
-                        <div className="absolute top-[8%] right-[-12px] sm:right-[-32px] lg:right-[-48px] z-30 max-w-[260px] animate-bounce-slow">
-                            <div className="relative bg-white rounded-2xl rounded-tr-none p-4 shadow-[0_18px_38px_rgba(15,23,42,0.12)] border border-[#e2e8f0] flex items-start gap-3">
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0052FF] text-white">
-                                    <MessageSquare className="h-5 w-5" />
+                            id="schedule-demo-form"
+                            className="relative rounded-[20px] bg-white p-6 sm:p-8 shadow-[0_30px_60px_rgba(15,23,42,0.12)] border border-[#e2e8f0]"
+                        >
+                            <div className="mb-5 flex items-start gap-3">
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f0f7ff] text-[#0052FF]">
+                                    <CalendarCheck className="h-5 w-5" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-[#0B1F3A]">Hi! 👋</p>
-                                    <p className="text-[12.5px] text-[#475569] leading-snug mt-1">How can we help your restaurant today?</p>
-                                </div>
-                                <div className="absolute -right-2 top-0 h-3.5 w-3.5 bg-[#10b981] rounded-full border-2 border-white" />
-                            </div>
-                        </div>
-
-                        {/* Online Status Card — middle-left */}
-                        <div className="absolute top-[38%] left-[-12px] sm:left-[-36px] lg:left-[-56px] z-30">
-                            <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_18px_38px_rgba(15,23,42,0.12)] border border-[#e2e8f0]">
-                                <span className="relative flex h-3 w-3">
-                                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10b981] opacity-75" />
-                                    <span className="relative inline-flex h-3 w-3 rounded-full bg-[#10b981]" />
-                                </span>
-                                <div>
-                                    <p className="text-[13px] font-bold text-[#0B1F3A] leading-tight">Live Now</p>
-                                    <p className="text-[11px] text-[#64748B] leading-tight">Avg. reply &lt; 1 min</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 5-star rating card — middle-right */}
-                        <div className="absolute top-[34%] right-[-8px] sm:right-[-28px] lg:right-[-40px] z-30">
-                            <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_18px_38px_rgba(15,23,42,0.12)] border border-[#e2e8f0]">
-                                <div className="flex items-center gap-1 text-[#FBBF24]">
-                                    {[0,1,2,3,4].map(i => (
-                                        <svg key={i} className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
-                                            <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1.99 5.78L10 14.77l-5.2 2.73.99-5.78L1.58 7.62l5.82-.85L10 1.5z" />
-                                        </svg>
-                                    ))}
-                                </div>
-                                <p className="mt-1 text-[12px] font-bold text-[#0B1F3A] leading-tight">Rated 4.9 / 5</p>
-                                <p className="text-[10.5px] text-[#64748B] leading-tight">By our customers</p>
-                            </div>
-                        </div>
-
-                        {/* Bottom CTA Card — overlaid at bottom of image */}
-                        <div className="absolute bottom-[-36px] left-1/2 -translate-x-1/2 z-30 w-[92%] max-w-[440px]">
-                            <div className="rounded-2xl bg-white p-5 shadow-[0_24px_50px_rgba(15,23,42,0.18)] border border-[#e2e8f0]">
-                                <p className="text-[16px] font-extrabold text-[#0B1F3A] leading-tight">Ready to See GPOS in Action?</p>
-                                <p className="mt-1.5 text-[12.5px] text-[#475569] leading-snug">
-                                    Book a free demo and see how GPOS can transform your restaurant operations.
-                                </p>
-                                <button
-                                    type="button"
-                                    onClick={scrollToDemoForm}
-                                    className="mt-3 inline-flex h-[42px] w-full items-center justify-center gap-2 rounded-[10px] bg-[#0052FF] px-5 text-[14px] font-bold text-white shadow-[0_10px_22px_rgba(0,82,255,0.25)] transition-all hover:bg-[#0041cc]"
-                                >
-                                    Book Your Free Demo
-                                    <ArrowRight className="h-4 w-4" />
-                                </button>
-                                <div className="mt-3 flex items-center gap-2.5">
-                                    <div className="flex -space-x-2">
-                                        {[
-                                            { bg: "linear-gradient(135deg,#F472B6,#DB2777)", initial: "S" },
-                                            { bg: "linear-gradient(135deg,#60A5FA,#2563EB)", initial: "D" },
-                                            { bg: "linear-gradient(135deg,#34D399,#059669)", initial: "M" },
-                                        ].map((u, i) => (
-                                            <span
-                                                key={i}
-                                                className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white text-[11px] font-extrabold text-white"
-                                                style={{ background: u.bg }}
-                                                aria-hidden
-                                            >
-                                                {u.initial}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <p className="text-[11.5px] font-medium leading-tight text-[#64748B]">
-                                        Trusted by <span className="font-bold text-[#0B1F3A]">1,000+ restaurant owners</span> across Ireland &amp; the UK.
+                                    <h3 className="text-[20px] font-extrabold text-[#0B1F3A] leading-tight">Book Your Free Demo</h3>
+                                    <p className="mt-1 text-[13px] text-[#64748B] leading-snug">
+                                        Fill in your details and our team will reach out within 1 hour.
                                     </p>
                                 </div>
+                            </div>
+                            <ScheduleDemoForm mode="api" idPrefix="schedule-demo" className="!mt-0" />
+                            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#f1f5f9] pt-4">
+                                <div className="flex items-center gap-1.5 text-[12px] text-[#64748B]">
+                                    <span className="relative flex h-2.5 w-2.5">
+                                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10b981] opacity-75" />
+                                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#10b981]" />
+                                    </span>
+                                    <span className="font-bold text-[#10b981]">Live now</span>
+                                </div>
+                                <span className="text-[12px] text-[#64748B]">·</span>
+                                <span className="text-[12px] text-[#64748B]">Avg. reply &lt; 1 min</span>
+                                <span className="text-[12px] text-[#64748B]">·</span>
+                                <span className="text-[12px] text-[#64748B]">Trusted by <span className="font-bold text-[#0B1F3A]">1,000+ restaurants</span></span>
                             </div>
                         </div>
                     </div>

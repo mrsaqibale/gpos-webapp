@@ -4,7 +4,7 @@ import {
   Shield, Users, Clock, MapPin, MessageCircle, Phone, Mail, Calendar,
   ArrowRight, Star, Lock, TrendingUp, Zap, Headphones, ChevronDown,
   Send, CheckCircle, Store, BarChart3, ShoppingCart, Heart, Bell,
-  Rocket, Package, ChefHat,
+  Rocket, Package, ChefHat, MessageSquare,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -83,10 +83,53 @@ function HeroSection() {
               </div>
             </div>
             <div className="relative bg-[#F8FAFC] lg:min-h-[500px] flex flex-col">
-              <div className="flex-1 overflow-hidden">
+              <div className="relative flex-1 overflow-hidden">
                 <img src={heroImg} alt="Support agent" className="w-full h-full object-cover object-top" style={{ minHeight: 320 }} />
+
+                {/* Floating Chat Bubble */}
+                <div className="absolute top-6 right-4 sm:right-6 z-20 max-w-[240px]">
+                  <div className="relative bg-white rounded-2xl rounded-tr-none p-3.5 shadow-[0_18px_38px_rgba(15,23,42,0.18)] border border-[#E2E8F0] flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-white">
+                      <MessageSquare className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-[13px] font-bold text-[#0F172A] leading-tight">Hi! 👋</p>
+                      <p className="text-[11.5px] text-[#64748B] leading-snug mt-0.5">How can we help your restaurant today?</p>
+                    </div>
+                    <div className="absolute -right-1.5 top-0 h-3 w-3 bg-[#16A34A] rounded-full border-2 border-white" />
+                  </div>
+                </div>
+
+                {/* Live Now Card */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 z-20">
+                  <div className="flex items-center gap-2.5 rounded-2xl bg-white px-3.5 py-2.5 shadow-[0_18px_38px_rgba(15,23,42,0.18)] border border-[#E2E8F0]">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#16A34A] opacity-75" />
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#16A34A]" />
+                    </span>
+                    <div>
+                      <p className="text-[12px] font-bold text-[#0F172A] leading-tight">Live Now</p>
+                      <p className="text-[10.5px] text-[#64748B] leading-tight">Avg. reply &lt; 1 min</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5-star Rating Card */}
+                <div className="absolute top-[36%] right-4 sm:right-6 z-20">
+                  <div className="rounded-2xl bg-white px-3.5 py-2.5 shadow-[0_18px_38px_rgba(15,23,42,0.18)] border border-[#E2E8F0]">
+                    <div className="flex items-center gap-0.5 text-[#FBBF24]">
+                      {[0,1,2,3,4].map(i => (
+                        <svg key={i} className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                          <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1.99 5.78L10 14.77l-5.2 2.73.99-5.78L1.58 7.62l5.82-.85L10 1.5z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="mt-0.5 text-[11.5px] font-bold text-[#0F172A] leading-tight">Rated 4.9 / 5</p>
+                    <p className="text-[10px] text-[#64748B] leading-tight">By our customers</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white border border-[#E2E8F0] rounded-2xl shadow-lg p-6 m-6 lg:absolute lg:bottom-6 lg:left-6 lg:right-6 lg:m-0">
+              <div className="bg-white border border-[#E2E8F0] rounded-2xl shadow-lg p-6 m-6 lg:absolute lg:bottom-6 lg:left-6 lg:right-6 lg:m-0 z-30">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full bg-[#EFF6FF] flex items-center justify-center">
                     <Calendar className="w-5 h-5 text-[#2563EB]" />
