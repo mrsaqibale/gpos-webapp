@@ -283,24 +283,24 @@ const DeliveryCustomerRecoverySection: React.FC = () => {
         >
             <div className="pointer-events-none absolute -right-32 top-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,167,95,0.06)_0%,rgba(20,167,95,0)_70%)] blur-3xl" />
             <div className="relative mx-auto max-w-[1200px]">
-                <div className="mt-[8px] grid items-start gap-[28px] lg:mt-[10px] lg:grid-cols-[minmax(0,1fr)_300px_360px] lg:gap-[28px]">
-                    <div className="pt-[9px]">
+                <div className="mt-[8px] grid items-start gap-[24px] lg:mt-[10px] lg:grid-cols-[360px_minmax(0,1fr)_420px] lg:gap-[20px]">
+                    <div className="pt-[2px]">
                         <span className="home-eyebrow inline-flex items-center gap-[9px] rounded-full border border-[#DBF1E4] bg-[#EAF8EF]/85 px-[15px] py-[8px] text-[14px] font-extrabold leading-none tracking-[-0.005em] text-[#157E49] backdrop-blur">
                             <WhatsAppIcon className="h-[17px] w-[17px]" size={17} variant="brand" />
                             Turn One-Time Buyers Into Loyal Customers
                         </span>
 
-                        <h2 className="mt-[22px] text-[clamp(28px,7vw,42px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
+                        <h2 className="mt-[14px] text-[clamp(26px,6vw,38px)] font-extrabold leading-[1.06] tracking-[-0.028em] text-[#07142F]">
                             <span className="block whitespace-nowrap">Bring Customers Back.</span>
                             <span className="block whitespace-nowrap bg-gradient-to-r from-[#075BFF] via-[#0B56EA] to-[#0A66FF] bg-clip-text text-transparent">Keep Them for Life.</span>
                         </h2>
 
-                        <p className="mt-[16px] max-w-[400px] text-[15px] font-medium leading-[1.6] tracking-[-0.005em] text-[#26334C]">
+                        <p className="mt-[10px] max-w-[340px] text-[14px] font-medium leading-[1.55] tracking-[-0.005em] text-[#26334C]">
                             GPOS helps you re-engage inactive customers on WhatsApp, promote offers, and drive repeat orders -
                             automatically.
                         </p>
 
-                        <div className="mt-[22px] space-y-[18px]">
+                        <div className="mt-[16px] space-y-[14px]">
                             {recoveryFeatures.map(({ title, description, Icon, iconColor, iconBg, filled, iconVariant }) => (
                                 <FeatureItem
                                     key={title}
@@ -316,15 +316,15 @@ const DeliveryCustomerRecoverySection: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="relative flex items-start justify-center">
+                    <div className="relative flex justify-center">
                         <img
                             src={deliveryPhoneFullHd}
                             alt="WhatsApp customer recovery mobile flow"
-                            className="h-auto w-full max-w-[300px] object-contain mix-blend-multiply drop-shadow-[0_20px_30px_rgba(15,23,42,0.18)]"
+                            className="h-auto w-full max-w-[260px] object-contain mix-blend-multiply drop-shadow-[0_20px_30px_rgba(15,23,42,0.18)]"
                             loading="lazy"
                             decoding="async"
                         />
-                        <svg className="absolute right-[-52px] top-[140px] hidden h-[140px] w-[60px] text-[#0B56EA] lg:block" viewBox="0 0 75 166" fill="none" aria-hidden>
+                        <svg className="absolute right-[-44px] top-[120px] hidden h-[120px] w-[50px] text-[#0B56EA] lg:block" viewBox="0 0 75 166" fill="none" aria-hidden>
                             <path d="M6 6C42 44 47 100 5 161" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
                             <path d="M3 5L21 10L12 25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
                         </svg>
