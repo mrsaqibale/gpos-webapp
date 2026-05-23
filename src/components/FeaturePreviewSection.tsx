@@ -159,7 +159,7 @@ const FeaturePreviewSection: React.FC = () => {
                         </span>{' '}
                         Your Business
                     </h2>
-                    <p className="mx-auto mt-[16px] max-w-[760px] text-[18px] font-medium leading-[1.55] tracking-[-0.005em] text-[#5B667A]">
+                    <p className="mx-auto mt-[16px] whitespace-nowrap text-[clamp(12px,1.4vw,16px)] font-medium leading-[1.55] tracking-[-0.005em] text-[#5B667A]">
                         Powerful features designed to simplify operations, delight customers and boost your profits.
                     </p>
                 </div>
