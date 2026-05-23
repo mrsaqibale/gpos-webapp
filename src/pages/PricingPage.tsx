@@ -692,41 +692,68 @@ const HardwareAddonsSection = () => (
 );
 
 const RunWithLessChaosSection = () => (
-    <section className="relative overflow-hidden bg-[#07142F] px-[40px] py-[64px] font-['Inter',Arial,sans-serif] max-lg:px-[24px]">
-        <div className="pointer-events-none absolute left-[-80px] top-[-80px] h-[340px] w-[340px] rounded-full bg-[rgba(7,87,242,0.07)]" />
-        <div className="pointer-events-none absolute bottom-[-60px] right-[-60px] h-[260px] w-[260px] rounded-full bg-[rgba(7,87,242,0.07)]" />
+    <section
+        style={{ backgroundColor: "#07142F", fontFamily: "'Inter',Arial,sans-serif" }}
+        className="relative overflow-hidden px-[40px] py-[64px] max-lg:px-[24px]"
+    >
+        <div
+            className="pointer-events-none absolute left-[-80px] top-[-80px] h-[340px] w-[340px] rounded-full"
+            style={{ background: "rgba(7,87,242,0.08)" }}
+        />
+        <div
+            className="pointer-events-none absolute bottom-[-60px] right-[-60px] h-[280px] w-[280px] rounded-full"
+            style={{ background: "rgba(7,87,242,0.06)" }}
+        />
         <div className="relative mx-auto flex max-w-[1200px] items-center gap-[60px] max-lg:flex-col max-lg:text-center">
             <div className="flex-1">
-                <p className="text-[12.5px] font-[800] uppercase tracking-[0.12em] text-[#0757F2]">Ready to Simplify Your Operations?</p>
-                <h2 className="mt-[20px] text-[clamp(36px,4vw,56px)] font-[850] leading-[1.08] tracking-[-0.04em] text-white">
+                <p style={{ color: "#0757F2" }} className="text-[12.5px] font-[800] uppercase tracking-[0.12em]">
+                    Ready to Simplify Your Operations?
+                </p>
+                <h2
+                    style={{ color: "#ffffff" }}
+                    className="mt-[20px] text-[clamp(36px,4vw,56px)] font-[850] leading-[1.08] tracking-[-0.04em]"
+                >
                     Run Your Restaurant<br />
-                    With <span className="text-[#0757F2]">Less Chaos.</span>
+                    With <span style={{ color: "#0757F2" }}>Less Chaos.</span>
                 </h2>
-                <p className="mt-[18px] max-w-[480px] text-[17px] font-[500] leading-[1.65] text-[#8FA8C8] max-lg:mx-auto">
+                <p style={{ color: "#8FA8C8" }} className="mt-[18px] max-w-[480px] text-[17px] font-[500] leading-[1.65] max-lg:mx-auto">
                     Join hundreds of restaurants using GPOS to save time, delight customers and grow revenue.
                 </p>
                 <div className="mt-[34px] flex flex-wrap gap-[14px] max-lg:justify-center">
-                    <Link to="/get_demo" className="inline-flex h-[54px] items-center justify-center gap-[10px] rounded-[9px] bg-[#0757F2] px-[28px] text-[16px] font-[800] text-white no-underline shadow-[0_12px_28px_rgba(7,87,242,0.30)]">
+                    <Link
+                        to="/get_demo"
+                        style={{ backgroundColor: "#0757F2", color: "#ffffff", boxShadow: "0 12px 28px rgba(7,87,242,0.30)" }}
+                        className="inline-flex h-[54px] items-center justify-center gap-[10px] rounded-[9px] px-[28px] text-[16px] font-[800] no-underline"
+                    >
                         <CalendarDays className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
                         Book a Demo
                         <ArrowRight className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
                     </Link>
-                    <a href="tel:+35311234567" className="inline-flex h-[54px] items-center justify-center gap-[10px] rounded-[9px] border border-[rgba(255,255,255,0.22)] bg-transparent px-[28px] text-[16px] font-[800] text-white no-underline">
+                    <a
+                        href="tel:+35311234567"
+                        style={{ color: "#ffffff", border: "1.5px solid rgba(255,255,255,0.28)" }}
+                        className="inline-flex h-[54px] items-center justify-center gap-[10px] rounded-[9px] bg-transparent px-[28px] text-[16px] font-[800] no-underline"
+                    >
                         <Phone className="h-[19px] w-[19px]" strokeWidth={2.2} aria-hidden />
                         Contact Sales
                     </a>
                 </div>
                 <div className="mt-[36px] flex flex-wrap items-center gap-x-[28px] gap-y-[10px] max-lg:justify-center">
                     {["No commitment", "Personalized demo", "See GPOS in action", "Find the right plan"].map((label) => (
-                        <span key={label} className="flex items-center gap-[8px] text-[14px] font-[700] text-[#8FA8C8]">
-                            <CheckCircle2 className="h-[16px] w-[16px] shrink-0 text-[#0757F2]" strokeWidth={2.3} aria-hidden />
+                        <span key={label} style={{ color: "#8FA8C8" }} className="flex items-center gap-[8px] text-[14px] font-[700]">
+                            <CheckCircle2 style={{ color: "#0757F2" }} className="h-[16px] w-[16px] shrink-0" strokeWidth={2.3} aria-hidden />
                             {label}
                         </span>
                     ))}
                 </div>
             </div>
             <div className="w-[440px] shrink-0 max-lg:w-full max-lg:max-w-[440px]">
-                <img src={faqPosVisual} alt="GPOS POS terminal" className="w-full object-contain drop-shadow-[0_32px_64px_rgba(0,0,0,0.35)]" />
+                <img
+                    src={faqPosVisual}
+                    alt="GPOS POS terminal"
+                    className="w-full object-contain"
+                    style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.4))" }}
+                />
             </div>
         </div>
     </section>
